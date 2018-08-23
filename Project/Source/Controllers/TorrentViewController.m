@@ -36,7 +36,6 @@
 @synthesize activityItem;
 @synthesize audio;
 @synthesize pref;
-@synthesize bannerView;
 @synthesize leftMenu;
 
 - (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section
@@ -212,15 +211,6 @@
         [self.audio play];
     }
     
-    // init vid ads
-    [AdColony configureWithAppID:@"app667d2b5de8924f57a8" zoneIDs:[[NSArray alloc] initWithObjects:@"vzb444f4ad8b5b422891", @"vz5e3d3445e37049d9b8", nil] delegate:self logging:NO];
-		
-    // init admob
-    self.bannerView.adUnitID = @"ca-app-pub-5972525945446192/5283882861";
-    self.bannerView.rootViewController = self;
-    GADRequest *request = [GADRequest request];
-    request.testDevices = @[ kGADSimulatorID ];
-    [self.bannerView loadRequest:request];
     
     [self.navigationController setToolbarHidden:YES animated:NO];
 }

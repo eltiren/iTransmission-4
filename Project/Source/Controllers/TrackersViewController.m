@@ -41,14 +41,7 @@
     [removeButton setEnabled:NO];
     [self setToolbarItems:[NSArray arrayWithObjects:emptyButton, addButton, emptyButton, removeButton, emptyButton, nil]];
     [super viewDidLoad];
-    
-    /* init admob
-    self.bannerView.adUnitID = @"ca-app-pub-5972525945446192/3835764869";
-    self.bannerView.rootViewController = self;
-    GADRequest *request = [GADRequest request];
-    request.testDevices = @[ kGADSimulatorID ];
-    [self.bannerView loadRequest:request];
-     */
+
 }
 
 - (void)reloadTrackers {

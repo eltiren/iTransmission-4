@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <GoogleMobileAds/GoogleMobileAds.h>
 
 @class Torrent;
 @class Controller;
@@ -106,7 +105,6 @@
 	BOOL displayedError;
 }
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
-@property (nonatomic, retain) IBOutlet GADBannerView *bannerView;
 @property (nonatomic, assign) Torrent *torrent;
 @property (nonatomic, retain) UIBarButtonItem *startButton;
 @property (nonatomic, retain) UIBarButtonItem *pauseButton;

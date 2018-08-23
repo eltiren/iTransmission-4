@@ -40,13 +40,6 @@
 {
     [super viewDidLoad];
     
-    // init admob
-    self.bannerView.adUnitID = @"ca-app-pub-5972525945446192/3390380060";
-    self.bannerView.rootViewController = self;
-    GADRequest *request = [GADRequest request];
-    request.testDevices = @[ kGADSimulatorID ];
-    [self.bannerView loadRequest:request];
-    
     [self.torrent updateFileStat];
 }
 
@@ -416,42 +409,58 @@
 
 - (void)playVideo:(NSString *)url
 {
-    // play ad
-    [AdColony playVideoAdForZone:@"vzb444f4ad8b5b422891" withDelegate:self];
+    NSLog(@"Play video: %@", self.path);
+    // TODO: figure out
+    //        [IJKVideoViewController presentFromViewController:self withTitle:[NSString stringWithFormat:@"File: %@", self.path] URL:[NSURL fileURLWithPath:self.path] completion:^{
+    //        }];
 }
 
-- (void)onAdColonyAdFinishedWithInfo:(AdColonyAdInfo *)info
-{
-    if([info.zoneID isEqual:@"vzb444f4ad8b5b422891"])
-    {
-        NSLog(@"Play video: %@", self.path);
-        [IJKVideoViewController presentFromViewController:self withTitle:[NSString stringWithFormat:@"File: %@", self.path] URL:[NSURL fileURLWithPath:self.path] completion:^{
-        }];
-    }
-    else
-    {
-        NSLog(@"Play audio: %@", self.path);
-        if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
-        {
-            AudioPlayer *player = [[AudioPlayer alloc] initWithNibName:@"AudioPlayer_iPad" bundle:nil file:self.path torrent:self.torrent];
-            UINavigationController *playerNav = [[UINavigationController alloc] initWithRootViewController:player];
-            playerNav.modalPresentationStyle = UIModalPresentationFullScreen;
-            [self presentViewController:playerNav animated:YES completion:nil];
-        }
-        else
-        {
-            AudioPlayer *player = [[AudioPlayer alloc] initWithNibName:@"AudioPlayer" bundle:nil file:self.path torrent:self.torrent];
-            UINavigationController *playerNav = [[UINavigationController alloc] initWithRootViewController:player];
-            playerNav.modalPresentationStyle = UIModalPresentationFullScreen;
-            [self presentViewController:playerNav animated:YES completion:nil];
-        }
-    }
-}
+//- (void)onAdColonyAdFinishedWithInfo:(AdColonyAdInfo *)info
+//{
+//    if([info.zoneID isEqual:@"vzb444f4ad8b5b422891"])
+//    {
+//        NSLog(@"Play video: %@", self.path);
+//        // TODO: figure out
+////        [IJKVideoViewController presentFromViewController:self withTitle:[NSString stringWithFormat:@"File: %@", self.path] URL:[NSURL fileURLWithPath:self.path] completion:^{
+////        }];
+//    }
+//    else
+//    {
+//        NSLog(@"Play audio: %@", self.path);
+//        if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+//        {
+//            AudioPlayer *player = [[AudioPlayer alloc] initWithNibName:@"AudioPlayer_iPad" bundle:nil file:self.path torrent:self.torrent];
+//            UINavigationController *playerNav = [[UINavigationController alloc] initWithRootViewController:player];
+//            playerNav.modalPresentationStyle = UIModalPresentationFullScreen;
+//            [self presentViewController:playerNav animated:YES completion:nil];
+//        }
+//        else
+//        {
+//            AudioPlayer *player = [[AudioPlayer alloc] initWithNibName:@"AudioPlayer" bundle:nil file:self.path torrent:self.torrent];
+//            UINavigationController *playerNav = [[UINavigationController alloc] initWithRootViewController:player];
+//            playerNav.modalPresentationStyle = UIModalPresentationFullScreen;
+//            [self presentViewController:playerNav animated:YES completion:nil];
+//        }
+//    }
+//}
 
 - (void)playAudio:(NSString *)url
 {
-    // play ad
-    [AdColony playVideoAdForZone:@"vz5e3d3445e37049d9b8" withDelegate:self];
+    NSLog(@"Play audio: %@", self.path);
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+    {
+        AudioPlayer *player = [[AudioPlayer alloc] initWithNibName:@"AudioPlayer_iPad" bundle:nil file:self.path torrent:self.torrent];
+        UINavigationController *playerNav = [[UINavigationController alloc] initWithRootViewController:player];
+        playerNav.modalPresentationStyle = UIModalPresentationFullScreen;
+        [self presentViewController:playerNav animated:YES completion:nil];
+    }
+    else
+    {
+        AudioPlayer *player = [[AudioPlayer alloc] initWithNibName:@"AudioPlayer" bundle:nil file:self.path torrent:self.torrent];
+        UINavigationController *playerNav = [[UINavigationController alloc] initWithRootViewController:player];
+        playerNav.modalPresentationStyle = UIModalPresentationFullScreen;
+        [self presentViewController:playerNav animated:YES completion:nil];
+    }
 }
 
 - (void)viewDocument:(NSString *)url

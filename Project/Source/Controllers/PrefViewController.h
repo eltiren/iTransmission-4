@@ -9,15 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import "Controller.h"
-#import <GoogleMobileAds/GoogleMobileAds.h>
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <FBSDKShareKit/FBSDKShareKit.h>
-#import <TwitterKit/TwitterKit.h>
 
 @class GradientButton;
 @class PortChecker;
 @class Controller;
-@interface PrefViewController :UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, FBSDKSharingDelegate> {
+@interface PrefViewController :UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate> {
     UITableView *fTableView;
     
     IBOutlet UITableViewCell *fAutoPortMapCell;
@@ -67,7 +63,6 @@
 @property (nonatomic, retain) NSDictionary *originalPreferences;
 @property (nonatomic, retain) NSIndexPath *indexPathToScroll;
 @property (nonatomic, assign) Controller *controller;
-@property (nonatomic, retain) IBOutlet GADBannerView *bannerView;
 @property (nonatomic, strong) TorrentViewController *torrentView;
 @property (nonatomic, strong) SideMenuController *sideMenu;
 
@@ -85,7 +80,6 @@
 - (IBAction)connectionsPerTorrentChanged:(id)sender;
 - (IBAction)maximumConnectionsPerTorrentChanged:(id)sender;
 
-- (IBAction)facebookShare:(id)sender;
 - (IBAction)tweet:(id)sender;
 
 @end

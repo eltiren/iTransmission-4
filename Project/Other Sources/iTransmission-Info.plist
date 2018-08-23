@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>FacebookAppID</key>
-    <string>272547696549026</string>
-    <key>FacebookDisplayName</key>
-    <string>com.ioshomebrew.itransmission</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
@@ -50,37 +46,18 @@
 			<array>
 				<string>magnet</string>
 				<string>torrent</string>
-                <string>fb272547696549026</string>
+				<string>fb272547696549026</string>
 			</array>
-        </dict>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>5.0</string>
-	<key>Fabric</key>
-	<dict>
-		<key>APIKey</key>
-		<string>a5c87786d7cd14eef488d62679e21c8670f0f88a</string>
-		<key>Kits</key>
-		<array>
-			<dict>
-				<key>KitInfo</key>
-				<dict>
-					<key>consumerKey</key>
-					<string>uTh6irex4b2xgETZX6QDVHHeR</string>
-					<key>consumerSecret</key>
-					<string>0xMDpgvUMiwdiA9ggSPNUKGabNGgYvhNVWjcbQV3NftpwAOQqh</string>
-				</dict>
-				<key>KitName</key>
-				<string>Twitter</string>
-			</dict>
-		</array>
-	</dict>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
-        <string>fbapi</string>
-        <string>fb-messenger-api</string>
-        <string>fbauth2</string>
-        <string>fbshareextension</string>
+		<string>fbapi</string>
+		<string>fb-messenger-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
 		<string>cydia</string>
 		<string>ifile</string>
 	</array>

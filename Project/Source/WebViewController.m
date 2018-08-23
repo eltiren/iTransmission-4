@@ -15,19 +15,10 @@
 @implementation WebViewController
 
 @synthesize webView;
-@synthesize bannerView;
 @synthesize currentURL;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // init admob
-    self.bannerView.adUnitID = @"ca-app-pub-5972525945446192/5805178468";
-    self.bannerView.rootViewController = self;
-    
-    GADRequest *request = [GADRequest request];
-    request.testDevices = @[ kGADSimulatorID ];
-    [self.bannerView loadRequest:request];
     
     [self.navigationController setToolbarHidden:YES animated:NO];
     

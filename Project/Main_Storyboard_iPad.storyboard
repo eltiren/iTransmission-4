@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aqy-Pm-zs7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.3.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aqy-Pm-zs7">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,8 +24,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="NoN-Ub-f9U"/>
                     <connections>
-                        <segue destination="Q8J-0y-j25" kind="custom" customClass="LGSideMenuSegue" id="VuG-3V-1tB"/>
-                        <segue destination="nc3-Kd-8jw" kind="custom" customClass="LGSideMenuSegue" id="Gzl-vU-Fli"/>
+                        <segue destination="Q8J-0y-j25" kind="custom" identifier="left" customClass="LGSideMenuSegue" id="VuG-3V-1tB"/>
+                        <segue destination="nc3-Kd-8jw" kind="custom" identifier="root" customClass="LGSideMenuSegue" id="Gzl-vU-Fli"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="318-0q-9CU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -64,7 +64,7 @@
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KaU-zB-Bwl">
-                                                    <rect key="frame" x="9" y="26" width="607" height="20.5"/>
+                                                    <rect key="frame" x="9" y="26" width="607" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
@@ -72,7 +72,7 @@
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="" lineBreakMode="wordWrap" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="GWq-N2-sKP">
-                                                    <rect key="frame" x="9" y="41" width="750" height="20.5"/>
+                                                    <rect key="frame" x="9" y="41" width="750" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="11"/>
@@ -80,11 +80,11 @@
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </label>
                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hn3-c3-uZ9">
-                                                    <rect key="frame" x="9" y="71" width="748.5" height="1"/>
+                                                    <rect key="frame" x="9" y="71" width="749" height="1"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                 </progressView>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sji-HV-5AK" customClass="ControlButton">
-                                                    <rect key="frame" x="718.5" y="5" width="40.5" height="40.5"/>
+                                                    <rect key="frame" x="719" y="5" width="40" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                                                     <state key="normal" image="pause_icon.png">
@@ -105,11 +105,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xfL-KP-ySl" customClass="GADBannerView">
-                                <rect key="frame" x="0.0" y="924" width="768" height="100"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -118,7 +113,6 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="bannerView" destination="xfL-KP-ySl" id="L9v-Nl-rSs"/>
                         <outlet property="tableView" destination="zeX-KC-LkP" id="kfh-iQ-ojw"/>
                     </connections>
                 </viewController>
@@ -159,7 +153,7 @@
             <objects>
                 <navigationController storyboardIdentifier="navigation" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nc3-Kd-8jw" customClass="NavigationController" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cck-Np-BBZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="768" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                 </navigationController>
@@ -188,17 +182,11 @@
                                     <outlet property="delegate" destination="YrB-pU-OnY" id="PpT-EQ-vUq"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7t8-Qg-lK1" customClass="GADBannerView">
-                                <rect key="frame" x="0.0" y="880" width="768" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="bannerView" destination="7t8-Qg-lK1" id="ik8-R3-CGU"/>
                         <outlet property="fAverageDLSpeedCell" destination="BRE-w6-k2S" id="kAe-HV-vwp"/>
                         <outlet property="fAverageDLSpeedLabel" destination="ckT-AZ-dDJ" id="uMS-4T-bX2"/>
                         <outlet property="fAverageULSpeedCell" destination="afK-TO-9hz" id="hsj-f7-XrN"/>
@@ -893,16 +881,10 @@
                                     <outlet property="delegate" destination="gic-iC-TN4" id="9tX-xj-rme"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tU7-gQ-HDd" customClass="GADBannerView">
-                                <rect key="frame" x="0.0" y="924" width="768" height="100"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="bannerView" destination="tU7-gQ-HDd" id="0fh-Ml-pOF"/>
                         <outlet property="tableView" destination="uyE-gn-kIK" id="nu8-iY-QeV"/>
                     </connections>
                 </viewController>
@@ -931,16 +913,10 @@
                                     <outlet property="delegate" destination="7e6-Qh-yIT" id="LUp-XG-Hfo"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dkm-CV-rEN" customClass="GADBannerView">
-                                <rect key="frame" x="0.0" y="924" width="768" height="100"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="bannerView" destination="Dkm-CV-rEN" id="xEf-4e-2aL"/>
                         <outlet property="tableView" destination="pdp-JA-AtK" id="5Y1-Wr-K0g"/>
                     </connections>
                 </viewController>
@@ -960,11 +936,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YTh-UP-nSC" customClass="GADBannerView">
-                                <rect key="frame" x="0.0" y="924" width="768" height="100"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FJb-38-qaD">
                                 <rect key="frame" x="0.0" y="64" width="768" height="852"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -984,8 +955,8 @@
                                 <action selector="goBackClicked:" destination="zjN-5A-U6O" id="5cn-fZ-neR"/>
                             </connections>
                         </barButtonItem>
-                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="GMP-R6-wbn">
-                            <rect key="frame" x="279" y="7" width="210" height="30"/>
+                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="GMP-R6-wbn">
+                            <rect key="frame" x="279" y="10" width="210" height="30"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1001,7 +972,6 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="URLTextfield" destination="GMP-R6-wbn" id="kzw-b3-JwH"/>
-                        <outlet property="bannerView" destination="YTh-UP-nSC" id="66H-lE-jJO"/>
                         <outlet property="webView" destination="FJb-38-qaD" id="YO9-zW-HX6"/>
                     </connections>
                 </viewController>
@@ -1030,11 +1000,6 @@
                                     <outlet property="delegate" destination="MjH-GW-AsZ" id="2hY-LA-iz5"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DN1-yq-Vm6" customClass="GADBannerView">
-                                <rect key="frame" x="0.0" y="924" width="768" height="100"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1047,7 +1012,6 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="bannerView" destination="DN1-yq-Vm6" id="Ohw-mr-Lpa"/>
                         <outlet property="fAutoPortMapCell" destination="NOf-2T-cgd" id="DMd-O8-r34"/>
                         <outlet property="fAutoPortMapSwitch" destination="zA3-2M-gee" id="tfU-Np-59E"/>
                         <outlet property="fBackgroundDownloadingCell" destination="18n-jp-g3G" id="wmJ-Hz-Ef2"/>

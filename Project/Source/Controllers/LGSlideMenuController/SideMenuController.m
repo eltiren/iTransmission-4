@@ -20,7 +20,7 @@
 */
 - (void)setTransmission:(Controller *)transmission torrentView:(TorrentViewController *)torrentView
 {
-    LeftMenuController *menu = self.leftViewController;
+    LeftMenuController *menu = (LeftMenuController *)self.leftViewController;
     [menu setData:transmission transView:torrentView];
 }
 
@@ -30,7 +30,6 @@
     
     // init LG Side Menu Controller
     UIColor *greenCoverColor = [UIColor colorWithRed:0.0 green:0.1 blue:0.0 alpha:0.3];
-    UIColor *purpleCoverColor = [UIColor colorWithRed:0.1 green:0.0 blue:0.1 alpha:0.3];
     UIBlurEffectStyle regularStyle;
     
     if (UIDevice.currentDevice.systemVersion.floatValue >= 10.0) {

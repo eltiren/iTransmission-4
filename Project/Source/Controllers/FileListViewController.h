@@ -7,12 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <IJKMediaFramework/IJKMediaFramework.h>
-#import <AdColony/AdColony.h>
-#import "IJKMoviePlayerViewController.h"
 #import "CheckboxControl.h"
 #import "AudioPlayer.h"
-@class IJKMediaControl;
 
 typedef enum FileType
 {
@@ -25,7 +21,7 @@ typedef enum FileType
 } FileType;
 
 @class Torrent, FileListCell;
-@interface FileListViewController : UIViewController <CheckboxControlDelegate,UITableViewDataSource, UITableViewDelegate, UIDocumentInteractionControllerDelegate, UIActionSheetDelegate, AdColonyAdDelegate>
+@interface FileListViewController : UIViewController <CheckboxControlDelegate,UITableViewDataSource, UITableViewDelegate, UIDocumentInteractionControllerDelegate, UIActionSheetDelegate>
 {
     Torrent *fTorrent;
     UITableView *fTableView;
@@ -33,7 +29,6 @@ typedef enum FileType
 }
 @property (nonatomic, readonly) Torrent *torrent;
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
-@property (nonatomic, retain) IBOutlet GADBannerView *bannerView;
 @property (nonatomic, retain) UIDocumentInteractionController *docController;
 @property (nonatomic, retain) NSTimer *updateTimer;
 @property (nonatomic, retain) NSString *path;
@@ -45,7 +40,5 @@ typedef enum FileType
 - (void)playVideo:(NSString*)url;
 - (void)playAudio:(NSString*)url;
 - (void)viewDocument:(NSString*)url;
-
-@property(nonatomic,strong) IBOutlet IJKMediaControl *mediaControl;
 
 @end

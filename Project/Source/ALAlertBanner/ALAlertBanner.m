@@ -109,7 +109,7 @@ static CGFloat const kForceHideAnimationDuration = 0.1f;
 
 @end
 
-@interface ALAlertBanner () {
+@interface ALAlertBanner ()<CAAnimationDelegate> {
     @private
     ALAlertBannerManager *manager;
 }

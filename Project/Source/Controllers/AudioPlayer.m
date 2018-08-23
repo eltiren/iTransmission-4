@@ -81,8 +81,8 @@
         }
         self.lastItem = [[self.torrent flatFileList] count];
         
-        NSLog(@"Current queue item: %i", self.currentItem);
-        NSLog(@"Last item is: %i", self.lastItem);
+        NSLog(@"Current queue item: %li", (long)self.currentItem);
+        NSLog(@"Last item is: %li", (long)self.lastItem);
     }
     
     return self;
@@ -144,6 +144,9 @@
                 self.audio.currentTime = self.newTime;
             }
             break;
+
+            default:
+            break;
         }
     }
 }
@@ -154,14 +157,6 @@
     self.title = @"Audio Player (beta)";
     UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneClicked)];
     [self.navigationItem setRightBarButtonItem:closeButton];
-    
-    // init admob
-    self.bannerView.adUnitID = @"ca-app-pub-5972525945446192/5283882861";
-    self.bannerView.rootViewController = self;
-    
-    GADRequest *request = [GADRequest request];
-    request.testDevices = @[ kGADSimulatorID ];
-    [self.bannerView loadRequest:request];
     
     // init mpvolumeview
     [[self volume] setBackgroundColor:[UIColor clearColor]];
@@ -474,11 +469,11 @@
     
     if(seconds < 10)
     {
-        result = [[NSString alloc] initWithFormat:@"%i:0%i", minutes, seconds];
+        result = [[NSString alloc] initWithFormat:@"%li:0%li", (long)minutes, (long)seconds];
     }
     else
     {
-        result = [[NSString alloc] initWithFormat:@"%i:%i", minutes, seconds];
+        result = [[NSString alloc] initWithFormat:@"%li:%li", (long)minutes, (long)seconds];
     }
     
     return result;

@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
-#import <GoogleMobileAds/GoogleMobileAds.h>
 #import "Torrent.h"
 #import "FileListNode.h"
 
@@ -31,7 +30,6 @@
 @property (nonatomic, retain) IBOutlet UILabel *duration;
 @property (nonatomic, retain) NSTimer *updateTimer;
 @property (nonatomic, assign) double newTime;
-@property(nonatomic, weak) IBOutlet GADBannerView *bannerView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil file:(NSString*)url torrent:(Torrent*)t;
 - (IBAction)pauseClicked:(id)sender;

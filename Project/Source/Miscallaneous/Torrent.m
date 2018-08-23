@@ -602,7 +602,7 @@ int trashDataFile(const char * filename)
 
 - (BOOL) isFolder
 {
-    return fInfo->isFolder;
+    return fInfo->isMultifile;
 }
 
 - (uint64_t) size

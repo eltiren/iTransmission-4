@@ -11,8 +11,6 @@
 //#import "SVWebViewController.h"
 #import "WebViewController.h"
 #import <AVFoundation/AVFoundation.h>
-#import <GoogleMobileAds/GoogleMobileAds.h>
-#import <AdColony/AdColony.h>
 
 @class Controller;
 @class TDBadgeView;
@@ -21,7 +19,7 @@
 @class PrefViewController;
 @class LeftMenuController;
 
-@interface TorrentViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, AVAudioPlayerDelegate, AdColonyDelegate>
+@interface TorrentViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, AVAudioPlayerDelegate>
 
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) IBOutlet UIActivityIndicatorView *activityIndicator;
@@ -32,7 +30,6 @@
 @property (nonatomic, retain) NSMutableArray *selectedIndexPaths;
 @property (strong, nonatomic) AVAudioPlayer *audio;
 @property (nonatomic, retain) PrefViewController *pref;
-@property(nonatomic, weak) IBOutlet GADBannerView *bannerView;
 @property (nonatomic, retain) Controller *controller;
 @property (nonatomic, retain) NSTimer *updateTimer;
 @property (nonatomic, retain) LeftMenuController *leftMenu;

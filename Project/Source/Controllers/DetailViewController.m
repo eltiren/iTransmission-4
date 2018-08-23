@@ -189,10 +189,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	[self.tableView setAllowsSelection:YES];
-    
-    // init admob
-    self.bannerView.adUnitID = @"ca-app-pub-5972525945446192/3390380060";
-    self.bannerView.rootViewController = self;
+
 	
 	[fTitleLabel setText:[fTorrent name]];
     

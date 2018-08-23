@@ -19,7 +19,6 @@
 @synthesize portChecker = fPortChecker;
 @synthesize indexPathToScroll = fIndexPathToScroll;
 @synthesize controller = fController;
-@synthesize bannerView;
 
 - (void)resizeToFit {
 	// Needs adjustment for portrait orientation!
@@ -270,24 +269,9 @@
     [self performSelector:@selector(loadPreferences) withObject:nil afterDelay:0.0f];
 }
 
-- (void)sharer:(id<FBSDKSharing>)sharer didCompleteWithResults:(NSDictionary *)results
-{
-}
-
-- (void)sharer:(id<FBSDKSharing>)sharer didFailWithError:(NSError *)error
-{
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // init admob
-    self.bannerView.adUnitID = @"ca-app-pub-5972525945446192/8130606866";
-    self.bannerView.rootViewController = self;
-    
-    GADRequest *request = [GADRequest request];
-    request.testDevices = @[ kGADSimulatorID ];
-    [self.bannerView loadRequest:request];
+
     
     self.tableView.allowsSelection = NO;
 	[fCheckPortButton addTarget:self action:@selector(portCheckButtonClicked) forControlEvents:UIControlEventTouchUpInside];
@@ -400,52 +384,8 @@
     [self closeButtonClicked];
 }
 
-- (IBAction)facebookShare:(id)sender
-{
-    FBSDKShareLinkContent* content = [[FBSDKShareLinkContent alloc] init];
-    content.contentURL = [NSURL URLWithString: @"https://github.com/ioshomebrew/iTransmission-4"];
-    content.contentTitle = @"Download iTransmission";
-    content.contentDescription = @"iTransmission is a bittorrent client for iOS based on libtransmission";
-    
-    FBSDKShareDialog *dialog = [[FBSDKShareDialog alloc] init];
-    
-    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"fbauth2://"]]){
-        dialog.mode = FBSDKShareDialogModeNative;
-    }
-    else {
-        dialog.mode = FBSDKShareDialogModeBrowser; //or FBSDKShareDialogModeAutomatic
-    }
-    dialog.shareContent = content;
-    dialog.delegate = self;
-    dialog.fromViewController = self;
-    [dialog show];
-}
-
 - (IBAction)tweet:(id)sender
 {
-    // log into twitter
-    [[Twitter sharedInstance] logInWithCompletion:^(TWTRSession *session, NSError *error) {
-        if (session) {
-            NSLog(@"signed in as %@", [session userName]);
-        } else {
-            NSLog(@"error: %@", [error localizedDescription]);
-        }
-    }];
-    
-    // tweet
-    TWTRComposer *composer = [[TWTRComposer alloc] init];
-    
-    [composer setText:@"Check out iTransmission https://github.com/ioshomebrew/iTransmission-4"];
-    
-    // Called from a UIViewController
-    [composer showFromViewController:self completion:^(TWTRComposerResult result) {
-        if (result == TWTRComposerResultCancelled) {
-            NSLog(@"Tweet composition cancelled");
-        }
-        else {
-            NSLog(@"Sending Tweet!");
-        }
-    }];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
