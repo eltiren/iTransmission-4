@@ -121,7 +121,6 @@
 		895A74F618D9CB8A00561CD6 /* FileListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 895A74E518D9CB8A00561CD6 /* FileListCell.xib */; };
 		895A74F718D9CB8A00561CD6 /* TorrentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 895A74E618D9CB8A00561CD6 /* TorrentCell.xib */; };
 		895A74F818D9CB8A00561CD6 /* TrackerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 895A74E718D9CB8A00561CD6 /* TrackerCell.xib */; };
-		895A750418D9CB8A00561CD6 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 895A74F418D9CB8A00561CD6 /* MainWindow.xib */; };
 		895A750718D9CF9B00561CD6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 895A750618D9CF9B00561CD6 /* Images.xcassets */; };
 		BBC7031A21350E21003F6283 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC7031821350E21003F6283 /* WebViewController.m */; };
 		BBC7031B21350E21003F6283 /* WebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = BBC7031921350E21003F6283 /* WebViewController.h */; };
@@ -216,7 +215,6 @@
 		895A734B18D9CB6E00561CD6 /* bannerNotify@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bannerNotify@2x.png"; sourceTree = "<group>"; };
 		895A734C18D9CB6E00561CD6 /* bannerSuccess.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bannerSuccess.png; sourceTree = "<group>"; };
 		895A734D18D9CB6E00561CD6 /* bannerSuccess@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bannerSuccess@2x.png"; sourceTree = "<group>"; };
-		895A734F18D9CB6E00561CD6 /* CFUserNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFUserNotification.h; sourceTree = "<group>"; };
 		895A735018D9CB6E00561CD6 /* Notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notifications.h; sourceTree = "<group>"; };
 		895A735118D9CB6E00561CD6 /* PortChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortChecker.h; sourceTree = "<group>"; };
 		895A735218D9CB6E00561CD6 /* PortChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortChecker.m; sourceTree = "<group>"; };
@@ -269,7 +267,6 @@
 		895A74E518D9CB8A00561CD6 /* FileListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FileListCell.xib; sourceTree = "<group>"; };
 		895A74E618D9CB8A00561CD6 /* TorrentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TorrentCell.xib; sourceTree = "<group>"; };
 		895A74E718D9CB8A00561CD6 /* TrackerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrackerCell.xib; sourceTree = "<group>"; };
-		895A74F418D9CB8A00561CD6 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		895A750618D9CF9B00561CD6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		895A750818D9D4EF00561CD6 /* license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
 		898124BA18884D2900DB955B /* iTransmission.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTransmission.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -461,7 +458,6 @@
 		895A734E18D9CB6E00561CD6 /* Miscallaneous */ = {
 			isa = PBXGroup;
 			children = (
-				895A734F18D9CB6E00561CD6 /* CFUserNotification.h */,
 				895A735018D9CB6E00561CD6 /* Notifications.h */,
 				895A735118D9CB6E00561CD6 /* PortChecker.h */,
 				895A735218D9CB6E00561CD6 /* PortChecker.m */,
@@ -571,7 +567,6 @@
 			isa = PBXGroup;
 			children = (
 				895A74E418D9CB8A00561CD6 /* Cells */,
-				895A74F418D9CB8A00561CD6 /* MainWindow.xib */,
 				23ACED141D04F99A00B76404 /* Launch Screen.storyboard */,
 			);
 			path = Nibs;
@@ -728,7 +723,6 @@
 				895A749E18D9CB7E00561CD6 /* FavIcon.png in Resources */,
 				895A74A818D9CB7E00561CD6 /* up-arrow.png in Resources */,
 				3AD57F7F1EB7040300A86F91 /* web-close.png in Resources */,
-				895A750418D9CB8A00561CD6 /* MainWindow.xib in Resources */,
 				895A73A718D9CB6F00561CD6 /* bannerFailure.png in Resources */,
 				895A74A718D9CB7E00561CD6 /* question-mark.png in Resources */,
 				3AD57F811EB7B33400A86F91 /* Main_Storyboard.storyboard in Resources */,
@@ -1017,7 +1011,6 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				HEADER_SEARCH_PATHS = (
 					"../Compilation/out/$(CURRENT_ARCH)/include/**",
-					"../Compilation/ijkplayer-ios/ios/IJKMediaDemo/IJKMediaDemo/**",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Other Sources/iTransmission-Info.plist";
@@ -1064,7 +1057,6 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"../Compilation/out/$(CURRENT_ARCH)/include/**",
-					"../Compilation/ijkplayer-ios/ios/IJKMediaDemo/IJKMediaDemo/**",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Other Sources/iTransmission-Info.plist";
@@ -1112,7 +1104,6 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"../Compilation/out/$(CURRENT_ARCH)/include/**",
-					"../Compilation/ijkplayer-ios/ios/IJKMediaDemo/IJKMediaDemo/**",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Other Sources/iTransmission-Info.plist";

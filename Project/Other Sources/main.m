@@ -13,6 +13,7 @@ int main(int argc, char *argv[]) {
     // disable sigpipe (prevents crashes)
     signal(SIGPIPE, SIG_IGN);
     
-    @autoreleasepool {        return UIApplicationMain(argc, argv, nil, NSStringFromClass([Controller class]));
+    @autoreleasepool {
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([Controller class]));
     }
 }

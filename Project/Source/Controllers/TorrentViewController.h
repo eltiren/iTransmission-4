@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "ALAlertBanner.h"
-//#import "SVWebViewController.h"
-#import "WebViewController.h"
 #import <AVFoundation/AVFoundation.h>
 
 @class Controller;
