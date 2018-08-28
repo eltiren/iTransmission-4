@@ -13,6 +13,10 @@
 #import "NSStringAdditions.h"
 #import "Controller.h"
 
+#define NSOffState 0
+#define NSOnState 1
+#define NSMixedState 2
+
 @implementation FileListViewController
 @synthesize torrent = fTorrent;
 @synthesize tableView = fTableView;

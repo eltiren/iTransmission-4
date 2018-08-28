@@ -22,6 +22,8 @@
  * DEALINGS IN THE SOFTWARE.
  *****************************************************************************/
 
+@import Foundation;
+
 typedef enum
 {
     PORT_STATUS_CHECKING,

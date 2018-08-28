@@ -22,6 +22,8 @@
  * DEALINGS IN THE SOFTWARE.
  *****************************************************************************/
 
+@import UIKit;
+
 @class Torrent;
 
 @interface FileListNode : NSObject <NSCopying>

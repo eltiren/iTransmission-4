@@ -34,6 +34,10 @@
 
 #define ETA_IDLE_DISPLAY_SEC (2*60)
 
+#define NSOffState 0
+#define NSOnState 1
+#define NSMixedState 2
+
 @interface Torrent (Private)
 
 - (id) initWithPath: (NSString *) path hash: (NSString *) hashString torrentStruct: (tr_torrent *) torrentStruct

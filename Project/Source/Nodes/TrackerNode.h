@@ -27,7 +27,9 @@
  * DEALINGS IN THE SOFTWARE.
  *****************************************************************************/
 
-#import <UIKit/UIKit.h>
+@import Foundation;
+
+#import "libtransmission/transmission.h"
 
 @class Torrent;
 

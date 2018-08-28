@@ -32,6 +32,8 @@
 #import "SideMenuController.h"
 #import "TorrentFetcher.h"
 #import "libtransmission/transmission.h"
+#import "libtransmission/variant.h"
+#import "libtransmission/utils.h"
 #include <dlfcn.h>
 #define SBSERVPATH "/System/Library/PrivateFrameworks/SpringBoardServices.framework/SpringBoardServices"
 

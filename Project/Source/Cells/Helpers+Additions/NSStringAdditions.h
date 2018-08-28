@@ -22,6 +22,8 @@
  * DEALINGS IN THE SOFTWARE.
  *****************************************************************************/
 
+@import Foundation;
+@import QuartzCore;
 
 @interface NSString (NSStringAdditions)
 
