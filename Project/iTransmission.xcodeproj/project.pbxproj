@@ -38,8 +38,6 @@
 		23ACED151D04F99A00B76404 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23ACED141D04F99A00B76404 /* Launch Screen.storyboard */; };
 		3A1C03B01D0CE2AE005EB2A5 /* ALAlertBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1C03AD1D0CE2AE005EB2A5 /* ALAlertBanner.m */; };
 		3A1C03B11D0CE2AE005EB2A5 /* ALAlertBannerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1C03AF1D0CE2AE005EB2A5 /* ALAlertBannerManager.m */; };
-		3A4B99091EB8249A002027E6 /* NavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A4B99071EB8249A002027E6 /* NavigationController.h */; };
-		3A4B990A1EB8249A002027E6 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4B99081EB8249A002027E6 /* NavigationController.m */; };
 		3A4B990D1EB8912B002027E6 /* SideMenuController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A4B990B1EB8912B002027E6 /* SideMenuController.h */; };
 		3A4B990E1EB8912B002027E6 /* SideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4B990C1EB8912B002027E6 /* SideMenuController.m */; };
 		3A4B99111EB90634002027E6 /* LeftMenuController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A4B990F1EB90634002027E6 /* LeftMenuController.h */; };
@@ -51,7 +49,6 @@
 		3A7D2FC21D4EB6C500876250 /* AudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7D2FBF1D4EB6C500876250 /* AudioPlayer.m */; };
 		3A9337E41EBA7AF000921B07 /* play_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9337E21EBA7AF000921B07 /* play_icon.png */; };
 		3A9337E51EBA7AF000921B07 /* pause_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9337E31EBA7AF000921B07 /* pause_icon.png */; };
-		3AB352D41EC3B566007BA6A4 /* Main_Storyboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AB352D31EC3B566007BA6A4 /* Main_Storyboard_iPad.storyboard */; };
 		3AD57F7D1EB6F9BA00A86F91 /* web-back.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AD57F7C1EB6F9BA00A86F91 /* web-back.png */; };
 		3AD57F7F1EB7040300A86F91 /* web-close.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AD57F7E1EB7040300A86F91 /* web-close.png */; };
 		3AD57F811EB7B33400A86F91 /* Main_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AD57F801EB7B33400A86F91 /* Main_Storyboard.storyboard */; };
@@ -152,8 +149,6 @@
 		3A1C03AE1D0CE2AE005EB2A5 /* ALAlertBannerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAlertBannerManager.h; sourceTree = "<group>"; };
 		3A1C03AF1D0CE2AE005EB2A5 /* ALAlertBannerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALAlertBannerManager.m; sourceTree = "<group>"; };
 		3A3DCF911D150A8800F84299 /* postinst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = postinst; path = DEBIAN/postinst; sourceTree = "<group>"; };
-		3A4B99071EB8249A002027E6 /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavigationController.h; path = LGSlideMenuController/NavigationController.h; sourceTree = "<group>"; };
-		3A4B99081EB8249A002027E6 /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavigationController.m; path = LGSlideMenuController/NavigationController.m; sourceTree = "<group>"; };
 		3A4B990B1EB8912B002027E6 /* SideMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SideMenuController.h; path = LGSlideMenuController/SideMenuController.h; sourceTree = "<group>"; };
 		3A4B990C1EB8912B002027E6 /* SideMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SideMenuController.m; path = LGSlideMenuController/SideMenuController.m; sourceTree = "<group>"; };
 		3A4B990F1EB90634002027E6 /* LeftMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeftMenuController.h; path = LGSlideMenuController/LeftMenuController.h; sourceTree = "<group>"; };
@@ -167,7 +162,6 @@
 		3A887B8E1D14F5F70041327D /* control */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = control; path = DEBIAN/control; sourceTree = "<group>"; };
 		3A9337E21EBA7AF000921B07 /* play_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_icon.png; sourceTree = "<group>"; };
 		3A9337E31EBA7AF000921B07 /* pause_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause_icon.png; sourceTree = "<group>"; };
-		3AB352D31EC3B566007BA6A4 /* Main_Storyboard_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_Storyboard_iPad.storyboard; sourceTree = "<group>"; };
 		3AD57F7C1EB6F9BA00A86F91 /* web-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "web-back.png"; sourceTree = "<group>"; };
 		3AD57F7E1EB7040300A86F91 /* web-close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "web-close.png"; sourceTree = "<group>"; };
 		3AD57F801EB7B33400A86F91 /* Main_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_Storyboard.storyboard; sourceTree = SOURCE_ROOT; };
@@ -300,7 +294,6 @@
 			isa = PBXGroup;
 			children = (
 				3AD57F801EB7B33400A86F91 /* Main_Storyboard.storyboard */,
-				3AB352D31EC3B566007BA6A4 /* Main_Storyboard_iPad.storyboard */,
 				3A887B8D1D14F5D30041327D /* DEBIAN */,
 				3A887B831D14E6BE0041327D /* Entitlements.plist */,
 				895A74E318D9CB8900561CD6 /* Nibs */,
@@ -339,8 +332,6 @@
 			children = (
 				3A4B990B1EB8912B002027E6 /* SideMenuController.h */,
 				3A4B990C1EB8912B002027E6 /* SideMenuController.m */,
-				3A4B99071EB8249A002027E6 /* NavigationController.h */,
-				3A4B99081EB8249A002027E6 /* NavigationController.m */,
 				3A4B990F1EB90634002027E6 /* LeftMenuController.h */,
 				3A4B99101EB90634002027E6 /* LeftMenuController.m */,
 				3A4B99131EB9096B002027E6 /* LeftMenuCell.h */,
@@ -613,7 +604,6 @@
 				3A7D2FC11D4EB6C500876250 /* AudioPlayer.h in Headers */,
 				3A4B990D1EB8912B002027E6 /* SideMenuController.h in Headers */,
 				BBC7031B21350E21003F6283 /* WebViewController.h in Headers */,
-				3A4B99091EB8249A002027E6 /* NavigationController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -697,7 +687,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AB352D41EC3B566007BA6A4 /* Main_Storyboard_iPad.storyboard in Resources */,
 				3AD57F7D1EB6F9BA00A86F91 /* web-back.png in Resources */,
 				3A9337E41EBA7AF000921B07 /* play_icon.png in Resources */,
 				895A749718D9CB7E00561CD6 /* blueArrow@2x.png in Resources */,
@@ -812,7 +801,6 @@
 				895A739E18D9CB6F00561CD6 /* TorrentViewController.m in Sources */,
 				895A739918D9CB6F00561CD6 /* DetailViewController.m in Sources */,
 				895A738D18D9CB6F00561CD6 /* FileListCell.m in Sources */,
-				3A4B990A1EB8249A002027E6 /* NavigationController.m in Sources */,
 				895A73AE18D9CB6F00561CD6 /* Torrent.m in Sources */,
 				3A4B990E1EB8912B002027E6 /* SideMenuController.m in Sources */,
 				895A739418D9CB6F00561CD6 /* TorrentCell.m in Sources */,

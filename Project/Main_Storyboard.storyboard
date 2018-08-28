@@ -825,7 +825,7 @@
         <!--Navigation Controller-->
         <scene sceneID="ikJ-kO-UGA">
             <objects>
-                <navigationController storyboardIdentifier="navigation" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bX9-HD-kqo" customClass="NavigationController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navigation" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bX9-HD-kqo" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aRD-yc-frb">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

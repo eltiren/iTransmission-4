@@ -30,14 +30,6 @@
     
     // init LG Side Menu Controller
     UIColor *greenCoverColor = [UIColor colorWithRed:0.0 green:0.1 blue:0.0 alpha:0.3];
-    UIBlurEffectStyle regularStyle;
-    
-    if (UIDevice.currentDevice.systemVersion.floatValue >= 10.0) {
-        regularStyle = UIBlurEffectStyleRegular;
-    }
-    else {
-        regularStyle = UIBlurEffectStyleLight;
-    }
     
     self.leftViewPresentationStyle = LGSideMenuPresentationStyleScaleFromBig;
     self.rootViewCoverColorForLeftView = greenCoverColor;
@@ -61,14 +53,6 @@
          UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication.statusBarOrientation))) {
             self.rightView.frame = CGRectMake(0.0, 20.0, size.width, size.height-20.0);
         }
-}
-
-- (BOOL)isLeftViewStatusBarHidden {
-    return super.isLeftViewStatusBarHidden;
-}
-
-- (BOOL)isRightViewStatusBarHidden {
-    return super.isRightViewStatusBarHidden;
 }
 
 @end
