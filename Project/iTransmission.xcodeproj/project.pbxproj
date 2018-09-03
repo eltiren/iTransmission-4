@@ -34,18 +34,12 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		026843A73F60FCE73B708EA0 /* libPods-iTransmission.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F18ACD45AA6B3C84F60D0730 /* libPods-iTransmission.a */; };
 		23ACED151D04F99A00B76404 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23ACED141D04F99A00B76404 /* Launch Screen.storyboard */; };
 		3A1C03B01D0CE2AE005EB2A5 /* ALAlertBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1C03AD1D0CE2AE005EB2A5 /* ALAlertBanner.m */; };
 		3A1C03B11D0CE2AE005EB2A5 /* ALAlertBannerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1C03AF1D0CE2AE005EB2A5 /* ALAlertBannerManager.m */; };
-		3A4B990D1EB8912B002027E6 /* SideMenuController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A4B990B1EB8912B002027E6 /* SideMenuController.h */; };
-		3A4B990E1EB8912B002027E6 /* SideMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4B990C1EB8912B002027E6 /* SideMenuController.m */; };
-		3A4B99111EB90634002027E6 /* LeftMenuController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A4B990F1EB90634002027E6 /* LeftMenuController.h */; };
 		3A4B99121EB90634002027E6 /* LeftMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4B99101EB90634002027E6 /* LeftMenuController.m */; };
-		3A4B99151EB9096B002027E6 /* LeftMenuCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A4B99131EB9096B002027E6 /* LeftMenuCell.h */; };
 		3A4B99161EB9096B002027E6 /* LeftMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4B99141EB9096B002027E6 /* LeftMenuCell.m */; };
 		3A7D2FB71D4D9CEE00876250 /* MoviePlayerImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A7D2FB61D4D9CEE00876250 /* MoviePlayerImages.xcassets */; };
-		3A7D2FC11D4EB6C500876250 /* AudioPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A7D2FBE1D4EB6C500876250 /* AudioPlayer.h */; };
 		3A7D2FC21D4EB6C500876250 /* AudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7D2FBF1D4EB6C500876250 /* AudioPlayer.m */; };
 		3A9337E41EBA7AF000921B07 /* play_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9337E21EBA7AF000921B07 /* play_icon.png */; };
 		3A9337E51EBA7AF000921B07 /* pause_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9337E31EBA7AF000921B07 /* pause_icon.png */; };
@@ -120,7 +114,6 @@
 		895A74F818D9CB8A00561CD6 /* TrackerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 895A74E718D9CB8A00561CD6 /* TrackerCell.xib */; };
 		895A750718D9CF9B00561CD6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 895A750618D9CF9B00561CD6 /* Images.xcassets */; };
 		BBC7031A21350E21003F6283 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC7031821350E21003F6283 /* WebViewController.m */; };
-		BBC7031B21350E21003F6283 /* WebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = BBC7031921350E21003F6283 /* WebViewController.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,7 +134,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		133CB9D2EC6F7752D84F1A3F /* Pods-iTransmission.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTransmission.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iTransmission/Pods-iTransmission.debug.xcconfig"; sourceTree = "<group>"; };
 		23ACED141D04F99A00B76404 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		3A1C03AB1D0CE2AE005EB2A5 /* ALAlertBanner+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALAlertBanner+Private.h"; sourceTree = "<group>"; };
 		3A1C03AC1D0CE2AE005EB2A5 /* ALAlertBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAlertBanner.h; sourceTree = "<group>"; };
@@ -149,8 +141,6 @@
 		3A1C03AE1D0CE2AE005EB2A5 /* ALAlertBannerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAlertBannerManager.h; sourceTree = "<group>"; };
 		3A1C03AF1D0CE2AE005EB2A5 /* ALAlertBannerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALAlertBannerManager.m; sourceTree = "<group>"; };
 		3A3DCF911D150A8800F84299 /* postinst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = postinst; path = DEBIAN/postinst; sourceTree = "<group>"; };
-		3A4B990B1EB8912B002027E6 /* SideMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SideMenuController.h; path = LGSlideMenuController/SideMenuController.h; sourceTree = "<group>"; };
-		3A4B990C1EB8912B002027E6 /* SideMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SideMenuController.m; path = LGSlideMenuController/SideMenuController.m; sourceTree = "<group>"; };
 		3A4B990F1EB90634002027E6 /* LeftMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeftMenuController.h; path = LGSlideMenuController/LeftMenuController.h; sourceTree = "<group>"; };
 		3A4B99101EB90634002027E6 /* LeftMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeftMenuController.m; path = LGSlideMenuController/LeftMenuController.m; sourceTree = "<group>"; };
 		3A4B99131EB9096B002027E6 /* LeftMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeftMenuCell.h; path = LGSlideMenuController/LeftMenuCell.h; sourceTree = "<group>"; };
@@ -158,7 +148,6 @@
 		3A7D2FB61D4D9CEE00876250 /* MoviePlayerImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MoviePlayerImages.xcassets; sourceTree = "<group>"; };
 		3A7D2FBE1D4EB6C500876250 /* AudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayer.h; sourceTree = "<group>"; };
 		3A7D2FBF1D4EB6C500876250 /* AudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayer.m; sourceTree = "<group>"; };
-		3A887B831D14E6BE0041327D /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		3A887B8E1D14F5F70041327D /* control */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = control; path = DEBIAN/control; sourceTree = "<group>"; };
 		3A9337E21EBA7AF000921B07 /* play_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_icon.png; sourceTree = "<group>"; };
 		3A9337E31EBA7AF000921B07 /* pause_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause_icon.png; sourceTree = "<group>"; };
@@ -166,7 +155,6 @@
 		3AD57F7E1EB7040300A86F91 /* web-close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "web-close.png"; sourceTree = "<group>"; };
 		3AD57F801EB7B33400A86F91 /* Main_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_Storyboard.storyboard; sourceTree = SOURCE_ROOT; };
 		3AE8C5B91D14DB98006B78A3 /* phone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = phone.mp3; sourceTree = "<group>"; };
-		47F6E2AF10B30FB60D02F805 /* Pods-iTransmission.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTransmission.release.xcconfig"; path = "Pods/Target Support Files/Pods-iTransmission/Pods-iTransmission.release.xcconfig"; sourceTree = "<group>"; };
 		895A731018D9CB6E00561CD6 /* FileListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileListCell.h; sourceTree = "<group>"; };
 		895A731118D9CB6E00561CD6 /* FileListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileListCell.m; sourceTree = "<group>"; };
 		895A731218D9CB6E00561CD6 /* FlexibleLabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlexibleLabelCell.h; sourceTree = "<group>"; };
@@ -266,20 +254,7 @@
 		898124BA18884D2900DB955B /* iTransmission.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTransmission.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBC7031821350E21003F6283 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		BBC7031921350E21003F6283 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
-		BC16711F5D4E648A616154B0 /* Pods-iTransmission.distribution.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTransmission.distribution.xcconfig"; path = "Pods/Target Support Files/Pods-iTransmission/Pods-iTransmission.distribution.xcconfig"; sourceTree = "<group>"; };
-		F18ACD45AA6B3C84F60D0730 /* libPods-iTransmission.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iTransmission.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		8981249E18884D2900DB955B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				026843A73F60FCE73B708EA0 /* libPods-iTransmission.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
@@ -295,24 +270,13 @@
 			children = (
 				3AD57F801EB7B33400A86F91 /* Main_Storyboard.storyboard */,
 				3A887B8D1D14F5D30041327D /* DEBIAN */,
-				3A887B831D14E6BE0041327D /* Entitlements.plist */,
 				895A74E318D9CB8900561CD6 /* Nibs */,
 				895A74DD18D9CB8500561CD6 /* Other Sources */,
 				895A73C518D9CB7D00561CD6 /* Resources */,
 				895A730618D9CB6E00561CD6 /* Source */,
-				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				B2501FA77C45218C0AA2E10E /* Pods */,
 			);
 			name = CustomTemplate;
-			sourceTree = "<group>";
-		};
-		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F18ACD45AA6B3C84F60D0730 /* libPods-iTransmission.a */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		3A1C03AA1D0CE2AE005EB2A5 /* ALAlertBanner */ = {
@@ -330,8 +294,6 @@
 		3A4B99061EB82453002027E6 /* LGSlideMenuController */ = {
 			isa = PBXGroup;
 			children = (
-				3A4B990B1EB8912B002027E6 /* SideMenuController.h */,
-				3A4B990C1EB8912B002027E6 /* SideMenuController.m */,
 				3A4B990F1EB90634002027E6 /* LeftMenuController.h */,
 				3A4B99101EB90634002027E6 /* LeftMenuController.m */,
 				3A4B99131EB9096B002027E6 /* LeftMenuCell.h */,
@@ -573,16 +535,6 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		B2501FA77C45218C0AA2E10E /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				133CB9D2EC6F7752D84F1A3F /* Pods-iTransmission.debug.xcconfig */,
-				47F6E2AF10B30FB60D02F805 /* Pods-iTransmission.release.xcconfig */,
-				BC16711F5D4E648A616154B0 /* Pods-iTransmission.distribution.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		BBC7031721350E21003F6283 /* Web View */ = {
 			isa = PBXGroup;
 			children = (
@@ -594,31 +546,13 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		3A7D2F9A1D4D342500876250 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3A4B99151EB9096B002027E6 /* LeftMenuCell.h in Headers */,
-				3A4B99111EB90634002027E6 /* LeftMenuController.h in Headers */,
-				3A7D2FC11D4EB6C500876250 /* AudioPlayer.h in Headers */,
-				3A4B990D1EB8912B002027E6 /* SideMenuController.h in Headers */,
-				BBC7031B21350E21003F6283 /* WebViewController.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
 		8981243218884D2900DB955B /* iTransmission */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 898124B618884D2900DB955B /* Build configuration list for PBXNativeTarget "iTransmission" */;
 			buildPhases = (
-				A6F1D4E0D8BDBA8D69AF927A /* [CP] Check Pods Manifest.lock */,
 				8981243318884D2900DB955B /* Resources */,
 				8981246E18884D2900DB955B /* Sources */,
-				8981249E18884D2900DB955B /* Frameworks */,
-				3A7D2F9A1D4D342500876250 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -767,24 +701,6 @@
 			shellPath = /bin/sh;
 			shellScript = "/bin/mkdir -p $CONFIGURATION_BUILD_DIR/Payload\n/bin/cp -R $CONFIGURATION_BUILD_DIR/iTransmission.app $CONFIGURATION_BUILD_DIR/Payload\n/bin/cp Resources/itransmission-icon-large.png $CONFIGURATION_BUILD_DIR/iTunesArtwork\ncd $CONFIGURATION_BUILD_DIR\n/usr/bin/zip -r iTransmission.ipa Payload iTunesArtwork";
 		};
-		A6F1D4E0D8BDBA8D69AF927A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-iTransmission-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -802,7 +718,6 @@
 				895A739918D9CB6F00561CD6 /* DetailViewController.m in Sources */,
 				895A738D18D9CB6F00561CD6 /* FileListCell.m in Sources */,
 				895A73AE18D9CB6F00561CD6 /* Torrent.m in Sources */,
-				3A4B990E1EB8912B002027E6 /* SideMenuController.m in Sources */,
 				895A739418D9CB6F00561CD6 /* TorrentCell.m in Sources */,
 				895A73B018D9CB6F00561CD6 /* FileListNode.m in Sources */,
 				895A739A18D9CB6F00561CD6 /* FileListViewController.m in Sources */,
@@ -984,12 +899,10 @@
 		};
 		898124B718884D2900DB955B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 133CB9D2EC6F7752D84F1A3F /* Pods-iTransmission.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_LINK_OBJC_RUNTIME = NO;
-				CODE_SIGN_ENTITLEMENTS = "";
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = ZAQGVMJE7W;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1031,12 +944,10 @@
 		};
 		898124B818884D2900DB955B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 47F6E2AF10B30FB60D02F805 /* Pods-iTransmission.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_LINK_OBJC_RUNTIME = NO;
-				CODE_SIGN_ENTITLEMENTS = "";
 				COPY_PHASE_STRIP = YES;
 				DEVELOPMENT_TEAM = ZAQGVMJE7W;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1078,12 +989,10 @@
 		};
 		898124B918884D2900DB955B /* Distribution */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BC16711F5D4E648A616154B0 /* Pods-iTransmission.distribution.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_LINK_OBJC_RUNTIME = NO;
-				CODE_SIGN_ENTITLEMENTS = "";
 				COPY_PHASE_STRIP = YES;
 				DEVELOPMENT_TEAM = ZAQGVMJE7W;
 				FRAMEWORK_SEARCH_PATHS = (

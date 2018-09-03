@@ -68,22 +68,10 @@ static void signal_handler(int sig) {
     
     // story board and LGSideMenu Controller
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_Storyboard" bundle:nil];
-    UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"navigation"];
     
     // init torrent view controller
     self.torrentViewController = [storyboard instantiateViewControllerWithIdentifier:@"torrent_view"];
     self.torrentViewController.controller = self;
-    
-    [navigationController setViewControllers:@[self.torrentViewController]];
-    
-    // init side menu controller
-    SideMenuController *sideMenu = [storyboard instantiateInitialViewController];
-    sideMenu.rootViewController = navigationController;
-    
-    // send transmission to side menu
-    [sideMenu setTransmission:self torrentView:self.torrentViewController];
-    
-    self.window.rootViewController = sideMenu;
     
     // enable notifications on iOS 9
     [launchOptions valueForKey:UIApplicationLaunchOptionsLocalNotificationKey];

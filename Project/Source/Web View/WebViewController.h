@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "Controller.h"
-#import "SideMenuController.h"
 
 @interface WebViewController : UIViewController <UIWebViewDelegate>
 
@@ -29,7 +28,6 @@
 @property (nonatomic, strong) Controller *transmission;
 
 @property (nonatomic, strong) TorrentViewController *torrentView;
-@property (nonatomic, strong) SideMenuController *sideMenu;
 
 - (void)loadURL:(NSURL*)URL;
 

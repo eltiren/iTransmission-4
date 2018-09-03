@@ -1,40 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.3.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sGX-xE-pFr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bX9-HD-kqo">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Side Menu Controller-->
-        <scene sceneID="rYu-OK-uoZ">
-            <objects>
-                <viewController id="sGX-xE-pFr" customClass="SideMenuController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="vaw-8N-qMq"/>
-                        <viewControllerLayoutGuide type="bottom" id="sF6-rD-Ucl"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="4NB-9A-zF7">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <segue destination="Mch-Ul-J3a" kind="custom" identifier="left" customClass="LGSideMenuSegue" id="5oy-A9-ikJ"/>
-                        <segue destination="bX9-HD-kqo" kind="custom" identifier="root" customClass="LGSideMenuSegue" id="CXT-Vi-3pv"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wKF-DX-eaz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="361" y="863"/>
-        </scene>
         <!--Left Menu Controller-->
         <scene sceneID="sqv-Mk-rWv">
             <objects>
-                <tableViewController id="Mch-Ul-J3a" customClass="LeftMenuController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="leftMenu" id="Mch-Ul-J3a" customClass="LeftMenuController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="53" sectionHeaderHeight="28" sectionFooterHeight="28" id="GUV-tQ-2gh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -57,7 +35,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bdg-A7-gKY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="106.875" y="1527.4647887323945"/>
+            <point key="canvasLocation" x="563" y="1244"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="WvT-K7-gIO">
@@ -825,13 +803,16 @@
         <!--Navigation Controller-->
         <scene sceneID="ikJ-kO-UGA">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WWv-cw-5av" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="navigation" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bX9-HD-kqo" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aRD-yc-frb">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <connections>
+                        <segue destination="wH4-vl-Pu1" kind="relationship" relationship="rootViewController" id="Jsv-84-G6z"/>
+                    </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WWv-cw-5av" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1564" y="849"/>
         </scene>

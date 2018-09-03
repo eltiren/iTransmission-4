@@ -7,7 +7,6 @@
 //
 
 #import "LeftMenuController.h"
-#import "UIViewController+LGSideMenuController.h"
 
 @interface LeftMenuController ()
 
@@ -18,7 +17,6 @@
 @synthesize array;
 @synthesize transmission;
 @synthesize web;
-@synthesize torrentView;
 @synthesize transmissionView;
 @synthesize prefView;
 
@@ -26,7 +24,6 @@
 {
     // set transmission instance
     self.transmission = trans;
-    self.torrentView = (SideMenuController *)self.sideMenuController;
     self.transmissionView = transView;
     
     // init web view controller
@@ -34,12 +31,10 @@
     self.web = [storyboard instantiateViewControllerWithIdentifier:@"web"];
     [self.web setData:@"http://google.com" controller:self.transmission];
     self.web.torrentView = self.transmissionView;
-    self.web.sideMenu = self.torrentView;
     
     // init pref view controller
     self.prefView = [storyboard instantiateViewControllerWithIdentifier:@"pref"];
     self.prefView.torrentView = self.transmissionView;
-    self.prefView.sideMenu = self.torrentView;
 }
 
 - (void)viewDidLoad {
@@ -97,7 +92,7 @@
 
 - (void)tableView:(UITableView *)ftableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UINavigationController *navigationController = (UINavigationController *)self.torrentView.rootViewController;
+    UINavigationController *navigationController = (UINavigationController *)[UIApplication sharedApplication].delegate.window.rootViewController;
     
     NSLog(@"indexPath: %li", (long)indexPath.row);
     
@@ -108,8 +103,7 @@
             // go to web view controller
             [navigationController setViewControllers:@[self.web]];
             
-            // make table view disappear
-            [self.torrentView hideLeftViewAnimated:YES delay:0.0 completionHandler:nil];
+            // TODO: make table view disappear
         }
         break;
          
@@ -147,8 +141,7 @@
             
             [navigationController presentViewController:dialog animated:YES completion:nil];
             
-            // make table view disappear
-            [self.torrentView hideLeftViewAnimated:YES delay:0.0 completionHandler:nil];
+            // TODO: make table view disappear
         }
             break;
             
@@ -165,8 +158,7 @@
             // go to web view controller
             [navigationController setViewControllers:@[self.prefView]];
             
-            // make table view disappear
-            [self.torrentView hideLeftViewAnimated:YES delay:0.0 completionHandler:nil];
+            // TODO: make table view disappear
         }
         break;
             

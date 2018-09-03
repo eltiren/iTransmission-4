@@ -38,7 +38,7 @@
 
 -(IBAction)closeClicked:(UIBarButtonItem *)sender
 {
-    UINavigationController *navigationController = (UINavigationController *)self.sideMenu.rootViewController;
+    UINavigationController *navigationController = (UINavigationController *)[UIApplication sharedApplication].delegate.window.rootViewController;
     [navigationController setViewControllers:@[self.torrentView]];
 }
 

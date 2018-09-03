@@ -10,7 +10,6 @@
 #import "LeftMenuCell.h"
 #import "WebViewController.h"
 #import "Controller.h"
-#import "SideMenuController.h"
 #import "PrefViewController.h"
 #import "TorrentViewController.h"
 
@@ -19,7 +18,6 @@
 @property (nonatomic, strong) NSArray *array;
 @property (nonatomic, strong) Controller *transmission;
 @property (nonatomic, strong) WebViewController *web;
-@property (nonatomic, strong) SideMenuController *torrentView;
 @property (nonatomic, strong) TorrentViewController *transmissionView;
 @property (nonatomic, strong) PrefViewController *prefView;
 

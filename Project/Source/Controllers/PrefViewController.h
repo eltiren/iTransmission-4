@@ -64,7 +64,6 @@
 @property (nonatomic, retain) NSIndexPath *indexPathToScroll;
 @property (nonatomic, assign) Controller *controller;
 @property (nonatomic, strong) TorrentViewController *torrentView;
-@property (nonatomic, strong) SideMenuController *sideMenu;
 
 - (void)closeButtonClicked;
 - (void)portCheckButtonClicked;

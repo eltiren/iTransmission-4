@@ -235,7 +235,7 @@
 - (void)closeButtonClicked
 {
     // go back to main screen
-    UINavigationController *navigationController = (UINavigationController *)self.sideMenu.rootViewController;
+    UINavigationController *navigationController = (UINavigationController *)[UIApplication sharedApplication].delegate.window.rootViewController;
     [navigationController setViewControllers:@[self.torrentView]];
     
     //[self dismissViewControllerAnimated:YES completion:nil];
