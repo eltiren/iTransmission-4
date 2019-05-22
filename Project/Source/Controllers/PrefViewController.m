@@ -234,11 +234,8 @@
 
 - (void)closeButtonClicked
 {
-    // go back to main screen
-    UINavigationController *navigationController = (UINavigationController *)[UIApplication sharedApplication].delegate.window.rootViewController;
-    [navigationController setViewControllers:@[self.torrentView]];
-    
-    //[self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
+
     [self.controller setGlobalUploadSpeedLimit:[[fUploadSpeedLimitField text] intValue]];
     [self.controller setGlobalDownloadSpeedLimit:[[fDownloadSpeedLimitField text] intValue]];
     tr_session *fHandle = [self.controller rawSession];

@@ -9,34 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Left Menu Controller-->
-        <scene sceneID="sqv-Mk-rWv">
-            <objects>
-                <tableViewController storyboardIdentifier="leftMenu" id="Mch-Ul-J3a" customClass="LeftMenuController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="53" sectionHeaderHeight="28" sectionFooterHeight="28" id="GUV-tQ-2gh">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="41" id="5ii-fv-yZB" customClass="LeftMenuCell">
-                                <rect key="frame" x="0.0" y="28" width="320" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5ii-fv-yZB" id="CIO-6v-OeQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="40.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Mch-Ul-J3a" id="607-cy-j03"/>
-                            <outlet property="delegate" destination="Mch-Ul-J3a" id="eO2-fX-V2e"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bdg-A7-gKY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="563" y="1244"/>
-        </scene>
         <!--Detail View Controller-->
         <scene sceneID="WvT-K7-gIO">
             <objects>
@@ -900,7 +872,7 @@
                     <navigationItem key="navigationItem" title="iTransmission" id="Z7m-xZ-a4h">
                         <barButtonItem key="leftBarButtonItem" title="Menu" id="W5B-2Z-2hQ">
                             <connections>
-                                <action selector="showLeftViewAnimated:" destination="wH4-vl-Pu1" id="Gsj-YP-1p5"/>
+                                <action selector="openMenuAction:" destination="wH4-vl-Pu1" id="AsP-oN-TXF"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

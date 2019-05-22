@@ -15,7 +15,6 @@
 @class Torrent;
 @class TorrentCell;
 @class PrefViewController;
-@class LeftMenuController;
 
 @interface TorrentViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, AVAudioPlayerDelegate>
 
@@ -30,7 +29,6 @@
 @property (nonatomic, retain) PrefViewController *pref;
 @property (nonatomic, retain) Controller *controller;
 @property (nonatomic, retain) NSTimer *updateTimer;
-@property (nonatomic, retain) LeftMenuController *leftMenu;
 
 - (void)addFromURLWithExistingURL:(NSString*)url message:(NSString*)msg;
 - (void)addFromMagnetWithExistingMagnet:(NSString*)magnet message:(NSString*)msg;
@@ -46,5 +44,7 @@
 - (void)setupCell:(TorrentCell*)cell forTorrent:(Torrent*)torrent;
 
 - (void)updateCell:(TorrentCell*)c;
+
+- (IBAction)openMenuAction:(UIBarButtonItem *)sender;
 
 @end

@@ -19,6 +19,7 @@
 #import "ControlButton.h"
 #import "PDColoredProgressView.h"
 #import "BandwidthController.h"
+#import <SafariServices/SafariServices.h>
 
 #define ADD_TAG 1000
 #define ADD_FROM_URL_TAG 1001
@@ -36,7 +37,6 @@
 @synthesize activityItem;
 @synthesize audio;
 @synthesize pref;
-@synthesize leftMenu;
 
 - (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section
 {
@@ -50,7 +50,6 @@
 - (void)tableView:(UITableView *)ftableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	if (self.tableView.editing == NO) {
-		//DetailViewController *detailController = [[DetailViewController alloc] initWithTorrent:[self.controller torrentAtIndex:indexPath.row] controller:self.controller];
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_Storyboard" bundle:nil];
         DetailViewController *detailController = [storyboard instantiateViewControllerWithIdentifier:@"detail_view"];
         [detailController initWithTorrent:[self.controller torrentAtIndex:indexPath.row] controller:self.controller];
@@ -479,6 +478,87 @@
 {
     // stop update timer
     [self.updateTimer invalidate];
+}
+
+- (void)showViewController:(UIViewController *)vc sender:(id)sender {
+    if ([vc isKindOfClass:[UIAlertController class]] || [vc isKindOfClass:[SFSafariViewController class]]) {
+        [self presentViewController:vc animated:YES completion:nil];
+    } else if ([vc isKindOfClass: [DetailViewController class]]) {
+        [super showViewController:vc sender:sender];
+    } else {
+        UINavigationController *navigationControlller = [[UINavigationController alloc] initWithRootViewController:vc];
+        [self presentViewController:navigationControlller animated:YES completion:nil];
+    }
+}
+
+#pragma mark -
+
+- (void)openMenuAction:(UIBarButtonItem *)sender {
+    UIAlertController *menuActionSheetController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Menu", @"Menu action sheet title")
+                                                                                       message:nil
+                                                                                preferredStyle:UIAlertControllerStyleActionSheet];
+
+    typeof(self) __weak wself = self;
+
+    [menuActionSheetController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Add Torrent from Web", @"Menu action title for adding torrent from the web")
+                                                                  style:UIAlertActionStyleDefault
+                                                                handler:^(UIAlertAction * _Nonnull action) {
+                                                                    SFSafariViewController *safariViewController = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:@"https://www.duckduckgo.com"]];
+                                                                    
+                                                                    [wself showViewController:safariViewController sender:safariViewController];
+                                                                }]];
+
+    [menuActionSheetController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Add Torrent from URL", @"Menu action title for adding torrent from the provided URL")
+                                                                  style:UIAlertActionStyleDefault
+                                                                handler:^(UIAlertAction * _Nonnull action) {
+                                                                    UIAlertController *dialog = [UIAlertController alertControllerWithTitle:@"Add from magnet" message:@"Please input torrent or magnet" preferredStyle:UIAlertControllerStyleAlert];
+                                                                    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                                                                        NSString *data = dialog.textFields.firstObject.text;
+                                                                        NSString *magnetSubstring = [data substringWithRange:NSMakeRange(0,6)];
+                                                                        NSLog(@"Magnet substring: %@", magnetSubstring);
+                                                                        if([magnetSubstring isEqualToString:@"magnet"])
+                                                                        {
+                                                                            // add torrent from magnet
+                                                                            NSError *error = [wself.controller addTorrentFromManget:data];
+                                                                            if (error) {
+                                                                                NSLog(@"Error adding magnet");
+                                                                            }
+                                                                        }
+                                                                    }];
+                                                                    [dialog addAction:okAction];
+
+                                                                    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+                                                                    [dialog addAction:cancelAction];
+
+                                                                    [dialog addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+                                                                        textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+                                                                        textField.autocorrectionType = UITextAutocorrectionTypeNo;
+                                                                        textField.enablesReturnKeyAutomatically = YES;
+                                                                        textField.keyboardAppearance = UIKeyboardAppearanceDefault;
+                                                                        textField.keyboardType = UIKeyboardTypeURL;
+                                                                        textField.returnKeyType = UIReturnKeyDone;
+                                                                        textField.secureTextEntry = NO;
+                                                                    }];
+
+                                                                    [wself showViewController:dialog sender:dialog];
+                                                                }]];
+
+    [menuActionSheetController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Preferences", @"Menu action title for opening preferences screen")
+                                                                  style:UIAlertActionStyleDefault
+                                                                handler:^(UIAlertAction * _Nonnull action) {
+                                                                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_Storyboard" bundle:nil];
+                                                                    UIViewController *preferencesViewController = [storyboard instantiateViewControllerWithIdentifier:@"pref"];
+                                                                    [wself showViewController:preferencesViewController sender:preferencesViewController];
+                                                                }]];
+
+    [menuActionSheetController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"Menu action title for canceling the menu")
+                                                                  style:UIAlertActionStyleCancel
+                                                                handler:nil]];
+
+    UIPopoverPresentationController *popoverPresentationController = menuActionSheetController.popoverPresentationController;
+    popoverPresentationController.barButtonItem = sender;
+
+    [self showViewController:menuActionSheetController sender:menuActionSheetController];
 }
 
 @end

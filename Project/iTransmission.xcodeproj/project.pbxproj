@@ -37,8 +37,6 @@
 		23ACED151D04F99A00B76404 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23ACED141D04F99A00B76404 /* Launch Screen.storyboard */; };
 		3A1C03B01D0CE2AE005EB2A5 /* ALAlertBanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1C03AD1D0CE2AE005EB2A5 /* ALAlertBanner.m */; };
 		3A1C03B11D0CE2AE005EB2A5 /* ALAlertBannerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1C03AF1D0CE2AE005EB2A5 /* ALAlertBannerManager.m */; };
-		3A4B99121EB90634002027E6 /* LeftMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4B99101EB90634002027E6 /* LeftMenuController.m */; };
-		3A4B99161EB9096B002027E6 /* LeftMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4B99141EB9096B002027E6 /* LeftMenuCell.m */; };
 		3A7D2FB71D4D9CEE00876250 /* MoviePlayerImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A7D2FB61D4D9CEE00876250 /* MoviePlayerImages.xcassets */; };
 		3A7D2FC21D4EB6C500876250 /* AudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A7D2FBF1D4EB6C500876250 /* AudioPlayer.m */; };
 		3A9337E41EBA7AF000921B07 /* play_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A9337E21EBA7AF000921B07 /* play_icon.png */; };
@@ -141,10 +139,6 @@
 		3A1C03AE1D0CE2AE005EB2A5 /* ALAlertBannerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALAlertBannerManager.h; sourceTree = "<group>"; };
 		3A1C03AF1D0CE2AE005EB2A5 /* ALAlertBannerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALAlertBannerManager.m; sourceTree = "<group>"; };
 		3A3DCF911D150A8800F84299 /* postinst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = postinst; path = DEBIAN/postinst; sourceTree = "<group>"; };
-		3A4B990F1EB90634002027E6 /* LeftMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeftMenuController.h; path = LGSlideMenuController/LeftMenuController.h; sourceTree = "<group>"; };
-		3A4B99101EB90634002027E6 /* LeftMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeftMenuController.m; path = LGSlideMenuController/LeftMenuController.m; sourceTree = "<group>"; };
-		3A4B99131EB9096B002027E6 /* LeftMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeftMenuCell.h; path = LGSlideMenuController/LeftMenuCell.h; sourceTree = "<group>"; };
-		3A4B99141EB9096B002027E6 /* LeftMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeftMenuCell.m; path = LGSlideMenuController/LeftMenuCell.m; sourceTree = "<group>"; };
 		3A7D2FB61D4D9CEE00876250 /* MoviePlayerImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MoviePlayerImages.xcassets; sourceTree = "<group>"; };
 		3A7D2FBE1D4EB6C500876250 /* AudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayer.h; sourceTree = "<group>"; };
 		3A7D2FBF1D4EB6C500876250 /* AudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayer.m; sourceTree = "<group>"; };
@@ -291,17 +285,6 @@
 			path = ALAlertBanner;
 			sourceTree = "<group>";
 		};
-		3A4B99061EB82453002027E6 /* LGSlideMenuController */ = {
-			isa = PBXGroup;
-			children = (
-				3A4B990F1EB90634002027E6 /* LeftMenuController.h */,
-				3A4B99101EB90634002027E6 /* LeftMenuController.m */,
-				3A4B99131EB9096B002027E6 /* LeftMenuCell.h */,
-				3A4B99141EB9096B002027E6 /* LeftMenuCell.m */,
-			);
-			name = LGSlideMenuController;
-			sourceTree = "<group>";
-		};
 		3A887B8D1D14F5D30041327D /* DEBIAN */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,7 +355,6 @@
 		895A732618D9CB6E00561CD6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3A4B99061EB82453002027E6 /* LGSlideMenuController */,
 				895A732718D9CB6E00561CD6 /* BandwidthController.h */,
 				895A732818D9CB6E00561CD6 /* BandwidthController.m */,
 				895A732918D9CB6E00561CD6 /* Controller.h */,
@@ -710,10 +692,8 @@
 			files = (
 				895A739518D9CB6F00561CD6 /* TrackerCell.m in Sources */,
 				BBC7031A21350E21003F6283 /* WebViewController.m in Sources */,
-				3A4B99121EB90634002027E6 /* LeftMenuController.m in Sources */,
 				895A738F18D9CB6F00561CD6 /* NSDate+Helper.m in Sources */,
 				895A739F18D9CB6F00561CD6 /* TrackersViewController.m in Sources */,
-				3A4B99161EB9096B002027E6 /* LeftMenuCell.m in Sources */,
 				895A739E18D9CB6F00561CD6 /* TorrentViewController.m in Sources */,
 				895A739918D9CB6F00561CD6 /* DetailViewController.m in Sources */,
 				895A738D18D9CB6F00561CD6 /* FileListCell.m in Sources */,
@@ -903,8 +883,11 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_LINK_OBJC_RUNTIME = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = ZAQGVMJE7W;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Source",
@@ -936,6 +919,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sanekgusev.itransmission2;
 				PRODUCT_NAME = iTransmission;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SHARED_PRECOMPS_DIR = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "../Compilation/out/$(CURRENT_ARCH)/include/**";
@@ -948,8 +932,11 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_LINK_OBJC_RUNTIME = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
 				DEVELOPMENT_TEAM = ZAQGVMJE7W;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Source",
@@ -980,6 +967,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sanekgusev.itransmission2;
 				PRODUCT_NAME = iTransmission;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SHARED_PRECOMPS_DIR = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "../Compilation/out/$(CURRENT_ARCH)/include/**";
@@ -993,8 +981,11 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_LINK_OBJC_RUNTIME = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
 				DEVELOPMENT_TEAM = ZAQGVMJE7W;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Source",
@@ -1025,6 +1016,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sanekgusev.itransmission2;
 				PRODUCT_NAME = iTransmission;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SHARED_PRECOMPS_DIR = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "../Compilation/out/$(CURRENT_ARCH)/include/**";
