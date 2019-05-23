@@ -74,7 +74,7 @@ static CGFloat const kForceHideAnimationDuration = 0.1f;
 - (UIColor *)darkerColor {
     CGFloat h, s, b, a;
     if ([self getHue:&h saturation:&s brightness:&b alpha:&a])
-        return [UIColor colorWithHue:h saturation:s brightness:b * 0.75 alpha:a];
+        return [UIColor colorWithHue:h saturation:s brightness:b * 0.75f alpha:a];
     return nil;
 }
 
@@ -256,8 +256,8 @@ static CGFloat const kForceHideAnimationDuration = 0.1f;
     self.layer.shadowRadius = newShadowRadius;
     
     CABasicAnimation *fadeShadow = [CABasicAnimation animationWithKeyPath:@"shadowRadius"];
-    fadeShadow.fromValue = [NSNumber numberWithFloat:oldShadowRadius];
-    fadeShadow.toValue = [NSNumber numberWithFloat:newShadowRadius];
+    fadeShadow.fromValue = [NSNumber numberWithDouble:oldShadowRadius];
+    fadeShadow.toValue = [NSNumber numberWithDouble:newShadowRadius];
     fadeShadow.duration = self.fadeOutDuration;
     [self.layer addAnimation:fadeShadow forKey:@"shadowRadius"];
 }
@@ -533,7 +533,7 @@ static CGFloat const kForceHideAnimationDuration = 0.1f;
     CGSize maxLabelSize = CGSizeMake(superview.bounds.size.width - (kMargin*3) - self.styleImageView.image.size.width, CGFLOAT_MAX);
     CGFloat titleLabelHeight = AL_SINGLELINE_TEXT_HEIGHT(self.titleLabel.text, self.titleLabel.font);
     CGFloat subtitleLabelHeight = AL_MULTILINE_TEXT_HEIGHT(self.subtitleLabel.text, self.subtitleLabel.font, maxLabelSize, self.subtitleLabel.lineBreakMode);
-    CGFloat heightForSelf = titleLabelHeight + subtitleLabelHeight + (self.subtitleLabel.text == nil || self.titleLabel.text == nil ? kMargin*2 : kMargin*2.5);
+    CGFloat heightForSelf = titleLabelHeight + subtitleLabelHeight + (self.subtitleLabel.text == nil || self.titleLabel.text == nil ? kMargin * 2.0f : kMargin * 2.5f);
     
     CGRect frame = CGRectMake(0.f, 0.f, superview.bounds.size.width, heightForSelf);
     CGFloat initialYCoord = 0.f;
@@ -699,16 +699,16 @@ static CGFloat const kForceHideAnimationDuration = 0.1f;
     UIColor *fillColor;
     switch (self.style) {
         case ALAlertBannerStyleSuccess:
-            fillColor = [UIColor colorWithRed:(77/255.0) green:(175/255.0) blue:(67/255.0) alpha:1.f];
+            fillColor = [UIColor colorWithRed:(77.0f/255.0f) green:(175.0f/255.0f) blue:(67.0f/255.0f) alpha:1.f];
             break;
         case ALAlertBannerStyleFailure:
-            fillColor = [UIColor colorWithRed:(173/255.0) green:(48/255.0) blue:(48/255.0) alpha:1.f];
+            fillColor = [UIColor colorWithRed:(173.0f/255.0f) green:(48.0f/255.0f) blue:(48.0f/255.0f) alpha:1.f];
             break;
         case ALAlertBannerStyleNotify:
-            fillColor = [UIColor colorWithRed:(48/255.0) green:(110/255.0) blue:(173/255.0) alpha:1.f];
+            fillColor = [UIColor colorWithRed:(48.0f/255.0f) green:(110.0f/255.0f) blue:(173.0f/255.0f) alpha:1.f];
             break;
         case ALAlertBannerStyleWarning:
-            fillColor = [UIColor colorWithRed:(211/255.0) green:(209/255.0) blue:(100/255.0) alpha:1.f];
+            fillColor = [UIColor colorWithRed:(211.0f/255.0f) green:(209.0f/255.0f) blue:(100.0f/255.0f) alpha:1.f];
             break;
     }
     

@@ -35,10 +35,19 @@
 
 @end
 
-@implementation PortChecker
+@implementation PortChecker {
+    id<PortCheckerDelegate> fDelegate;
+    port_status_t fStatus;
+    
+    NSURLConnection * fConnection;
+    NSMutableData * fPortProbeData;
+    
+    NSInteger fPortNumber;
+    NSTimer * fTimer;
+}
 @synthesize portToCheck = fPortNumber;
 
-- (id) initForPort: (NSInteger) portNumber delay: (BOOL) delay withDelegate: (id) delegate
+- (id) initForPort: (NSInteger) portNumber delay: (BOOL) delay withDelegate: (id<PortCheckerDelegate>) delegate
 {
     if ((self = [super init]))
     {
@@ -142,7 +151,9 @@
     fStatus = status;
     
     if (fDelegate && [fDelegate respondsToSelector: @selector(portCheckerDidFinishProbing:)])
-        [fDelegate performSelectorOnMainThread: @selector(portCheckerDidFinishProbing:) withObject: self waitUntilDone: NO];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self->fDelegate portCheckerDidFinishProbing:self];
+        });
 }
 
 @end

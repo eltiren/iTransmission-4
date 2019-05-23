@@ -15,33 +15,18 @@
 #import <UIKit/UIKit.h>
 
 @interface TDBadgeView : UIView
-{
-	NSUInteger width;
-	NSString *badgeNumber;
 
-	UIFont *font;
-	
-	UIColor *badgeColor;
-	UIColor *badgeColorHighlighted;	
-}
-
-@property (nonatomic, readonly) NSUInteger width;
+@property (nonatomic, readonly) CGFloat width;
 @property (nonatomic, retain) NSString *badgeNumber;
 @property (nonatomic, retain) UIColor *badgeColor;
 @property (nonatomic, retain) UIColor *badgeColorHighlighted;
 
 @end
 
-@interface TDBadgedCell : UITableViewCell {
-	NSString *badgeNumber;
-	TDBadgeView *badge;
-	
-	UIColor *badgeColor;
-	UIColor *badgeColorHighlighted;
-}
+@interface TDBadgedCell : UITableViewCell
 
 @property (nonatomic, retain) NSString *badgeNumber;
-@property (readonly, retain) TDBadgeView *badge;
+@property (nonatomic, readonly, retain) TDBadgeView *badge;
 @property (nonatomic, retain) UIColor *badgeColor;
 @property (nonatomic, retain) UIColor *badgeColorHighlighted;
 

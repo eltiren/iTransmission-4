@@ -9,7 +9,10 @@
 #import "FlexibleLabelCell.h"
 
 
-@implementation FlexibleLabelCell
+@implementation FlexibleLabelCell {
+    UILabel *fLabel;
+}
+
 @synthesize flexibleLabel = fLabel;
 
 - (void)resizeToFitText

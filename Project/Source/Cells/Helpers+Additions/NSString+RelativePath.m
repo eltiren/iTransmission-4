@@ -66,7 +66,7 @@
     }
     
     // Create result path
-    for (int i = 0; i < [pathComponents2 count]; i++) {
+    for (NSUInteger i = 0; i < [pathComponents2 count]; i++) {
         [pathComponents1 insertObject:@".." atIndex:0];
     }
     if ([pathComponents1 count] == 0) {

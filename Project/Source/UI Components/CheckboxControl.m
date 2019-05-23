@@ -8,7 +8,13 @@
 
 #import "CheckboxControl.h"
 
-@implementation CheckboxControl
+@implementation CheckboxControl {
+    BOOL checked;
+    UIImageView *fImageView;
+    UIImage *fUncheckedImage;
+    UIImage *fCheckedImage;
+}
+
 @synthesize imageView = fImageView;
 @synthesize checked;
 @synthesize delegate;

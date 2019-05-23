@@ -45,7 +45,7 @@
     [self.progressView setTintColor:[UIColor colorWithRed:255.0f green:255.0f blue:255.0f alpha:1.0f]];
 }
 
-- (void)setProgress:(CGFloat)progress
+- (void)setProgress:(float)progress
 {
     [self.progressView setProgress:progress];
     [self setNeedsDisplay];

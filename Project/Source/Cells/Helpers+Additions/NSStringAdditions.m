@@ -101,7 +101,7 @@
     }
 }
 
-+ (NSString *) stringForTime: (CGFloat) seconds
++ (NSString *) stringForTime: (int) seconds
 {
     int secs = seconds;
     int hour = secs / 3600,
@@ -123,21 +123,21 @@
         return [NSString localizedStringWithFormat: @"%.1f%%", tr_truncd(progress * 100.0, 1)];
 }
 
-+ (NSString *) timeString: (uint64_t) seconds showSeconds: (BOOL) showSeconds
++ (NSString *) timeString: (int) seconds showSeconds: (BOOL) showSeconds
 {
     return [NSString timeString: seconds showSeconds: showSeconds maxFields: NSUIntegerMax];
 }
 
-+ (NSString *) timeString: (uint64_t) seconds showSeconds: (BOOL) showSeconds maxFields: (NSUInteger) max
++ (NSString *) timeString: (int) seconds showSeconds: (BOOL) showSeconds maxFields: (NSUInteger) max
 {
     NSAssert(max > 0, @"Cannot generate a time string with no fields");
     
     NSMutableArray * timeArray = [NSMutableArray arrayWithCapacity: MIN(max, 5)];
-    NSUInteger remaining = seconds; //causes problems for some users when it's a uint64_t
+    int remaining = seconds; //causes problems for some users when it's a uint64_t
     
     if (seconds >= 31557600) //official amount of seconds in one year
     {
-        const NSUInteger years = remaining / 31557600;
+        const int years = remaining / 31557600;
         if (years == 1)
             [timeArray addObject: NSLocalizedString(@"1 year", "time string")];
         else
@@ -147,7 +147,7 @@
     }
     if (max > 0 && seconds >= (24 * 60 * 60))
     {
-        const NSUInteger days = remaining / (24 * 60 * 60);
+        const int days = remaining / (24 * 60 * 60);
         if (days == 1)
             [timeArray addObject: NSLocalizedString(@"1 day", "time string")];
         else
@@ -184,12 +184,12 @@
 @implementation NSString (Private)
 
 + (NSString *) stringForFileSize: (uint64_t) size showUnitUnless: (NSString *) notAllowedUnit
-                       unitsUsed: (NSString **) unitUsed
+                       unitsUsed: (NSString * __autoreleasing *) unitUsed
 {
     const float baseFloat = 1000;
     const NSUInteger baseInt = 1000;
     
-    double convertedSize;
+    float convertedSize;
     NSString * unit;
     NSUInteger decimals;
     if (size < pow(baseInt, 2))

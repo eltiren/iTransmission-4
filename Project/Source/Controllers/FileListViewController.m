@@ -17,7 +17,11 @@
 #define NSOnState 1
 #define NSMixedState 2
 
-@implementation FileListViewController
+@implementation FileListViewController {
+    Torrent *fTorrent;
+    UITableView *fTableView;
+    UIDocumentInteractionController *_docController;
+}
 @synthesize torrent = fTorrent;
 @synthesize tableView = fTableView;
 @synthesize docController = _docController;
@@ -47,19 +51,6 @@
     [self.torrent updateFileStat];
 }
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -77,6 +68,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    [super viewWillDisappear:animated];
     // stop timer
     [self.updateTimer invalidate];
 }
@@ -85,7 +77,7 @@
 {
     switch (section) {
         case 0:
-            return [[self.torrent flatFileList] count];
+            return (NSInteger)[[self.torrent flatFileList] count];
             break;
         default:
             break;
@@ -103,7 +95,7 @@
         cell = [FileListCell cellFromNib];
     }
     
-    FileListNode *node = [[self.torrent flatFileList] objectAtIndex:indexPath.row];
+    FileListNode *node = [[self.torrent flatFileList] objectAtIndex:(NSUInteger)indexPath.row];
     cell.filenameLabel.text = node.name;
     cell.sizeLabel.text = [NSString stringForFileSize:node.size];
     cell.progressLabel.text = [NSString percentString:[self.torrent fileProgress:node] longDecimals:NO];
@@ -123,7 +115,7 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    FileListNode *node = [[self.torrent flatFileList] objectAtIndex:indexPath.row];
+    FileListNode *node = [[self.torrent flatFileList] objectAtIndex:(NSUInteger)indexPath.row];
 
     if ([self.torrent checkForFiles:node.indexes] == NSOnState) {
         cell.backgroundColor = [UIColor whiteColor];
@@ -142,7 +134,7 @@
 {
 	NSIndexPath *indexPath = [self.tableView indexPathForCell:c];
 	if (indexPath) {
-		FileListNode *node = [[self.torrent flatFileList] objectAtIndex:indexPath.row];
+		FileListNode *node = [[self.torrent flatFileList] objectAtIndex:(NSUInteger)indexPath.row];
         c.progressLabel.text = [NSString percentString:[self.torrent fileProgress:node] longDecimals:NO];
 	}
 }
@@ -150,7 +142,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    FileListNode *node = [[self.torrent flatFileList] objectAtIndex:indexPath.row];
+    FileListNode *node = [[self.torrent flatFileList] objectAtIndex:(NSUInteger)indexPath.row];
     NSString *p = [[[(Controller *)[UIApplication sharedApplication].delegate defaultDownloadDir] stringByAppendingPathComponent:[node path]] stringByAppendingPathComponent:[node name]];
     NSLog(@"Path : %@",p);
     if ([[NSFileManager defaultManager] fileExistsAtPath:p]) {
@@ -314,7 +306,7 @@
     NSString *extension = [url pathExtension];
     
     // check for music
-    for(int i = 0; i < [audioTypes count]; i++)
+    for(NSUInteger i = 0; i < [audioTypes count]; i++)
     {
         if([audioTypes[i] compare:extension options:NSCaseInsensitiveSearch] == NSOrderedSame)
         {
@@ -323,7 +315,7 @@
     }
     
     // check for video
-    for(int i = 0; i < [videoTypes count]; i++)
+    for(NSUInteger i = 0; i < [videoTypes count]; i++)
     {
         if([videoTypes[i] compare:extension options:NSCaseInsensitiveSearch] == NSOrderedSame)
         {
@@ -332,7 +324,7 @@
     }
     
     // check for image
-    for(int i = 0; i < [videoTypes count]; i++)
+    for(NSUInteger i = 0; i < [videoTypes count]; i++)
     {
         if([imageTypes[i] compare:extension options:NSCaseInsensitiveSearch] == NSOrderedSame)
         {

@@ -17,11 +17,19 @@
 @interface TDBadgeView ()
 
 @property (nonatomic, retain) UIFont *font;
-@property (nonatomic, assign) NSUInteger width;
+@property (nonatomic, assign) CGFloat width;
 
 @end
 
-@implementation TDBadgeView
+@implementation TDBadgeView {
+    CGFloat width;
+    NSString *badgeNumber;
+    
+    UIFont *font;
+    
+    UIColor *badgeColor;
+    UIColor *badgeColorHighlighted;    
+}
 
 @synthesize width, badgeNumber, badgeColor, badgeColorHighlighted;
 // from private
@@ -54,12 +62,12 @@
 	
 	CGSize numberSize = [countString sizeWithAttributes:@{NSFontAttributeName:font}];
     
-	self.width = numberSize.width + 16;
+	self.width = numberSize.width + 16.0f;
 	
 	CGRect bounds = CGRectMake(0 , 0, numberSize.width + 16 , 18);
 	
 	CGContextRef context = UIGraphicsGetCurrentContext();
-	float radius = bounds.size.height / 2.0;
+	CGFloat radius = bounds.size.height / 2.0f;
 	
 	CGContextSaveGState(context);
 	
@@ -72,11 +80,11 @@
     }
     
     CGMutablePathRef path = CGPathCreateMutable();
-    CGPathAddArc(path, NULL, radius+1, radius+1, radius, M_PI / 2 , 3 * M_PI / 2, NO);
-    CGPathAddArc(path, NULL,  bounds.size.width - radius, radius+1, radius, 3 * M_PI / 2, M_PI / 2, NO);
+    CGPathAddArc(path, NULL, radius+1, radius+1, radius, (CGFloat)M_PI / 2.0f , 3.0f * (CGFloat)M_PI / 2.0f, NO);
+    CGPathAddArc(path, NULL,  bounds.size.width - radius, radius+1, radius, 3.0f * (CGFloat)M_PI / 2.0f, (CGFloat)M_PI / 2.0f, NO);
     CGPathCloseSubpath(path);
     
-    CGFloat locations[2] = { 0.0, 0.8 };
+    CGFloat locations[2] = { 0.0f, 0.8f };
     
     const CGFloat* end = CGColorGetComponents(col.CGColor);
     CGFloat components[8] = {
@@ -89,7 +97,7 @@
     CGRect pathRect = CGPathGetBoundingBox(path);
     CGPoint myStartPoint, myEndPoint;
     myStartPoint.x = CGRectGetMinX(pathRect);
-    myStartPoint.y = CGRectGetMinY(pathRect)-10.0;
+    myStartPoint.y = CGRectGetMinY(pathRect)-10.0f;
     myEndPoint.x = CGRectGetMinX(pathRect);
     myEndPoint.y = CGRectGetMaxY(pathRect);
     
@@ -111,7 +119,7 @@
     CGGradientRelease(gradientFill);
     CGPathRelease(path);
 	
-	bounds.origin.x = (bounds.size.width - numberSize.width) / 2 +0.5;
+	bounds.origin.x = (bounds.size.width - numberSize.width) / 2.0f + 0.5f;
 	
 	CGContextSetRGBFillColor(context, 1.0f, 1.0f, 1.0f, 1.0f);
 	
@@ -121,7 +129,13 @@
 @end
 
 
-@implementation TDBadgedCell
+@implementation TDBadgedCell {
+    NSString *badgeNumber;
+    TDBadgeView *badge;
+    
+    UIColor *badgeColor;
+    UIColor *badgeColorHighlighted;
+}
 
 @synthesize badgeNumber, badge, badgeColor, badgeColorHighlighted;
 
@@ -164,11 +178,11 @@
 		
 		if (version <= 3.0)
 		{
-			badgeframe = CGRectMake(self.contentView.frame.size.width - (badgeSize.width+16), round((self.contentView.frame.size.height - 18) / 2), badgeSize.width+16, 18);
+			badgeframe = CGRectMake(self.contentView.frame.size.width - (badgeSize.width + 16.0f), (CGFloat)round((self.contentView.frame.size.height - 18.0f) / 2.0f), badgeSize.width + 16.0f, 18.0f);
 		}
 		else
 		{
-			badgeframe = CGRectMake(self.contentView.frame.size.width - (badgeSize.width+16) - 10, round((self.contentView.frame.size.height - 18) / 2), badgeSize.width+16, 18);
+			badgeframe = CGRectMake(self.contentView.frame.size.width - (badgeSize.width + 16.0f) - 10.0f, (CGFloat)round((self.contentView.frame.size.height - 18.0f) / 2.0f), badgeSize.width + 16.0f, 18.0f);
 		}
 		
 		[self.badge setFrame:badgeframe];
@@ -176,14 +190,14 @@
 		
 		if ((self.textLabel.frame.origin.x + self.textLabel.frame.size.width) >= badgeframe.origin.x)
 		{
-			CGFloat badgeWidth = self.textLabel.frame.size.width - badgeframe.size.width - 10.0;
+			CGFloat badgeWidth = self.textLabel.frame.size.width - badgeframe.size.width - 10.0f;
 			
 			self.textLabel.frame = CGRectMake(self.textLabel.frame.origin.x, self.textLabel.frame.origin.y, badgeWidth, self.textLabel.frame.size.height);
 		}
 		
 		if ((self.detailTextLabel.frame.origin.x + self.detailTextLabel.frame.size.width) >= badgeframe.origin.x)
 		{
-			CGFloat badgeWidth = self.detailTextLabel.frame.size.width - badgeframe.size.width - 10.0;
+			CGFloat badgeWidth = self.detailTextLabel.frame.size.width - badgeframe.size.width - 10.0f;
 			
 			self.detailTextLabel.frame = CGRectMake(self.detailTextLabel.frame.origin.x, self.detailTextLabel.frame.origin.y, badgeWidth, self.detailTextLabel.frame.size.height);
 		}
@@ -197,7 +211,7 @@
 		if(self.badgeColor)
 			badge.badgeColor = self.badgeColor;
 		else
-			badge.badgeColor = [UIColor colorWithRed:0.530 green:0.600 blue:0.738 alpha:1.000];
+			badge.badgeColor = [UIColor colorWithRed:0.530f green:0.600f blue:0.738f alpha:1.000f];
 	}
 	else
 	{

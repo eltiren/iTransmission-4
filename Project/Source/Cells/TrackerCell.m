@@ -8,7 +8,15 @@
 
 #import "TrackerCell.h"
 
-@implementation TrackerCell
+@implementation TrackerCell {
+    UILabel *fURL;
+    UILabel *fTime;
+    UILabel *fTimeLabel;
+    UILabel *fSeedLabel;
+    UILabel *fSeedNumber;
+    UILabel *fPeerLabel;
+    UILabel *fPeerNumber;
+}
 
 @synthesize TrackerLastAnnounceTime = fTime;
 @synthesize TrackerURL = fURL;

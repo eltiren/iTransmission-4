@@ -55,12 +55,12 @@
         // create queue
         NSArray *audioTypes = [NSArray arrayWithObjects:@"mp3", @"aac", @"adts", @"ac3", @"aif", @"aiff", @"aifc", @"caf", @"m4a", @"snd", @"au", @"sd2", @"wav", nil];
         self.queue = [[NSMutableArray alloc] init];
-        for(int i = 0; i < [[self.torrent flatFileList] count]; i++)
+        for(NSUInteger i = 0; i < [[self.torrent flatFileList] count]; i++)
         {
             FileListNode *node = [[self.torrent flatFileList] objectAtIndex:i];
             NSString *file = [[[(Controller *)[UIApplication sharedApplication].delegate defaultDownloadDir] stringByAppendingPathComponent:[node path]] stringByAppendingPathComponent:[node name]];
             NSString *extension = [file pathExtension];
-            for(int j = 0; j < [audioTypes count]; j++)
+            for(NSUInteger j = 0; j < [audioTypes count]; j++)
             {
                 if([audioTypes[j] compare:extension options:NSCaseInsensitiveSearch] == NSOrderedSame)
                 {
@@ -71,7 +71,7 @@
         }
         
         // set current queue item
-        for(int i = 0; i < [self.queue count]; i++)
+        for(NSUInteger i = 0; i < [self.queue count]; i++)
         {
             if([self.queue[i] compare:url options:NSCaseInsensitiveSearch] == NSOrderedSame)
             {
@@ -214,14 +214,14 @@
 
 - (void)updateUI
 {
-    double percent;
+    float percent;
     if([self.audio isPlaying])
     {
         // update progress bar
-        percent = (self.audio.duration - self.audio.currentTime)/self.audio.duration;
+        percent = (float)((self.audio.duration - self.audio.currentTime)/self.audio.duration);
         
         // reverse percent
-        percent = 1.0 - percent;
+        percent = 1.0f - percent;
         
         [self.progress setValue:percent];
         
@@ -304,7 +304,9 @@
                     if ([metadataItem.commonKey isEqualToString:@"artwork"])
                     {
                         UIImage* songImage = [UIImage imageWithData:[(NSDictionary*)metadataItem.value objectForKey:@"data"]];
-                        MPMediaItemArtwork *albumArt = [[MPMediaItemArtwork alloc] initWithImage:songImage];
+                        MPMediaItemArtwork *albumArt = [[MPMediaItemArtwork alloc] initWithBoundsSize:songImage.size requestHandler:^UIImage *(CGSize size) {
+                            return songImage;
+                        }];
                         [self.image setImage:songImage];
                         [songInfo setObject:albumArt forKey:MPMediaItemPropertyArtwork];
                     }
@@ -370,7 +372,9 @@
                 if ([metadataItem.commonKey isEqualToString:@"artwork"])
                 {
                     UIImage* songImage = [UIImage imageWithData:[(NSDictionary*)metadataItem.value objectForKey:@"data"]];
-                    MPMediaItemArtwork *albumArt = [[MPMediaItemArtwork alloc] initWithImage:songImage];
+                    MPMediaItemArtwork *albumArt = [[MPMediaItemArtwork alloc] initWithBoundsSize:songImage.size requestHandler:^UIImage *(CGSize size) {
+                        return songImage;
+                    }];
                     [self.image setImage:songImage];
                     [songInfo setObject:albumArt forKey:MPMediaItemPropertyArtwork];
                 }
@@ -424,7 +428,9 @@
                 if ([metadataItem.commonKey isEqualToString:@"artwork"])
                 {
                     UIImage* songImage = [UIImage imageWithData:[(NSDictionary*)metadataItem.value objectForKey:@"data"]];
-                    MPMediaItemArtwork *albumArt = [[MPMediaItemArtwork alloc] initWithImage:songImage];
+                    MPMediaItemArtwork *albumArt = [[MPMediaItemArtwork alloc] initWithBoundsSize:songImage.size requestHandler:^UIImage *(CGSize size) {
+                        return songImage;
+                    }];
                     [self.image setImage:songImage];
                     [songInfo setObject:albumArt forKey:MPMediaItemPropertyArtwork];
                 }
@@ -464,16 +470,16 @@
 - (NSString*)time:(NSTimeInterval)t
 {
     NSString *result;
-    NSInteger minutes = t / 60.0;
-    NSInteger seconds = fmod(t, 60.0);
+    long minutes = (long)(t / 60.0);
+    long seconds = (long)fmod(t, 60.0);
     
     if(seconds < 10)
     {
-        result = [[NSString alloc] initWithFormat:@"%li:0%li", (long)minutes, (long)seconds];
+        result = [[NSString alloc] initWithFormat:@"%li:0%li", minutes, seconds];
     }
     else
     {
-        result = [[NSString alloc] initWithFormat:@"%li:%li", (long)minutes, (long)seconds];
+        result = [[NSString alloc] initWithFormat:@"%li:%li", minutes, seconds];
     }
     
     return result;

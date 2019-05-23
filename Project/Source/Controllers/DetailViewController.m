@@ -17,7 +17,6 @@
 #import "FileListViewController.h"
 #import "TrackersViewController.h"
 #import "TrackerNode.h"
-#import "ALAlertBanner.h"
 
 #define HEADER_SECTION 0
 #define TITLE_ROW 0
@@ -65,7 +64,99 @@
 
 #define REMOVE_COMFIRM_TAG 1003
 
-@implementation DetailViewController
+@implementation DetailViewController {
+    UITableView *fTableView;
+    UIBarButtonItem *fStartButton;
+    UIBarButtonItem *fPauseButton;
+    UIBarButtonItem *fRemoveButton;
+    UIBarButtonItem *fRefreshButton;
+    UIBarButtonItem *fBandwidthButton;
+    NSIndexPath *fSelectedIndexPath;
+    
+    IBOutlet UITableViewCell *fTitleCell;
+    IBOutlet UILabel *fTitleLabel;
+    IBOutlet UIImageView *fIconView;
+    
+    IBOutlet UITableViewCell *fTotalSizeCell;
+    IBOutlet UILabel *fTotalSizeLabel;
+    
+    IBOutlet UITableViewCell *fTorrentSeedersCell;
+    IBOutlet UILabel *fTorrentSeedersLabel;
+    
+    IBOutlet UITableViewCell *fTorrentPeersCell;
+    IBOutlet UILabel *fTorrentPeersLabel;
+    
+    IBOutlet UITableViewCell *fCompletedSizeCell;
+    IBOutlet UILabel *fCompletedSizeLabel;
+    
+    IBOutlet UITableViewCell *fProgressCell;
+    IBOutlet UILabel *fProgressLabel;
+    
+    IBOutlet UITableViewCell *fDownloadedSizeCell;
+    IBOutlet UILabel *fDownloadedSizeLabel;
+    
+    IBOutlet UITableViewCell *fUploadedSizeCell;
+    IBOutlet UILabel *fUploadedSizeLabel;
+    
+    IBOutlet UITableViewCell *fStateCell;
+    IBOutlet UILabel *fStateLabel;
+    
+    IBOutlet FlexibleLabelCell *fErrorMessageCell;
+    IBOutlet UILabel *fErrorMessageLabel;
+    
+    IBOutlet UITableViewCell *fHashCell;
+    IBOutlet UILabel *fHashLabel;
+    
+    IBOutlet UITableViewCell *fRatioCell;
+    IBOutlet UILabel *fRatioLabel;
+    
+    IBOutlet UITableViewCell *fRecheckDataCell;
+    
+    IBOutlet UITableViewCell *fStartPauseCell;
+    IBOutlet UIButton *fStartPauseButton;
+    
+    IBOutlet FlexibleLabelCell *fDataLocationCell;
+    IBOutlet UILabel *fDataLocationLabel;
+    
+    IBOutlet FlexibleLabelCell *fTorrentLocationCell;
+    IBOutlet UILabel *fTorrentLocationLabel;
+    
+    IBOutlet FlexibleLabelCell *fTorrentMagnetLinkCell;
+    IBOutlet UILabel *fTorrentMagnetLinkLabel;
+    
+    IBOutlet UITableViewCell *fULSpeedCell;
+    IBOutlet UILabel *fULSpeedLabel;
+    
+    IBOutlet UITableViewCell *fDLSpeedCell;
+    IBOutlet UILabel *fDLSpeedLabel;
+    
+    IBOutlet UITableViewCell *fTorrentActivityCell;
+    IBOutlet UILabel *fTorrentActivityLabel;
+    
+    IBOutlet UITableViewCell *fAverageULSpeedCell;
+    IBOutlet UILabel *fAverageULSpeedLabel;
+    
+    IBOutlet UITableViewCell *fAverageDLSpeedCell;
+    IBOutlet UILabel *fAverageDLSpeedLabel;
+    
+    IBOutlet UITableViewCell *fCreatorCell;
+    IBOutlet UILabel *fCreatorLabel;
+    
+    IBOutlet UITableViewCell *fCreatedOnCell;
+    IBOutlet UILabel *fCreatedOnLabel;
+    
+    IBOutlet FlexibleLabelCell *fCommentCell;
+    IBOutlet UILabel *fCommentLabel;
+    
+    IBOutlet UITableViewCell *fIsPrivateCell;
+    IBOutlet UISwitch *fIsPrivateSwitch;
+    
+    UITableViewCell *fTrackersCell;
+    UITableViewCell *fFilesCell;
+    
+    BOOL displayedError;
+}
+
 @synthesize tableView = fTableView;
 @synthesize torrent = fTorrent;
 @synthesize startButton = fStartButton;
@@ -282,7 +373,7 @@
                 path = [self.torrent torrentLocation];
             path = [NSString stringWithFormat:@"ifile://%@", path];
             //path = [NSString stringWithFormat:@"finder://%@", path];
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:path]];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:path] options:@{} completionHandler:nil];
         }
     }
 }
@@ -519,7 +610,7 @@
 		default:
 			break;
 	}
-	return nil;
+	return [UITableViewCell new];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -619,10 +710,6 @@
 	
 	[fULSpeedLabel setText:[NSString stringForSpeed:[fTorrent uploadRate]]];
 	[fDLSpeedLabel setText:[NSString stringForSpeed:[fTorrent downloadRate]]];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 - (void)didReceiveMemoryWarning {

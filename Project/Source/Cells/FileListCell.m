@@ -8,7 +8,13 @@
 
 #import "FileListCell.h"
 
-@implementation FileListCell
+@implementation FileListCell {
+    UILabel *fFilenameLabel;
+    UILabel *fSizeLabel;
+    UILabel *fProgressLabel;
+    CheckboxControl *fCheckbox;
+}
+
 @synthesize filenameLabel = fFilenameLabel;
 @synthesize sizeLabel = fSizeLabel;
 @synthesize progressLabel = fProgressLabel;

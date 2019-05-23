@@ -10,41 +10,8 @@
 #import "Controller.h"
 
 @class Torrent;
-@interface BandwidthController : UIViewController<UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource> {
-	//Torrent *fTorrent;
-	UITableView *fTableView;
-	BOOL _visible;
-    BOOL keyboardIsShowing;
-    NSIndexPath *fIndexPathToScroll;
-    CGRect keyboardBounds;
+@interface BandwidthController : UIViewController<UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
 
-    IBOutlet UILabel *fMaximumConnectionsLabel;
-    IBOutlet UITableViewCell *fMaximumConnectionsLabelCell;
-    
-    IBOutlet UITableViewCell *fMaximumConnectionsSliderCell;
-    IBOutlet UISlider *fMaximumConnectionsSlider;
-    
-    IBOutlet UITableViewCell *fConnectionsPerTorrentLabelCell;
-    IBOutlet UILabel *fConnectionsPerTorrentLabel;
-    
-    IBOutlet UITableViewCell *fConnectionsPerTorrentSliderCell;
-    IBOutlet UISlider *fConnectionsPerTorrentSlider;
-    
-    IBOutlet UITableViewCell *fDownloadSpeedLimitCell;
-    IBOutlet UITextField *fDownloadSpeedLimitField;
-    
-    IBOutlet UITableViewCell *fUploadSpeedLimitCell;
-    IBOutlet UITextField *fUploadSpeedLimitField;
-    
-    IBOutlet UITableViewCell *fUploadSpeedLimitEnabledCell;
-    IBOutlet UISwitch *fUploadSpeedLimitEnabledSwitch;
-    
-    IBOutlet UITableViewCell *fDownloadSpeedLimitEnabledCell;
-    IBOutlet UISwitch *fDownloadSpeedLimitEnabledSwitch;
-    
-    IBOutlet UITableViewCell *fOverrideSpeedLimitsCell;
-    IBOutlet UISwitch *fOverrideSpeedLimitSwitch;
-}
 @property (nonatomic, assign) Controller *controller;
 @property (nonatomic, assign) Torrent *torrent;
 @property (nonatomic, readonly, getter=isVisible) BOOL visible;

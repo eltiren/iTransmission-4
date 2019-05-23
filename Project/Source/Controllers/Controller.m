@@ -13,6 +13,7 @@
 #import "TorrentFetcher.h"
 #import "ALAlertBanner.h"
 #import <AVFoundation/AVFoundation.h>
+#import <UserNotifications/UserNotifications.h>
 #import "libtransmission/transmission.h"
 #import "libtransmission/tr-getopt.h"
 #import "libtransmission/log.h"
@@ -52,7 +53,28 @@ static void signal_handler(int sig) {
 }
  */
 
-@implementation Controller
+@implementation Controller {
+    UIWindow *window;
+    NSUserDefaults *fDefaults;
+    tr_session *fLib;
+    NSMutableArray * fTorrents;
+    NSMutableArray * fActivities;
+    BOOL fPauseOnLaunch;
+    BOOL fUpdateInProgress;
+    tr_variant settings;
+    
+    UINavigationController *navController;
+    TorrentViewController *torrentViewController;
+    NSInteger activityCounter;
+    
+    NSArray *fInstalledApps;
+    
+    CGFloat fGlobalSpeedCached[2];
+    
+    NSTimer *fLogMessageTimer;
+    
+    UIBackgroundTaskIdentifier bgTask;
+}
 
 @synthesize window;
 @synthesize navController;
@@ -73,15 +95,12 @@ static void signal_handler(int sig) {
     self.torrentViewController = [storyboard instantiateViewControllerWithIdentifier:@"torrent_view"];
     self.torrentViewController.controller = self;
     
+    
+    [UNUserNotificationCenter currentNotificationCenter] setNotificationCategories:<#(nonnull NSSet<UNNotificationCategory *> *)#>
     // enable notifications on iOS 9
-    [launchOptions valueForKey:UIApplicationLaunchOptionsLocalNotificationKey];
-    if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)])
-    {
-        
-        [application registerUserNotificationSettings:[UIUserNotificationSettings
-                                                       settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|
-                                                       UIUserNotificationTypeSound categories:nil]];
-    }
+    [application registerUserNotificationSettings:[UIUserNotificationSettings
+                                                   settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|
+                                                   UIUserNotificationTypeSound categories:nil]];
     application.applicationIconBadgeNumber = 0;
     
     [self fixDocumentsDirectory];
@@ -124,9 +143,7 @@ static void signal_handler(int sig) {
     pumpLogMessages();
 }
 
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
-{
-    
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
     if ([[url scheme] isEqualToString:@"magnet"]) {
         [self addTorrentFromManget:[url absoluteString]];
         return YES;
@@ -135,10 +152,6 @@ static void signal_handler(int sig) {
         return YES;
     }
     return NO;
-}
-
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-	return YES;
 }
 
 - (void)resetToDefaultPreferences
@@ -298,15 +311,6 @@ static void signal_handler(int sig) {
     return fLib;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application {
-    NSTimer *updateTimer;
-    if ([self.navController.visibleViewController respondsToSelector:@selector(UIUpdateTimer)]) {
-        updateTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateUI) userInfo:nil repeats:YES];
-        [updateTimer invalidate];
-    }
-}
-
-
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     /*
      Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
@@ -335,15 +339,6 @@ static void signal_handler(int sig) {
     
     application.applicationIconBadgeNumber = 0;
 }
-
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    NSTimer *updateTimer;
-    if ([self.navController.visibleViewController respondsToSelector:@selector(UIUpdateTimer)]) {
-        updateTimer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self.navController.visibleViewController selector:@selector(updateUI) userInfo:nil repeats:YES];
-    }
-}
-
 
 - (void)applicationWillTerminate:(UIApplication *)application {
 	[self updateTorrentHistory];
@@ -399,6 +394,7 @@ static void signal_handler(int sig) {
 
 - (void)postError:(NSString *)err_msg
 {
+    // TODO: post local notification
     // fix alertbanner getting stuck
     UIApplication *application = [UIApplication sharedApplication];
     UIApplicationState appCurrentState = [application applicationState];
@@ -414,6 +410,7 @@ static void signal_handler(int sig) {
 
 - (void)postMessage:(NSString*)msg
 {
+    // TODO: post local notification
     // fix alertbanner getting stuck
     UIApplication *application = [UIApplication sharedApplication];
     UIApplicationState appCurrentState = [application applicationState];
@@ -429,6 +426,7 @@ static void signal_handler(int sig) {
 
 - (void)postFinishMessage:(NSString*)msg
 {
+    // TODO: post local notification
     // fix alertbanner getting stuck
     UIApplication *application = [UIApplication sharedApplication];
     UIApplicationState appCurrentState = [application applicationState];
@@ -528,14 +526,14 @@ static void signal_handler(int sig) {
     }
 }
 
-- (NSUInteger)torrentsCount
+- (NSInteger)torrentsCount
 {
-    return [fTorrents count];
+    return (NSInteger)[fTorrents count];
 }
 
 - (Torrent*)torrentAtIndex:(NSInteger)index
 {
-    return [fTorrents objectAtIndex:index];
+    return [fTorrents objectAtIndex:(NSUInteger)index];
 }
 
 - (void)torrentFetcher:(TorrentFetcher *)fetcher fetchedTorrentContent:(NSData *)data fromURL:(NSString *)url
@@ -725,7 +723,7 @@ static void signal_handler(int sig) {
     return tr_sessionGetSpeedLimit_KBps(fLib, TR_UP);
 }
 
-- (void)setGlobalMaximumConnections:(NSInteger)c
+- (void)setGlobalMaximumConnections:(uint16_t)c
 {
     [fDefaults setInteger:c forKey:@"PeersTotal"];
     [fDefaults synchronize];
@@ -737,7 +735,7 @@ static void signal_handler(int sig) {
     return tr_sessionGetPeerLimit(fLib);
 }
 
-- (void)setConnectionsPerTorrent:(NSInteger)c
+- (void)setConnectionsPerTorrent:(uint16_t)c
 {
     [fDefaults setInteger:c forKey:@"PeersTorrent"];
     [fDefaults synchronize];

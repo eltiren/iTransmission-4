@@ -30,7 +30,10 @@
 #import "TrackerNode.h"
 #import "NSStringAdditions.h"
 
-@implementation TrackerNode
+@implementation TrackerNode {
+    tr_tracker_stat fStat;
+    Torrent * fTorrent; //weak reference
+}
 
 - (id) initWithTrackerStat: (tr_tracker_stat *) stat torrent: (Torrent *) torrent
 {
@@ -148,7 +151,7 @@
         
         case TR_TRACKER_WAITING:
             return [NSString stringWithFormat: NSLocalizedString(@"Next announce in %@", "Tracker next announce"),
-                    [NSString timeString: fStat.nextAnnounceTime - [[NSDate date] timeIntervalSince1970] showSeconds: YES]];
+                    [NSString timeString: (int)fStat.nextAnnounceTime - (int)[[NSDate date] timeIntervalSince1970] showSeconds: YES]];
         
         case TR_TRACKER_QUEUED:
             return [NSLocalizedString(@"Announce is queued", "Tracker next announce") stringByAppendingEllipsis];

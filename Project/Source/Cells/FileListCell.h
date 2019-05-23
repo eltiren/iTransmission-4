@@ -10,12 +10,6 @@
 #import "CheckboxControl.h"
 
 @interface FileListCell : UITableViewCell
-{
-    UILabel *fFilenameLabel;
-    UILabel *fSizeLabel;
-    UILabel *fProgressLabel;
-    CheckboxControl *fCheckbox;
-}
 @property (nonatomic, retain) IBOutlet UILabel* filenameLabel;
 @property (nonatomic, retain) IBOutlet UILabel* sizeLabel;
 @property (nonatomic, retain) IBOutlet UILabel *progressLabel;

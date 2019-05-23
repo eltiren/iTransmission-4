@@ -27,18 +27,6 @@
 @class Torrent;
 
 @interface FileListNode : NSObject <NSCopying>
-{
-    NSString * fName, * fPath;
-    BOOL fIsFolder;
-    NSMutableIndexSet * fIndexes;
-    
-    uint64_t fSize;
-    UIImage * fIcon;
-    
-    NSMutableArray * fChildren;
-    
-    Torrent * fTorrent;
-}
 
 - (id) initWithFolderName: (NSString *) name path: (NSString *) path torrent: (Torrent *) torrent;
 - (id) initWithFileName: (NSString *) name path: (NSString *) path size: (uint64_t) size index: (NSUInteger) index torrent: (Torrent *) torrent;

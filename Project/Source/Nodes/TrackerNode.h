@@ -34,11 +34,6 @@
 @class Torrent;
 
 @interface TrackerNode : NSObject
-{
-    tr_tracker_stat fStat;
-    
-    Torrent * fTorrent; //weak reference
-}
 
 - (id) initWithTrackerStat: (tr_tracker_stat *) stat torrent: (Torrent *) torrent;
 

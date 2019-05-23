@@ -23,8 +23,8 @@
 @property (nonatomic, retain) IBOutlet UIImageView *image;
 @property (nonatomic, retain) NSMutableArray *queue;
 @property (nonatomic, retain) Torrent *torrent;
-@property (nonatomic, assign) NSInteger currentItem;
-@property (nonatomic, assign) NSInteger lastItem;
+@property (nonatomic, assign) NSUInteger currentItem;
+@property (nonatomic, assign) NSUInteger lastItem;
 @property (nonatomic, retain) IBOutlet UISlider *progress;
 @property (nonatomic, retain) IBOutlet UILabel *currentTime;
 @property (nonatomic, retain) IBOutlet UILabel *duration;

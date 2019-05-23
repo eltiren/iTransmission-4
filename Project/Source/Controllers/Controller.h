@@ -48,32 +48,11 @@ typedef enum
 @class Torrent;
 @class TorrentViewController;
 
-extern BOOL isStartingTransferAllowed();
+extern BOOL isStartingTransferAllowed(void);
 
 #define PREF_
 
-@interface Controller : NSObject <UIApplicationDelegate, TorrentFetcherDelegate> {
-    UIWindow *window;
-	NSUserDefaults *fDefaults;
-	tr_session *fLib;
-	NSMutableArray * fTorrents;
-    NSMutableArray * fActivities;
-	BOOL fPauseOnLaunch;
-	BOOL fUpdateInProgress;
-    tr_variant settings;
-    
-    UINavigationController *navController;
-    TorrentViewController *torrentViewController;
-    NSInteger activityCounter;
-    
-    NSArray *fInstalledApps;
-    
-    CGFloat fGlobalSpeedCached[2];
-    
-    NSTimer *fLogMessageTimer;
-    
-    UIBackgroundTaskIdentifier bgTask;
-}
+@interface Controller : NSObject <UIApplicationDelegate, TorrentFetcherDelegate>
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) UINavigationController *navController;
@@ -102,7 +81,7 @@ extern BOOL isStartingTransferAllowed();
 - (CGFloat)globalDownloadSpeed;
 - (CGFloat)globalUploadSpeed;
 
-- (NSUInteger)torrentsCount;
+- (NSInteger)torrentsCount;
 - (Torrent*)torrentAtIndex:(NSInteger)index;
 
 - (void)addTorrentFromURL:(NSString*)url;
@@ -129,9 +108,9 @@ extern BOOL isStartingTransferAllowed();
 - (BOOL)globalDownloadSpeedLimitEnabled;
 - (NSInteger)globalDownloadSpeedLimit;
 - (NSInteger)globalUploadSpeedLimit;
-- (void)setGlobalMaximumConnections:(NSInteger)c;
+- (void)setGlobalMaximumConnections:(uint16_t)c;
 - (NSInteger)globalMaximumConnections;
-- (void)setConnectionsPerTorrent:(NSInteger)c;
+- (void)setConnectionsPerTorrent:(uint16_t)c;
 - (NSInteger)connectionsPerTorrent;
 - (void)pumpLogMessages;
 - (void)updateGlobalSpeed;
@@ -140,7 +119,6 @@ extern BOOL isStartingTransferAllowed();
 - (void)postBGNotif:(NSString *)message;
 - (id)infoValueForKey:(NSString *)key;
 -(void) openApp;
--(void) showAlert;
 
 @end
 

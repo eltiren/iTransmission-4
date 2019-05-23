@@ -12,7 +12,13 @@
 #define ADD_TRACKER_BUTTON 1002
 #define REMOVE_TRACKER_BUTTON 1003
 
-@implementation TrackersViewController
+@implementation TrackersViewController {
+    Torrent *fTorrent;
+    UITableView *fTableView;
+    UIDocumentInteractionController *_docController;
+    NSMutableArray *Trackers;
+    NSMutableArray *SelectedItems;
+}
 
 - (void)initWithTorrent:(Torrent*)t {
     fTorrent = t;
@@ -171,10 +177,6 @@
     }
 }
 
-- (void)viewDidUnload {
-    [super viewDidUnload];
-}
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
@@ -185,15 +187,10 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    [super viewWillDisappear:animated];
     // start timer
     [self.updateTimer invalidate];
 }
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -201,7 +198,7 @@
     NSLog(@"Count: %lu", (unsigned long)[Trackers count]);
     switch (section) {
         case 0:
-            return [Trackers count];
+            return (NSInteger)[Trackers count];
             break;
         default:
             break;
@@ -216,7 +213,7 @@
     
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     
-    TrackerNode *node = [Trackers objectAtIndex:indexPath.row];
+    TrackerNode *node = [Trackers objectAtIndex:(NSUInteger)indexPath.row];
     
     cell.TrackerURL.text = node.fullAnnounceAddress;
     
@@ -259,7 +256,7 @@
         cell = [TrackerCell cellFromNib];
     }
     
-    TrackerNode *node = [Trackers objectAtIndex:indexPath.row];
+    TrackerNode *node = [Trackers objectAtIndex:(NSUInteger)indexPath.row];
     
     cell.TrackerURL.text = node.fullAnnounceAddress;
     
@@ -279,7 +276,7 @@
     return cell;
 }
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
-	return UITableViewCellAccessoryCheckmark;
+	return UITableViewCellEditingStyleNone;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

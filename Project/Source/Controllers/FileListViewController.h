@@ -22,11 +22,6 @@ typedef enum FileType
 
 @class Torrent, FileListCell;
 @interface FileListViewController : UIViewController <CheckboxControlDelegate,UITableViewDataSource, UITableViewDelegate, UIDocumentInteractionControllerDelegate, UIActionSheetDelegate>
-{
-    Torrent *fTorrent;
-    UITableView *fTableView;
-    UIDocumentInteractionController *_docController;
-}
 @property (nonatomic, readonly) Torrent *torrent;
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) UIDocumentInteractionController *docController;

@@ -13,51 +13,7 @@
 @class GradientButton;
 @class PortChecker;
 @class Controller;
-@interface PrefViewController :UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate> {
-    UITableView *fTableView;
-    
-    IBOutlet UITableViewCell *fAutoPortMapCell;
-    IBOutlet UITableViewCell *fBindPortCell;
-    IBOutlet UITableViewCell *fBackgroundDownloadingCell;
-    IBOutlet UIButton *fCheckPortButton;
-    
-	IBOutlet UISwitch *fAutoPortMapSwitch;
-    IBOutlet UISwitch *fEnableBackgroundDownloadingSwitch;
-	IBOutlet UITextField *fBindPortTextField;
-	IBOutlet UIActivityIndicatorView *fPortCheckActivityIndicator;
-    
-    IBOutlet UILabel *fMaximumConnectionsLabel;
-    IBOutlet UITableViewCell *fMaximumConnectionsLabelCell;
-    IBOutlet UITextField *fMaximumConnectionsTextField;
-    
-    IBOutlet UITableViewCell *fConnectionsPerTorrentLabelCell;
-    IBOutlet UILabel *fConnectionsPerTorrentLabel;
-    IBOutlet UITextField *fConnectionsPerTorrentTextField;
-    
-    IBOutlet UITableViewCell *fDownloadSpeedLimitCell;
-    IBOutlet UITextField *fDownloadSpeedLimitField;
-    
-    IBOutlet UITableViewCell *fUploadSpeedLimitCell;
-    IBOutlet UITextField *fUploadSpeedLimitField;
-    
-    IBOutlet UITableViewCell *fUploadSpeedLimitEnabledCell;
-    IBOutlet UISwitch *fUploadSpeedLimitEnabledSwitch;
-    
-    IBOutlet UITableViewCell *fDownloadSpeedLimitEnabledCell;
-    IBOutlet UISwitch *fDownloadSpeedLimitEnabledSwitch;
-    
-    IBOutlet UITableViewCell *fShareCell;
-    
-    UIColor *fTextFieldTextColor;
-    
-    BOOL keyboardIsShowing;
-    CGRect keyboardBounds;
-	
-	NSDictionary *fOriginalPreferences;
-	PortChecker *fPortChecker;
-    NSIndexPath *fIndexPathToScroll;
-
-}
+@interface PrefViewController :UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) PortChecker *portChecker;
 @property (nonatomic, retain) NSDictionary *originalPreferences;

@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ALAlertBanner.h"
 #import <AVFoundation/AVFoundation.h>
 
 @class Controller;

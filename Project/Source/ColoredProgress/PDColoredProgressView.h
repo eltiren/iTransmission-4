@@ -29,10 +29,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface PDColoredProgressView : UIView {
-	UIColor *_tintColor;
-    CGFloat _progress;
-}
+@interface PDColoredProgressView : UIView
 @property (nonatomic, assign) CGFloat progress;
 
 /**

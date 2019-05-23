@@ -9,9 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface ClipboardLabel : UILabel {
-	BOOL shouldPopUpControlMenu;
-}
+@interface ClipboardLabel : UILabel
 @property (nonatomic, assign) BOOL shouldPopUpControlMenu;
 
 - (BOOL)canBecomeFirstResponder;

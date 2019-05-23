@@ -77,12 +77,15 @@ static void fillRectWithLinearGradient(CGContextRef context, CGRect rect, CGFloa
 }
  */
 
-@implementation PDColoredProgressView
+@implementation PDColoredProgressView {
+    UIColor *_tintColor;
+    CGFloat _progress;
+}
 @synthesize progress = _progress;
 
 - (id) initWithCoder: (NSCoder*)aDecoder {
 	if(self=[super initWithCoder: aDecoder]) {
-		[self setTintColor: [UIColor colorWithRed: 43.0/255.0 green: 134.0/255.0 blue: 225.0/255.0 alpha: 1]];
+		[self setTintColor: [UIColor colorWithRed: 43.0f/255.0f green: 134.0f/255.0f blue: 225.0f/255.0f alpha: 1.0f]];
 	}
 	return self;
 }
@@ -109,7 +112,7 @@ static void fillRectWithLinearGradient(CGContextRef context, CGRect rect, CGFloa
 		
 		// fill upperhalf with light grey
 		CGRect upperhalf = rect;
-		upperhalf.size.height /= 1.75;
+		upperhalf.size.height /= 1.75f;
 		upperhalf.origin.y = 0;
 		
 		CGRect progressRect = rect;
@@ -123,10 +126,10 @@ static void fillRectWithLinearGradient(CGContextRef context, CGRect rect, CGFloa
 		CGContextSetFillColorWithColor(ctx, [_tintColor CGColor]);
 		CGContextFillRect(ctx, progressRect);
 		
-		progressRect.size.width -= 1.25;
-		progressRect.origin.x += 0.625;
-		progressRect.size.height -= 1.25;
-		progressRect.origin.y += 0.625;
+		progressRect.size.width -= 1.25f;
+		progressRect.origin.x += 0.625f;
+		progressRect.size.height -= 1.25f;
+		progressRect.origin.y += 0.625f;
 }
 
 - (void) setTintColor: (UIColor *) aColor {

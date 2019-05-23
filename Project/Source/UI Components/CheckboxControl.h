@@ -13,12 +13,6 @@
 @end
 
 @interface CheckboxControl : UIControl
-{
-    BOOL checked;
-    UIImageView *fImageView;
-    UIImage *fUncheckedImage;
-    UIImage *fCheckedImage;
-}
 
 @property (nonatomic, assign) BOOL checked;
 @property (nonatomic, assign) id<CheckboxControlDelegate> delegate;

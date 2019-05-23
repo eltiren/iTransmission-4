@@ -32,20 +32,18 @@ typedef enum
     PORT_STATUS_ERROR
 } port_status_t;
 
-@interface PortChecker : NSObject
-{    
-    id fDelegate;
-    port_status_t fStatus;
-    
-    NSURLConnection * fConnection;
-    NSMutableData * fPortProbeData;
+@class PortChecker;
 
-    NSInteger fPortNumber;
-    NSTimer * fTimer;
-}
+@protocol PortCheckerDelegate <NSObject>
+
+- (void)portCheckerDidFinishProbing:(PortChecker *)portChecker;
+
+@end
+
+@interface PortChecker : NSObject
 @property (nonatomic, assign) NSInteger portToCheck;
 
-- (id) initForPort: (NSInteger) portNumber delay: (BOOL) delay withDelegate: (id) delegate;
+- (id) initForPort: (NSInteger) portNumber delay: (BOOL) delay withDelegate: (id<PortCheckerDelegate>) delegate;
 - (void) cancelProbe;
 
 - (port_status_t) status;

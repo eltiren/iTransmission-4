@@ -22,3 +22,4 @@
 - (void)setInteger:(NSInteger)i forKey:(NSString*)key;
 
 @end
+

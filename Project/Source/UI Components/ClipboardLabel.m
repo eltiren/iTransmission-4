@@ -9,7 +9,10 @@
 #import "ClipboardLabel.h"
 
 
-@implementation ClipboardLabel
+@implementation ClipboardLabel {
+    BOOL shouldPopUpControlMenu;
+}
+
 @synthesize shouldPopUpControlMenu;
 
 - (id)initWithCoder:(NSCoder *)aDecoder

@@ -15,13 +15,7 @@
 
 @class Torrent, TrackerCell;
 
-@interface TrackersViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIDocumentInteractionControllerDelegate> {
-    Torrent *fTorrent;
-    UITableView *fTableView;
-    UIDocumentInteractionController *_docController;
-    NSMutableArray *Trackers;
-    NSMutableArray *SelectedItems;
-}
+@interface TrackersViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIDocumentInteractionControllerDelegate>
 @property (nonatomic, readonly) Torrent *torrent;
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) UIDocumentInteractionController *docController;

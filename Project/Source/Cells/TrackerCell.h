@@ -8,15 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TrackerCell : UITableViewCell {
-    UILabel *fURL;
-    UILabel *fTime;
-    UILabel *fTimeLabel;
-    UILabel *fSeedLabel;
-    UILabel *fSeedNumber;
-    UILabel *fPeerLabel;
-    UILabel *fPeerNumber;
-}
+@interface TrackerCell : UITableViewCell
 
 + (id)cellFromNib;
 

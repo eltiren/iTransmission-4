@@ -11,7 +11,42 @@
 #import "Controller.h"
 #include <math.h>  // roundtol()
 
-@implementation BandwidthController
+@implementation BandwidthController {
+    //Torrent *fTorrent;
+    UITableView *fTableView;
+    BOOL _visible;
+    BOOL keyboardIsShowing;
+    NSIndexPath *fIndexPathToScroll;
+    CGRect keyboardBounds;
+    
+    IBOutlet UILabel *fMaximumConnectionsLabel;
+    IBOutlet UITableViewCell *fMaximumConnectionsLabelCell;
+    
+    IBOutlet UITableViewCell *fMaximumConnectionsSliderCell;
+    IBOutlet UISlider *fMaximumConnectionsSlider;
+    
+    IBOutlet UITableViewCell *fConnectionsPerTorrentLabelCell;
+    IBOutlet UILabel *fConnectionsPerTorrentLabel;
+    
+    IBOutlet UITableViewCell *fConnectionsPerTorrentSliderCell;
+    IBOutlet UISlider *fConnectionsPerTorrentSlider;
+    
+    IBOutlet UITableViewCell *fDownloadSpeedLimitCell;
+    IBOutlet UITextField *fDownloadSpeedLimitField;
+    
+    IBOutlet UITableViewCell *fUploadSpeedLimitCell;
+    IBOutlet UITextField *fUploadSpeedLimitField;
+    
+    IBOutlet UITableViewCell *fUploadSpeedLimitEnabledCell;
+    IBOutlet UISwitch *fUploadSpeedLimitEnabledSwitch;
+    
+    IBOutlet UITableViewCell *fDownloadSpeedLimitEnabledCell;
+    IBOutlet UISwitch *fDownloadSpeedLimitEnabledSwitch;
+    
+    IBOutlet UITableViewCell *fOverrideSpeedLimitsCell;
+    IBOutlet UISwitch *fOverrideSpeedLimitSwitch;
+}
+
 @synthesize torrent = fTorrent;
 @synthesize visible = _visible;
 @synthesize tableView = fTableView;
@@ -87,7 +122,8 @@
                     if (self.torrent) return fOverrideSpeedLimitsCell;
                     else return fUploadSpeedLimitEnabledCell;
                 case 2:
-                    return fDownloadSpeedLimitCell;            }
+                    return fDownloadSpeedLimitCell;
+            }
         case 2:
             switch (indexPath.row) {
                 case 1:
@@ -133,7 +169,7 @@
 
 - (void)maximumConnectionsSliderValueChanged:(id)sender
 {
-    int intValue = round([fMaximumConnectionsSlider value]);
+    uint16_t intValue = (uint16_t)round([fMaximumConnectionsSlider value]);
     [fMaximumConnectionsLabel setText:[NSString stringWithFormat:@"%d", intValue]];
     if (self.torrent) {
         [self.torrent setMaxPeerConnect:intValue];
@@ -146,7 +182,7 @@
 - (IBAction)connectionsPerTorrentSliderValueChanged:(id)sender
 {
     assert(self.torrent == nil);
-    int intValue = round([fConnectionsPerTorrentSlider value]);
+    uint16_t intValue = (uint16_t)round([fConnectionsPerTorrentSlider value]);
     [fConnectionsPerTorrentLabel setText:[NSString stringWithFormat:@"%d", intValue]];
     [self.controller setConnectionsPerTorrent:intValue];
 }
@@ -285,7 +321,7 @@
     
     UIWindow* tempWindow = [[[UIApplication sharedApplication] windows] objectAtIndex:1];
     UIView* keyboard;
-    for(int i=0; i<[tempWindow.subviews count]; i++) {
+    for(NSUInteger i=0; i<[tempWindow.subviews count]; i++) {
         keyboard = [tempWindow.subviews objectAtIndex:i];
         // keyboard found, add the button
         if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 3.2) {

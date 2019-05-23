@@ -44,7 +44,7 @@ static NSDateFormatter *displayFormatter;
  * This guy can be a little unreliable and produce unexpected results,
  * you're better off using daysAgoAgainstMidnight
  */
-- (NSUInteger)daysAgo {
+- (NSInteger)daysAgo {
     NSDateComponents *components = [calendar components:NSCalendarUnitDay
 											   fromDate:self
 												 toDate:[NSDate date]
@@ -52,13 +52,13 @@ static NSDateFormatter *displayFormatter;
 	return [components day];
 }
 
-- (NSUInteger)daysAgoAgainstMidnight {
+- (NSInteger)daysAgoAgainstMidnight {
 	// get a midnight version of ourself:
 	NSDateFormatter *mdf = [[NSDateFormatter alloc] init];
 	[mdf setDateFormat:@"yyyy-MM-dd"];
 	NSDate *midnight = [mdf dateFromString:[mdf stringFromDate:self]];
 	
-	return (int)[midnight timeIntervalSinceNow] / (60*60*24) *-1;
+	return (NSInteger)[midnight timeIntervalSinceNow] / (60*60*24) *-1;
 }
 
 - (NSString *)stringDaysAgo {
@@ -66,7 +66,7 @@ static NSDateFormatter *displayFormatter;
 }
 
 - (NSString *)stringDaysAgoAgainstMidnight:(BOOL)flag {
-	NSUInteger daysAgo = (flag) ? [self daysAgoAgainstMidnight] : [self daysAgo];
+	NSInteger daysAgo = (flag) ? [self daysAgoAgainstMidnight] : [self daysAgo];
 	NSString *text = nil;
 	switch (daysAgo) {
 		case 0:
@@ -81,7 +81,7 @@ static NSDateFormatter *displayFormatter;
 	return text;
 }
 
-- (NSUInteger)weekday {
+- (NSInteger)weekday {
     NSDateComponents *weekdayComponents = [calendar components:(NSCalendarUnitWeekday) fromDate:self];
 	return [weekdayComponents weekday];
 }

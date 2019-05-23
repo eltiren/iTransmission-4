@@ -9,9 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface FlexibleLabelCell : UITableViewCell {
-	UILabel *fLabel;
-}
+@interface FlexibleLabelCell : UITableViewCell
 @property (nonatomic, retain) IBOutlet UILabel *flexibleLabel;
 
 - (void)resizeToFitText;

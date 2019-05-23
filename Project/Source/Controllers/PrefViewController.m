@@ -12,7 +12,54 @@
 #import "PortChecker.h"
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
-@implementation PrefViewController
+@interface PrefViewController() <PortCheckerDelegate>
+
+@end
+
+@implementation PrefViewController {
+    UITableView *fTableView;
+    
+    IBOutlet UITableViewCell *fAutoPortMapCell;
+    IBOutlet UITableViewCell *fBindPortCell;
+    IBOutlet UITableViewCell *fBackgroundDownloadingCell;
+    IBOutlet UIButton *fCheckPortButton;
+    
+    IBOutlet UISwitch *fAutoPortMapSwitch;
+    IBOutlet UISwitch *fEnableBackgroundDownloadingSwitch;
+    IBOutlet UITextField *fBindPortTextField;
+    IBOutlet UIActivityIndicatorView *fPortCheckActivityIndicator;
+    
+    IBOutlet UILabel *fMaximumConnectionsLabel;
+    IBOutlet UITableViewCell *fMaximumConnectionsLabelCell;
+    IBOutlet UITextField *fMaximumConnectionsTextField;
+    
+    IBOutlet UITableViewCell *fConnectionsPerTorrentLabelCell;
+    IBOutlet UILabel *fConnectionsPerTorrentLabel;
+    IBOutlet UITextField *fConnectionsPerTorrentTextField;
+    
+    IBOutlet UITableViewCell *fDownloadSpeedLimitCell;
+    IBOutlet UITextField *fDownloadSpeedLimitField;
+    
+    IBOutlet UITableViewCell *fUploadSpeedLimitCell;
+    IBOutlet UITextField *fUploadSpeedLimitField;
+    
+    IBOutlet UITableViewCell *fUploadSpeedLimitEnabledCell;
+    IBOutlet UISwitch *fUploadSpeedLimitEnabledSwitch;
+    
+    IBOutlet UITableViewCell *fDownloadSpeedLimitEnabledCell;
+    IBOutlet UISwitch *fDownloadSpeedLimitEnabledSwitch;
+    
+    IBOutlet UITableViewCell *fShareCell;
+    
+    UIColor *fTextFieldTextColor;
+    
+    BOOL keyboardIsShowing;
+    CGRect keyboardBounds;
+    
+    NSDictionary *fOriginalPreferences;
+    PortChecker *fPortChecker;
+    NSIndexPath *fIndexPathToScroll;
+}
 
 @synthesize tableView = fTableView;
 @synthesize originalPreferences = fOriginalPreferences;
@@ -202,7 +249,7 @@
             }
         }
     }
-    return nil;
+    return [UITableViewCell new];
 }
 
 - (void)portCheckButtonClicked
@@ -253,7 +300,7 @@
     
     // set bind port
     [fDefaults setInteger:[fBindPortTextField text].intValue forKey:@"BindPort"];
-    tr_sessionSetPeerPort(fHandle, [fBindPortTextField text].intValue);
+    tr_sessionSetPeerPort(fHandle, (tr_port)[fBindPortTextField text].intValue);
     
     [fDefaults synchronize];
     
@@ -357,13 +404,13 @@
 
 - (IBAction)connectionsPerTorrentChanged:(id)sender
 {
-    int intValue = [[fConnectionsPerTorrentTextField text] intValue];
+    uint16_t intValue = (uint16_t)[[fConnectionsPerTorrentTextField text] intValue];
     [self.controller setConnectionsPerTorrent:intValue];
 }
 
 - (IBAction)maximumConnectionsPerTorrentChanged:(id)sender
 {
-    int intValue = [[fMaximumConnectionsTextField text] intValue];
+    uint16_t intValue = (uint16_t)[[fMaximumConnectionsTextField text] intValue];
     [self.controller setConnectionsPerTorrent:intValue];
 }
 
@@ -385,16 +432,8 @@
 {
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-}
-
-- (void)viewDidUnload {
-    [super viewDidUnload];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

@@ -28,31 +28,6 @@
 @class FileListNode;
 
 @interface Torrent : NSObject <NSCopying>//, QLPreviewItem>
-{
-    tr_torrent * fHandle;
-    const tr_info * fInfo;
-    const tr_stat * fStat;
-	
-    NSUserDefaults * fDefaults;
-    
-    UIImage * fIcon;
-    
-    NSString * fHashString;
-    
-    tr_file_stat * fFileStat;
-    NSArray * fFileList, * fFlatFileList;
-    
-    NSIndexSet * fPreviousFinishedIndexes;
-    NSDate * fPreviousFinishedIndexesDate;
-    
-    BOOL fWaitToStart, fStalled;
-    
-    NSInteger fGroupValue;
-    
-    BOOL fResumeOnWake;
-    
-    UIBackgroundTaskIdentifier bgTask;
-}
 
 @property (nonatomic, retain) Controller *controller;
 
@@ -93,14 +68,14 @@
 - (CGFloat) ratio;
 - (tr_ratiolimit) ratioSetting;
 - (void) setRatioSetting: (tr_ratiolimit) setting;
-- (CGFloat) ratioLimit;
+- (double) ratioLimit;
 - (void) setRatioLimit: (CGFloat) limit;
 - (CGFloat) progressStopRatio;
 
 - (tr_idlelimit) idleSetting;
 - (void) setIdleSetting: (tr_idlelimit) setting;
 - (NSUInteger) idleLimitMinutes;
-- (void) setIdleLimitMinutes: (NSUInteger) limit;
+- (void) setIdleLimitMinutes: (uint16_t) limit;
 
 - (BOOL) usesSpeedLimit: (BOOL) upload;
 - (void) setUseSpeedLimit: (BOOL) use upload: (BOOL) upload;
@@ -149,10 +124,10 @@
 - (NSString *) dataLocation;
 - (NSString *) fileLocation: (FileListNode *) node;
 
-- (CGFloat) progress;
+- (float) progress;
 - (CGFloat) progressDone;
 - (CGFloat) progressLeft;
-- (CGFloat) checkingProgress;
+- (float) checkingProgress;
 
 - (CGFloat) availableDesired;
 
@@ -207,7 +182,7 @@
 
 - (NSArray *) fileList;
 - (NSArray *) flatFileList;
-- (NSInteger) fileCount;
+- (NSUInteger) fileCount;
 - (void) updateFileStat;
 
 //methods require fileStats to have been updated recently to be accurate

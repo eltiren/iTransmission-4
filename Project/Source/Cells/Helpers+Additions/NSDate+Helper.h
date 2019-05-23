@@ -32,11 +32,11 @@
 
 @interface NSDate (Helper)
 
-- (NSUInteger)daysAgo;
-- (NSUInteger)daysAgoAgainstMidnight;
+- (NSInteger)daysAgo;
+- (NSInteger)daysAgoAgainstMidnight;
 - (NSString *)stringDaysAgo;
 - (NSString *)stringDaysAgoAgainstMidnight:(BOOL)flag;
-- (NSUInteger)weekday;
+- (NSInteger)weekday;
 
 + (NSDate *)dateFromString:(NSString *)string;
 + (NSDate *)dateFromString:(NSString *)string withFormat:(NSString *)format;
