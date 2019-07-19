@@ -544,7 +544,7 @@
 						CreatedOnToolsVersion = 7.3.1;
 					};
 					8981243218884D2900DB955B = {
-						DevelopmentTeam = ZAQGVMJE7W;
+						DevelopmentTeam = F3L83SFX87;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -878,12 +878,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_LINK_OBJC_RUNTIME = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = ZAQGVMJE7W;
+				DEVELOPMENT_TEAM = F3L83SFX87;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -896,10 +897,11 @@
 				);
 				INFOPLIST_FILE = "Other Sources/iTransmission-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
-					"../Compilation/out/lib/**",
+					"../Compilation/out/$(CURRENT_ARCH)/lib/**",
 					"$(inherited)",
 				);
 				OTHER_LDFLAGS = (
+					"-lb64",
 					"-ltransmission",
 					"-levent",
 					"-lssl",
@@ -914,12 +916,13 @@
 					"-ObjC",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sanekgusev.itransmission2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rollncode.itransmission2;
 				PRODUCT_NAME = iTransmission;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SHARED_PRECOMPS_DIR = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "../Compilation/out/$(CURRENT_ARCH)/include/**";
+				VALID_ARCHS = "arm64 arm64e";
 			};
 			name = Debug;
 		};
@@ -927,12 +930,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_LINK_OBJC_RUNTIME = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				DEVELOPMENT_TEAM = ZAQGVMJE7W;
+				DEVELOPMENT_TEAM = F3L83SFX87;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -944,10 +948,11 @@
 				);
 				INFOPLIST_FILE = "Other Sources/iTransmission-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
-					"../Compilation/out/lib/**",
+					"../Compilation/out/$(CURRENT_ARCH)/lib/**",
 					"$(inherited)",
 				);
 				OTHER_LDFLAGS = (
+					"-lb64",
 					"-ltransmission",
 					"-levent",
 					"-lssl",
@@ -962,13 +967,14 @@
 					"-ObjC",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sanekgusev.itransmission2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rollncode.itransmission2;
 				PRODUCT_NAME = iTransmission;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SHARED_PRECOMPS_DIR = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "../Compilation/out/$(CURRENT_ARCH)/include/**";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 arm64e";
 			};
 			name = Release;
 		};
@@ -976,12 +982,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_LINK_OBJC_RUNTIME = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				DEVELOPMENT_TEAM = ZAQGVMJE7W;
+				DEVELOPMENT_TEAM = F3L83SFX87;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -993,10 +1000,11 @@
 				);
 				INFOPLIST_FILE = "Other Sources/iTransmission-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
-					"../Compilation/out/lib/**",
+					"../Compilation/out/$(CURRENT_ARCH)/lib/**",
 					"$(inherited)",
 				);
 				OTHER_LDFLAGS = (
+					"-lb64",
 					"-ltransmission",
 					"-levent",
 					"-lssl",
@@ -1011,13 +1019,14 @@
 					"-ObjC",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sanekgusev.itransmission2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rollncode.itransmission2;
 				PRODUCT_NAME = iTransmission;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SHARED_PRECOMPS_DIR = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "../Compilation/out/$(CURRENT_ARCH)/include/**";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "arm64 arm64e";
 			};
 			name = Distribution;
 		};

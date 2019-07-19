@@ -5,7 +5,7 @@
 
 #########################
 #Space-seperated list of archs e.g export ARCHS=("armv7 armv7s arm64 i386 x86_64")
-export ARCH=x86_64
+export ARCH=arm64
 export DEVELOPER_DIR="/Applications/Xcode.app/Contents/Developer"
 export DEVFOLDER="/Applications/Xcode.app/Contents/Developer"
 # an SDK prior to 6.0 is required if the target ARCH is armv6
@@ -25,8 +25,8 @@ export TEMP_DIR="$PWD/temp"
 export PATCH_DIR="$PWD/patches"
 export DEPENDENCY_DIR="$PWD/dependency"
 export BUILD_FILTER="ssl,curl,trans,libev"
-export TOOL_DIR="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin"
-export Min_IPHONE_OS=8.0
+export TOOL_DIR="/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin"
+export Min_IPHONE_OS=9.0
 
 function do_abort {
 	echo $1 >&2

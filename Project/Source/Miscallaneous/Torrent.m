@@ -251,7 +251,7 @@ static int trashDataFile(const char * filename)
 
 - (void) closeRemoveTorrent: (BOOL) trashFiles
 {
-    tr_torrentRemove(fHandle, trashFiles, trashDataFile);
+    tr_torrentRemove(fHandle, trashFiles, (void *)trashDataFile);
 }
 
 - (void) changeDownloadFolderBeforeUsing: (NSString *) folder
@@ -620,7 +620,7 @@ static int trashDataFile(const char * filename)
 
 - (BOOL) isFolder
 {
-    return fInfo->isMultifile;
+    return fInfo->isFolder;
 }
 
 - (uint64_t) size

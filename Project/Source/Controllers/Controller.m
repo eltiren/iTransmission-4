@@ -96,7 +96,6 @@ static void signal_handler(int sig) {
     self.torrentViewController.controller = self;
     
     
-    [UNUserNotificationCenter currentNotificationCenter] setNotificationCategories:<#(nonnull NSSet<UNNotificationCategory *> *)#>
     // enable notifications on iOS 9
     [application registerUserNotificationSettings:[UIUserNotificationSettings
                                                    settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|
@@ -284,7 +283,7 @@ static void signal_handler(int sig) {
                           [NSLocalizedString(@"GB", "Memory size - gigabytes") UTF8String],
                           [NSLocalizedString(@"TB", "Memory size - terabytes") UTF8String]);
 	
-	fLib = tr_sessionInit("macosx", [[self configDir] cStringUsingEncoding:NSASCIIStringEncoding], YES, &settings);
+	fLib = tr_sessionInit([[self configDir] cStringUsingEncoding:NSASCIIStringEncoding], YES, &settings);
 	tr_variantFree(&settings);
     
     NSString *webDir = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"web"];
