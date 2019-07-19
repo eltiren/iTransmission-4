@@ -45,6 +45,7 @@
 		3AD57F7F1EB7040300A86F91 /* web-close.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AD57F7E1EB7040300A86F91 /* web-close.png */; };
 		3AD57F811EB7B33400A86F91 /* Main_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AD57F801EB7B33400A86F91 /* Main_Storyboard.storyboard */; };
 		3AE8C5BA1D14DB98006B78A3 /* phone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3AE8C5B91D14DB98006B78A3 /* phone.mp3 */; };
+		7785DE1222E1D52F00B1A41F /* TorrentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785DE1122E1D52F00B1A41F /* TorrentViewController.swift */; };
 		895A738D18D9CB6F00561CD6 /* FileListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A731118D9CB6E00561CD6 /* FileListCell.m */; };
 		895A738E18D9CB6F00561CD6 /* FlexibleLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A731318D9CB6E00561CD6 /* FlexibleLabelCell.m */; };
 		895A738F18D9CB6F00561CD6 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A731618D9CB6E00561CD6 /* NSDate+Helper.m */; };
@@ -60,7 +61,7 @@
 		895A739918D9CB6F00561CD6 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A732C18D9CB6E00561CD6 /* DetailViewController.m */; };
 		895A739A18D9CB6F00561CD6 /* FileListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A732E18D9CB6E00561CD6 /* FileListViewController.m */; };
 		895A739C18D9CB6F00561CD6 /* PrefViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A733218D9CB6E00561CD6 /* PrefViewController.m */; };
-		895A739E18D9CB6F00561CD6 /* TorrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A733618D9CB6E00561CD6 /* TorrentViewController.m */; };
+		895A739E18D9CB6F00561CD6 /* _TorrentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A733618D9CB6E00561CD6 /* _TorrentViewController.m */; };
 		895A739F18D9CB6F00561CD6 /* TrackersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A733818D9CB6E00561CD6 /* TrackersViewController.m */; };
 		895A73A518D9CB6F00561CD6 /* bannerAlert.png in Resources */ = {isa = PBXBuildFile; fileRef = 895A734618D9CB6E00561CD6 /* bannerAlert.png */; };
 		895A73A618D9CB6F00561CD6 /* bannerAlert@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 895A734718D9CB6E00561CD6 /* bannerAlert@2x.png */; };
@@ -148,6 +149,8 @@
 		3AD57F7E1EB7040300A86F91 /* web-close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "web-close.png"; sourceTree = "<group>"; };
 		3AD57F801EB7B33400A86F91 /* Main_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_Storyboard.storyboard; sourceTree = SOURCE_ROOT; };
 		3AE8C5B91D14DB98006B78A3 /* phone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = phone.mp3; sourceTree = "<group>"; };
+		7785DE1022E1D52E00B1A41F /* iTransmission-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iTransmission-Bridging-Header.h"; sourceTree = "<group>"; };
+		7785DE1122E1D52F00B1A41F /* TorrentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TorrentViewController.swift; path = "../../../../../../../../System/Volumes/Data/Users/eltiren/Sources/torrents/iTransmission-4/Project/Source/Controllers/TorrentViewController.swift"; sourceTree = "<group>"; };
 		895A731018D9CB6E00561CD6 /* FileListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileListCell.h; sourceTree = "<group>"; };
 		895A731118D9CB6E00561CD6 /* FileListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileListCell.m; sourceTree = "<group>"; };
 		895A731218D9CB6E00561CD6 /* FlexibleLabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlexibleLabelCell.h; sourceTree = "<group>"; };
@@ -178,8 +181,8 @@
 		895A732E18D9CB6E00561CD6 /* FileListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileListViewController.m; sourceTree = "<group>"; };
 		895A733118D9CB6E00561CD6 /* PrefViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefViewController.h; sourceTree = "<group>"; };
 		895A733218D9CB6E00561CD6 /* PrefViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrefViewController.m; sourceTree = "<group>"; };
-		895A733518D9CB6E00561CD6 /* TorrentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentViewController.h; sourceTree = "<group>"; };
-		895A733618D9CB6E00561CD6 /* TorrentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentViewController.m; sourceTree = "<group>"; };
+		895A733518D9CB6E00561CD6 /* _TorrentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TorrentViewController.h; sourceTree = "<group>"; };
+		895A733618D9CB6E00561CD6 /* _TorrentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TorrentViewController.m; sourceTree = "<group>"; };
 		895A733718D9CB6E00561CD6 /* TrackersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackersViewController.h; sourceTree = "<group>"; };
 		895A733818D9CB6E00561CD6 /* TrackersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackersViewController.m; sourceTree = "<group>"; };
 		895A734618D9CB6E00561CD6 /* bannerAlert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bannerAlert.png; sourceTree = "<group>"; };
@@ -361,12 +364,14 @@
 				895A732E18D9CB6E00561CD6 /* FileListViewController.m */,
 				895A733118D9CB6E00561CD6 /* PrefViewController.h */,
 				895A733218D9CB6E00561CD6 /* PrefViewController.m */,
-				895A733518D9CB6E00561CD6 /* TorrentViewController.h */,
-				895A733618D9CB6E00561CD6 /* TorrentViewController.m */,
+				895A733518D9CB6E00561CD6 /* _TorrentViewController.h */,
+				895A733618D9CB6E00561CD6 /* _TorrentViewController.m */,
+				7785DE1122E1D52F00B1A41F /* TorrentViewController.swift */,
 				895A733718D9CB6E00561CD6 /* TrackersViewController.h */,
 				895A733818D9CB6E00561CD6 /* TrackersViewController.m */,
 				3A7D2FBE1D4EB6C500876250 /* AudioPlayer.h */,
 				3A7D2FBF1D4EB6C500876250 /* AudioPlayer.m */,
+				7785DE1022E1D52E00B1A41F /* iTransmission-Bridging-Header.h */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -545,6 +550,7 @@
 					};
 					8981243218884D2900DB955B = {
 						DevelopmentTeam = F3L83SFX87;
+						LastSwiftMigration = 1100;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -680,13 +686,14 @@
 				895A739518D9CB6F00561CD6 /* TrackerCell.m in Sources */,
 				895A738F18D9CB6F00561CD6 /* NSDate+Helper.m in Sources */,
 				895A739F18D9CB6F00561CD6 /* TrackersViewController.m in Sources */,
-				895A739E18D9CB6F00561CD6 /* TorrentViewController.m in Sources */,
+				895A739E18D9CB6F00561CD6 /* _TorrentViewController.m in Sources */,
 				895A739918D9CB6F00561CD6 /* DetailViewController.m in Sources */,
 				895A738D18D9CB6F00561CD6 /* FileListCell.m in Sources */,
 				895A73AE18D9CB6F00561CD6 /* Torrent.m in Sources */,
 				895A739418D9CB6F00561CD6 /* TorrentCell.m in Sources */,
 				895A73B018D9CB6F00561CD6 /* FileListNode.m in Sources */,
 				895A739A18D9CB6F00561CD6 /* FileListViewController.m in Sources */,
+				7785DE1222E1D52F00B1A41F /* TorrentViewController.swift in Sources */,
 				895A739218D9CB6F00561CD6 /* NSStringAdditions.m in Sources */,
 				895A73AD18D9CB6F00561CD6 /* PortChecker.m in Sources */,
 				895A738E18D9CB6F00561CD6 /* FlexibleLabelCell.m in Sources */,
@@ -809,7 +816,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				OTHER_CFLAGS = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
@@ -880,6 +887,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_LINK_OBJC_RUNTIME = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -896,6 +904,8 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Other Sources/iTransmission-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"../Compilation/out/$(CURRENT_ARCH)/lib/**",
 					"$(inherited)",
@@ -920,6 +930,9 @@
 				PRODUCT_NAME = iTransmission;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SHARED_PRECOMPS_DIR = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Source/Controllers/iTransmission-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "../Compilation/out/$(CURRENT_ARCH)/include/**";
 				VALID_ARCHS = "arm64 arm64e";
@@ -932,6 +945,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_LINK_OBJC_RUNTIME = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -947,6 +961,8 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Other Sources/iTransmission-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"../Compilation/out/$(CURRENT_ARCH)/lib/**",
 					"$(inherited)",
@@ -971,6 +987,8 @@
 				PRODUCT_NAME = iTransmission;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SHARED_PRECOMPS_DIR = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Source/Controllers/iTransmission-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "../Compilation/out/$(CURRENT_ARCH)/include/**";
 				VALIDATE_PRODUCT = YES;
@@ -984,6 +1002,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = arm64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_LINK_OBJC_RUNTIME = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -999,6 +1018,8 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Other Sources/iTransmission-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"../Compilation/out/$(CURRENT_ARCH)/lib/**",
 					"$(inherited)",
@@ -1023,6 +1044,8 @@
 				PRODUCT_NAME = iTransmission;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SHARED_PRECOMPS_DIR = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Source/Controllers/iTransmission-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "../Compilation/out/$(CURRENT_ARCH)/include/**";
 				VALIDATE_PRODUCT = YES;
@@ -1092,7 +1115,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;
@@ -1163,7 +1186,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_LABEL = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				OTHER_CFLAGS = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;

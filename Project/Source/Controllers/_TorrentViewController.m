@@ -6,7 +6,7 @@
 //  Copyright (c) 2010 __MyCompanyName__. All rights reserved.
 //
 
-#import "TorrentViewController.h"
+#import "_TorrentViewController.h"
 #import "Controller.h"
 #import "TorrentCell.h"
 #import "Torrent.h"
@@ -25,7 +25,7 @@
 #define ADD_FROM_MAGNET_TAG 1002
 #define REMOVE_COMFIRM_TAG 1003
 
-@implementation TorrentViewController
+@implementation _TorrentViewController
 
 @synthesize tableView;
 @synthesize activityIndicator;
@@ -37,41 +37,17 @@
 @synthesize audio;
 @synthesize pref;
 
-- (NSInteger)tableView:(UITableView *)table numberOfRowsInSection:(NSInteger)section
-{
-    if (section == 0) {
-        return [self.controller torrentsCount];
-        
-    }
-    return 0;
-}
-
-- (void)tableView:(UITableView *)ftableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-	if (self.tableView.editing == NO) {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_Storyboard" bundle:nil];
-        DetailViewController *detailController = [storyboard instantiateViewControllerWithIdentifier:@"detail_view"];
-        [detailController initWithTorrent:[self.controller torrentAtIndex:indexPath.row] controller:self.controller];
-		[self.navigationController pushViewController:detailController animated:YES];
-		[ftableView deselectRowAtIndexPath:indexPath animated:YES];
-	}
-	else {
-		[self.selectedIndexPaths addObject:indexPath];
-		TorrentCell *cell = (TorrentCell*)[self.tableView cellForRowAtIndexPath:indexPath];
-		[cell.controlButton setEnabled:NO];
-	}
-}
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     /*
-	if (self.tableView.editing == NO) {
-	}
-	else {
-		[self.selectedIndexPaths removeObject:indexPath];
-		TorrentCell *cell = (TorrentCell*)[self.tableView cellForRowAtIndexPath:indexPath];
-		[cell.controlButton setEnabled:YES];
-	}
+     if (self.tableView.editing == NO) {
+     }
+     else {
+     [self.selectedIndexPaths removeObject:indexPath];
+     TorrentCell *cell = (TorrentCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+     [cell.controlButton setEnabled:YES];
+     }
      */
 }
 
@@ -90,20 +66,20 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 80.0f; 
+    return 80.0f;
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath { 
-	return UITableViewCellEditingStyleDelete;
+    return UITableViewCellEditingStyleDelete;
 }
 
 - (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath
 {
 }
-       
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	Torrent * torrent = [self.controller torrentAtIndex:indexPath.row];
+    Torrent * torrent = [self.controller torrentAtIndex:indexPath.row];
     self.selectedIndexPaths = [NSMutableArray array];
     [self.selectedIndexPaths addObject:indexPath];
     NSString *msg = [NSString stringWithFormat:@"Are you sure to remove %@ torrent?", [torrent name]];
@@ -134,49 +110,49 @@
 {
     CGPoint pos = [sender convertPoint:CGPointZero toView:self.tableView];
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:pos];
-	
-	Torrent *torrent = [self.controller torrentAtIndex:indexPath.row];
-	if ([torrent isActive])
-		[torrent stopTransfer];
-	else 
-		[torrent startTransfer];
-	
-	[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
+
+    Torrent *torrent = [self.controller torrentAtIndex:indexPath.row];
+    if ([torrent isActive])
+        [torrent stopTransfer];
+    else
+        [torrent startTransfer];
+
+    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 - (void)setupCell:(TorrentCell*)cell forTorrent:(Torrent*)t
 {
-	[t update];
-	cell.nameLabel.text = [t name];
-	cell.upperDetailLabel.text = [t progressString];
-	if (![t isChecking]) {
+    [t update];
+    cell.nameLabel.text = [t name];
+    cell.upperDetailLabel.text = [t progressString];
+    if (![t isChecking]) {
         [cell.progressView setProgress:[t progress]];
     }
     
-	if ([t isSeeding])
-		[cell useGreenColor];
-	else if ([t isChecking]) {
-		[cell useGreenColor];
+    if ([t isSeeding])
+        [cell useGreenColor];
+    else if ([t isChecking]) {
+        [cell useGreenColor];
         [cell.progressView setProgress:[t checkingProgress]];
     }
-	else if ([t isActive] && ![t isComplete])
-		[cell useBlueColor];
-	else if (![t isActive])
-		[cell useBlueColor];
-	else if (![t isChecking])
-		[cell useGreenColor];
-	if ([t isActive])
-		[cell.controlButton setPauseStyle];
-	else 
-		[cell.controlButton setResumeStyle];
+    else if ([t isActive] && ![t isComplete])
+        [cell useBlueColor];
+    else if (![t isActive])
+        [cell useBlueColor];
+    else if (![t isChecking])
+        [cell useGreenColor];
+    if ([t isActive])
+        [cell.controlButton setPauseStyle];
+    else
+        [cell.controlButton setResumeStyle];
 
-	if (![self.controller isStartingTransferAllowed]) {
-		[cell.controlButton setEnabled:NO];
-	}
-	else {
-		[cell.controlButton setEnabled:YES];
-	}
-	cell.lowerDetailLabel.text = [t statusString];
+    if (![self.controller isStartingTransferAllowed]) {
+        [cell.controlButton setEnabled:NO];
+    }
+    else {
+        [cell.controlButton setEnabled:YES];
+    }
+    cell.lowerDetailLabel.text = [t statusString];
 }
 
 - (void)viewDidLoad {
@@ -212,31 +188,31 @@
 
 - (void)resumeButtonClicked:(id)sender
 {
-	for (NSIndexPath *indexPath in self.selectedIndexPaths) {
-		Torrent *torrent = [self.controller torrentAtIndex:indexPath.row];
-		[torrent startTransfer];
-	}
-	[self.tableView reloadData];
-	self.selectedIndexPaths = nil;	
+    for (NSIndexPath *indexPath in self.selectedIndexPaths) {
+        Torrent *torrent = [self.controller torrentAtIndex:indexPath.row];
+        [torrent startTransfer];
+    }
+    [self.tableView reloadData];
+    self.selectedIndexPaths = nil;
 }
 
 - (void)pauseButtonClicked:(id)sender
 {
-	for (NSIndexPath *indexPath in self.selectedIndexPaths) {
-		Torrent *torrent = [self.controller torrentAtIndex:indexPath.row];
-		[torrent stopTransfer];
-	}
-	[self.tableView reloadData];
-	self.selectedIndexPaths = nil;
+    for (NSIndexPath *indexPath in self.selectedIndexPaths) {
+        Torrent *torrent = [self.controller torrentAtIndex:indexPath.row];
+        [torrent stopTransfer];
+    }
+    [self.tableView reloadData];
+    self.selectedIndexPaths = nil;
 }
 
 - (void)removeButtonClicked:(id)sender
 {
-	NSString *msg;
+    NSString *msg;
     if ([self.selectedIndexPaths count] == 1) {
-		msg = @"Are you sure to remove one torrent?";
+        msg = @"Are you sure to remove one torrent?";
     } else {
-		msg = [NSString stringWithFormat:@"Are you sure to remove %lu torrents?", (unsigned long)[self.selectedIndexPaths count]];
+        msg = [NSString stringWithFormat:@"Are you sure to remove %lu torrents?", (unsigned long)[self.selectedIndexPaths count]];
     }
 
     UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:msg message:nil preferredStyle:UIAlertControllerStyleAlert];
@@ -274,20 +250,20 @@
 
 - (void)updateUI
 {
-	NSArray *visibleCells = [self.tableView visibleCells];
-	
-	for (TorrentCell *cell in visibleCells) {
-		[self performSelector:@selector(updateCell:) withObject:cell afterDelay:0.0f];
-	}
+    NSArray *visibleCells = [self.tableView visibleCells];
+
+    for (TorrentCell *cell in visibleCells) {
+        [self performSelector:@selector(updateCell:) withObject:cell afterDelay:0.0f];
+    }
 }
-	
+
 - (void)updateCell:(TorrentCell*)c
 {
-	NSIndexPath *indexPath = [self.tableView indexPathForCell:c];
-	if (indexPath) {
-		Torrent *torrent = [self.controller torrentAtIndex:indexPath.row];
-		[self setupCell:c forTorrent:torrent];
-	}
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:c];
+    if (indexPath) {
+        Torrent *torrent = [self.controller torrentAtIndex:indexPath.row];
+        [self setupCell:c forTorrent:torrent];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -354,7 +330,7 @@
 {
     NSInteger num = self.controller.activityCounter;
     if (num > 0) {
-		self.navigationItem.rightBarButtonItem = self.activityItem;
+        self.navigationItem.rightBarButtonItem = self.activityItem;
         self.activityIndicator.hidden = NO;
         [self.activityIndicator startAnimating];
         [self.activityCounterBadge setHidden:NO];
@@ -375,7 +351,7 @@
 
 - (void)removedTorrents:(NSNotification*)notif
 {
-	[self.tableView reloadData];
+    [self.tableView reloadData];
 }
 
 - (void)playAudio:(NSNotification *)notif
@@ -448,57 +424,29 @@
 
     typeof(self) __weak wself = self;
 
-    [menuActionSheetController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Add Torrent from Web", @"Menu action title for adding torrent from the web")
-                                                                  style:UIAlertActionStyleDefault
-                                                                handler:^(UIAlertAction * _Nonnull action) {
-                                                                    // TODO: Enable opening torrents from SFSafariViewController
-                                                                    SFSafariViewController *safariViewController = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:@"https://www.duckduckgo.com"]];
-                                                                    
-                                                                    [wself showViewController:safariViewController sender:safariViewController];
-                                                                }]];
+    NSString *sAddTorrentFromWeb = NSLocalizedString(@"Add Torrent from Web", @"Menu action title for adding torrent from the web");
+
+
+    UIAlertAction *addTorrentFromWeb = [UIAlertAction actionWithTitle:sAddTorrentFromWeb
+                                                                style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * _Nonnull action) { [wself addTorrentFromWeb]; }];
+
+
+    [menuActionSheetController addAction:addTorrentFromWeb];
 
     [menuActionSheetController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Add Torrent from URL", @"Menu action title for adding torrent from the provided URL")
                                                                   style:UIAlertActionStyleDefault
                                                                 handler:^(UIAlertAction * _Nonnull action) {
-                                                                    UIAlertController *dialog = [UIAlertController alertControllerWithTitle:@"Add from magnet" message:@"Please input torrent or magnet" preferredStyle:UIAlertControllerStyleAlert];
-                                                                    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                                                                        NSString *data = dialog.textFields.firstObject.text;
-                                                                        NSString *magnetSubstring = [data substringWithRange:NSMakeRange(0,6)];
-                                                                        NSLog(@"Magnet substring: %@", magnetSubstring);
-                                                                        if([magnetSubstring isEqualToString:@"magnet"])
-                                                                        {
-                                                                            // add torrent from magnet
-                                                                            NSError *error = [wself.controller addTorrentFromManget:data];
-                                                                            if (error) {
-                                                                                NSLog(@"Error adding magnet");
-                                                                            }
-                                                                        }
-                                                                    }];
-                                                                    [dialog addAction:okAction];
-
-                                                                    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
-                                                                    [dialog addAction:cancelAction];
-
-                                                                    [dialog addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-                                                                        textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-                                                                        textField.autocorrectionType = UITextAutocorrectionTypeNo;
-                                                                        textField.enablesReturnKeyAutomatically = YES;
-                                                                        textField.keyboardAppearance = UIKeyboardAppearanceDefault;
-                                                                        textField.keyboardType = UIKeyboardTypeURL;
-                                                                        textField.returnKeyType = UIReturnKeyDone;
-                                                                        textField.secureTextEntry = NO;
-                                                                    }];
-
-                                                                    [wself showViewController:dialog sender:dialog];
-                                                                }]];
+        [wself addTorrentFromURL];
+    }]];
 
     [menuActionSheetController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Preferences", @"Menu action title for opening preferences screen")
                                                                   style:UIAlertActionStyleDefault
                                                                 handler:^(UIAlertAction * _Nonnull action) {
-                                                                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_Storyboard" bundle:nil];
-                                                                    UIViewController *preferencesViewController = [storyboard instantiateViewControllerWithIdentifier:@"pref"];
-                                                                    [wself showViewController:preferencesViewController sender:preferencesViewController];
-                                                                }]];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_Storyboard" bundle:nil];
+        UIViewController *preferencesViewController = [storyboard instantiateViewControllerWithIdentifier:@"pref"];
+        [wself showViewController:preferencesViewController sender:preferencesViewController];
+    }]];
 
     [menuActionSheetController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"Menu action title for canceling the menu")
                                                                   style:UIAlertActionStyleCancel
@@ -508,6 +456,44 @@
     popoverPresentationController.barButtonItem = sender;
 
     [self showViewController:menuActionSheetController sender:menuActionSheetController];
+}
+
+- (void)addTorrentFromWeb {
+    SFSafariViewController *safariViewController = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:@"https://www.duckduckgo.com"]];
+    [self showViewController:safariViewController sender:safariViewController];
+}
+
+- (void)addTorrentFromURL {
+    UIAlertController *dialog = [UIAlertController alertControllerWithTitle:@"Add from magnet" message:@"Please input torrent or magnet" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSString *data = dialog.textFields.firstObject.text;
+        NSString *magnetSubstring = [data substringWithRange:NSMakeRange(0,6)];
+        NSLog(@"Magnet substring: %@", magnetSubstring);
+        if([magnetSubstring isEqualToString:@"magnet"])
+        {
+            // add torrent from magnet
+            NSError *error = [self.controller addTorrentFromManget:data];
+            if (error) {
+                NSLog(@"Error adding magnet");
+            }
+        }
+    }];
+    [dialog addAction:okAction];
+
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    [dialog addAction:cancelAction];
+
+    [dialog addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+        textField.autocorrectionType = UITextAutocorrectionTypeNo;
+        textField.enablesReturnKeyAutomatically = YES;
+        textField.keyboardAppearance = UIKeyboardAppearanceDefault;
+        textField.keyboardType = UIKeyboardTypeURL;
+        textField.returnKeyType = UIReturnKeyDone;
+        textField.secureTextEntry = NO;
+    }];
+
+    [self showViewController:dialog sender:dialog];
 }
 
 @end

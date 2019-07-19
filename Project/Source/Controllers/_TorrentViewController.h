@@ -15,7 +15,7 @@
 @class TorrentCell;
 @class PrefViewController;
 
-@interface TorrentViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, AVAudioPlayerDelegate>
+@interface _TorrentViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, AVAudioPlayerDelegate>
 
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) IBOutlet UIActivityIndicatorView *activityIndicator;

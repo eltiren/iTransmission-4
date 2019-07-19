@@ -6,10 +6,11 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
+#import "iTransmission-Swift.h"
 #import "Controller.h"
 #import "Torrent.h"
 #import "Notifications.h"
-#import "TorrentViewController.h"
+#import "_TorrentViewController.h"
 #import "TorrentFetcher.h"
 #import "ALAlertBanner.h"
 #import <AVFoundation/AVFoundation.h>

@@ -24,7 +24,7 @@
 @property (nonatomic, retain) Controller *controller;
 @property (nonatomic, retain) NSTimer *updateTimer;
 
-- (void)initWithTorrent:(Torrent*)t controller:(Controller*)c;
+- (void)setWithTorrent:(Torrent*)t controller:(Controller*)c;
 
 - (void)startButtonClicked:(id)sender;
 - (void)pauseButtonClicked:(id)sender;

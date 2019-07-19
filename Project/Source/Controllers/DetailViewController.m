@@ -167,7 +167,7 @@
 @synthesize selectedIndexPath = fSelectedIndexPath;
 @synthesize controller;
 
-- (void)initWithTorrent:(Torrent*)t controller:(Controller*)c {
+- (void)setWithTorrent:(Torrent*)t controller:(Controller*)c {
     self.title = @"Details";
     fTorrent = t;
     controller = c;
