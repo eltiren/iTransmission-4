@@ -19,7 +19,7 @@
 			<string>Default</string>
 			<key>LSItemContentTypes</key>
 			<array>
-				<string>com.itransmission.torrent</string>
+				<string>com.rollncode.itransmission2.torrent</string>
 			</array>
 		</dict>
 	</array>
@@ -61,6 +61,8 @@
 	<string>3.2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<false/>
+	<key>LSSupportsOpeningDocumentsInPlace</key>
+	<true/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
@@ -102,8 +104,10 @@
 			<array/>
 			<key>UTTypeDescription</key>
 			<string>Torrent File</string>
+			<key>UTTypeIconFiles</key>
+			<array/>
 			<key>UTTypeIdentifier</key>
-			<string>com.itransmission.torrent</string>
+			<string>com.rollncode.itransmission2.torrent</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>

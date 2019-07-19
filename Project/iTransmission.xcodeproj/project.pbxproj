@@ -46,6 +46,8 @@
 		3AD57F811EB7B33400A86F91 /* Main_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AD57F801EB7B33400A86F91 /* Main_Storyboard.storyboard */; };
 		3AE8C5BA1D14DB98006B78A3 /* phone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3AE8C5B91D14DB98006B78A3 /* phone.mp3 */; };
 		7785DE1222E1D52F00B1A41F /* TorrentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785DE1122E1D52F00B1A41F /* TorrentViewController.swift */; };
+		7785DE1422E1DBE500B1A41F /* TorrentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785DE1322E1DBE500B1A41F /* TorrentCell.swift */; };
+		7785DE1622E1DE3600B1A41F /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7785DE1522E1DE3600B1A41F /* Colors.xcassets */; };
 		895A738D18D9CB6F00561CD6 /* FileListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A731118D9CB6E00561CD6 /* FileListCell.m */; };
 		895A738E18D9CB6F00561CD6 /* FlexibleLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A731318D9CB6E00561CD6 /* FlexibleLabelCell.m */; };
 		895A738F18D9CB6F00561CD6 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A731618D9CB6E00561CD6 /* NSDate+Helper.m */; };
@@ -53,7 +55,7 @@
 		895A739118D9CB6F00561CD6 /* NSString+RelativePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A731A18D9CB6E00561CD6 /* NSString+RelativePath.m */; };
 		895A739218D9CB6F00561CD6 /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A731C18D9CB6E00561CD6 /* NSStringAdditions.m */; };
 		895A739318D9CB6F00561CD6 /* TDBadgedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A731E18D9CB6E00561CD6 /* TDBadgedCell.m */; };
-		895A739418D9CB6F00561CD6 /* TorrentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A732018D9CB6E00561CD6 /* TorrentCell.m */; };
+		895A739418D9CB6F00561CD6 /* _TorrentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A732018D9CB6E00561CD6 /* _TorrentCell.m */; };
 		895A739518D9CB6F00561CD6 /* TrackerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A732218D9CB6E00561CD6 /* TrackerCell.m */; };
 		895A739618D9CB6F00561CD6 /* PDColoredProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A732518D9CB6E00561CD6 /* PDColoredProgressView.m */; };
 		895A739718D9CB6F00561CD6 /* BandwidthController.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A732818D9CB6E00561CD6 /* BandwidthController.m */; };
@@ -151,6 +153,8 @@
 		3AE8C5B91D14DB98006B78A3 /* phone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = phone.mp3; sourceTree = "<group>"; };
 		7785DE1022E1D52E00B1A41F /* iTransmission-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iTransmission-Bridging-Header.h"; sourceTree = "<group>"; };
 		7785DE1122E1D52F00B1A41F /* TorrentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TorrentViewController.swift; path = "../../../../../../../../System/Volumes/Data/Users/eltiren/Sources/torrents/iTransmission-4/Project/Source/Controllers/TorrentViewController.swift"; sourceTree = "<group>"; };
+		7785DE1322E1DBE500B1A41F /* TorrentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TorrentCell.swift; path = "../../../../../../../../System/Volumes/Data/Users/eltiren/Sources/torrents/iTransmission-4/Project/Source/Cells/TorrentCell.swift"; sourceTree = "<group>"; };
+		7785DE1522E1DE3600B1A41F /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Colors.xcassets; path = "../../../../../../../System/Volumes/Data/Users/eltiren/Sources/torrents/iTransmission-4/Project/Resources/Colors.xcassets"; sourceTree = "<group>"; };
 		895A731018D9CB6E00561CD6 /* FileListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileListCell.h; sourceTree = "<group>"; };
 		895A731118D9CB6E00561CD6 /* FileListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileListCell.m; sourceTree = "<group>"; };
 		895A731218D9CB6E00561CD6 /* FlexibleLabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlexibleLabelCell.h; sourceTree = "<group>"; };
@@ -165,8 +169,8 @@
 		895A731C18D9CB6E00561CD6 /* NSStringAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringAdditions.m; sourceTree = "<group>"; };
 		895A731D18D9CB6E00561CD6 /* TDBadgedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDBadgedCell.h; sourceTree = "<group>"; };
 		895A731E18D9CB6E00561CD6 /* TDBadgedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDBadgedCell.m; sourceTree = "<group>"; };
-		895A731F18D9CB6E00561CD6 /* TorrentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentCell.h; sourceTree = "<group>"; };
-		895A732018D9CB6E00561CD6 /* TorrentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentCell.m; sourceTree = "<group>"; };
+		895A731F18D9CB6E00561CD6 /* _TorrentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _TorrentCell.h; sourceTree = "<group>"; };
+		895A732018D9CB6E00561CD6 /* _TorrentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _TorrentCell.m; sourceTree = "<group>"; };
 		895A732118D9CB6E00561CD6 /* TrackerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackerCell.h; sourceTree = "<group>"; };
 		895A732218D9CB6E00561CD6 /* TrackerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackerCell.m; sourceTree = "<group>"; };
 		895A732418D9CB6E00561CD6 /* PDColoredProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDColoredProgressView.h; sourceTree = "<group>"; };
@@ -319,8 +323,9 @@
 				895A731418D9CB6E00561CD6 /* Helpers+Additions */,
 				895A731D18D9CB6E00561CD6 /* TDBadgedCell.h */,
 				895A731E18D9CB6E00561CD6 /* TDBadgedCell.m */,
-				895A731F18D9CB6E00561CD6 /* TorrentCell.h */,
-				895A732018D9CB6E00561CD6 /* TorrentCell.m */,
+				7785DE1322E1DBE500B1A41F /* TorrentCell.swift */,
+				895A731F18D9CB6E00561CD6 /* _TorrentCell.h */,
+				895A732018D9CB6E00561CD6 /* _TorrentCell.m */,
 				895A732118D9CB6E00561CD6 /* TrackerCell.h */,
 				895A732218D9CB6E00561CD6 /* TrackerCell.m */,
 			);
@@ -440,6 +445,7 @@
 				895A740418D9CB7E00561CD6 /* Photo Components */,
 				895A741F18D9CB7E00561CD6 /* Regex */,
 				895A750618D9CF9B00561CD6 /* Images.xcassets */,
+				7785DE1522E1DE3600B1A41F /* Colors.xcassets */,
 				895A750818D9D4EF00561CD6 /* license.txt */,
 			);
 			path = Resources;
@@ -641,6 +647,7 @@
 				895A74AD18D9CB7E00561CD6 /* url_ex in Resources */,
 				895A74A418D9CB7E00561CD6 /* GreenDot.png in Resources */,
 				895A750718D9CF9B00561CD6 /* Images.xcassets in Resources */,
+				7785DE1622E1DE3600B1A41F /* Colors.xcassets in Resources */,
 				895A749818D9CB7E00561CD6 /* cell-background.png in Resources */,
 				895A749518D9CB7E00561CD6 /* blackArrow@2x.png in Resources */,
 			);
@@ -690,7 +697,7 @@
 				895A739918D9CB6F00561CD6 /* DetailViewController.m in Sources */,
 				895A738D18D9CB6F00561CD6 /* FileListCell.m in Sources */,
 				895A73AE18D9CB6F00561CD6 /* Torrent.m in Sources */,
-				895A739418D9CB6F00561CD6 /* TorrentCell.m in Sources */,
+				895A739418D9CB6F00561CD6 /* _TorrentCell.m in Sources */,
 				895A73B018D9CB6F00561CD6 /* FileListNode.m in Sources */,
 				895A739A18D9CB6F00561CD6 /* FileListViewController.m in Sources */,
 				7785DE1222E1D52F00B1A41F /* TorrentViewController.swift in Sources */,
@@ -709,6 +716,7 @@
 				895A739818D9CB6F00561CD6 /* Controller.m in Sources */,
 				895A73B418D9CB6F00561CD6 /* CheckboxControl.m in Sources */,
 				895A73B618D9CB6F00561CD6 /* ControlButton.m in Sources */,
+				7785DE1422E1DBE500B1A41F /* TorrentCell.swift in Sources */,
 				895A739618D9CB6F00561CD6 /* PDColoredProgressView.m in Sources */,
 				895A73B718D9CB6F00561CD6 /* TransparentClickArea.m in Sources */,
 				3A1C03B11D0CE2AE005EB2A5 /* ALAlertBannerManager.m in Sources */,

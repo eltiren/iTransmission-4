@@ -6,9 +6,9 @@
 //  Copyright (c) 2010 __MyCompanyName__. All rights reserved.
 //
 
+#import <iTransmission-Swift.h>
 #import "_TorrentViewController.h"
 #import "Controller.h"
-#import "TorrentCell.h"
 #import "Torrent.h"
 #import "PrefViewController.h"
 #import "TDBadgedCell.h"
@@ -459,7 +459,7 @@
 }
 
 - (void)addTorrentFromWeb {
-    SFSafariViewController *safariViewController = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:@"https://www.duckduckgo.com"]];
+    SFSafariViewController *safariViewController = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:@"https://lostfilm.tv"]];
     [self showViewController:safariViewController sender:safariViewController];
 }
 

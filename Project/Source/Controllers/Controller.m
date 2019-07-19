@@ -6,6 +6,8 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+
 #import "iTransmission-Swift.h"
 #import "Controller.h"
 #import "Torrent.h"
@@ -115,7 +117,7 @@ static void signal_handler(int sig) {
     //  so we open it dynamically and find SBSLaunchApplicationWithIdentifier()
     void* sbServices = dlopen(SBSERVPATH, RTLD_LAZY);
     int (*SBSLaunchApplicationWithIdentifier)(CFStringRef identifier, Boolean suspended) = dlsym(sbServices, "SBSLaunchApplicationWithIdentifier");
-    SBSLaunchApplicationWithIdentifier(CFSTR("com.ioshomebrew.itransmission"), false);
+    SBSLaunchApplicationWithIdentifier(CFSTR("com.rollncode.itransmission"), false);
     dlclose(sbServices);
 }
 
@@ -340,6 +342,10 @@ static void signal_handler(int sig) {
     application.applicationIconBadgeNumber = 0;
 }
 
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    [self addTorrentsFromDocuments];
+}
+
 - (void)applicationWillTerminate:(UIApplication *)application {
 	[self updateTorrentHistory];
     tr_sessionClose(fLib);
@@ -483,6 +489,24 @@ static void signal_handler(int sig) {
             continue;
         }
     }
+}
+
+- (void)addTorrentsFromDocuments {
+    NSFileManager *fileManager = [[NSFileManager alloc] init];
+
+    for (NSString *file in [fileManager contentsOfDirectoryAtPath:[self documentsDirectory] error:nil]) {
+            if ([file hasSuffix:@".torrent"]) {
+                NSString *tPath = [self randomTorrentPath];
+                NSURL *url = [[NSURL fileURLWithPath:[self documentsDirectory]] URLByAppendingPathComponent:file];
+                [fileManager copyItemAtURL:url toURL:[NSURL fileURLWithPath:tPath] error:nil];
+
+                if ([self openFile:tPath addType:ADD_URL forcePath:nil]) {
+                    [fileManager removeItemAtURL:url error:nil];
+                }
+            } else {
+                NSLog(@"%@", file);
+            }
+        }
 }
 
 - (NSString*)randomTorrentPath
