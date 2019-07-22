@@ -19,11 +19,11 @@ import Foundation
 }
 
 @objc class PortChecker: NSObject {
-    @objc fileprivate (set) var status: PortStatus
+    @objc private (set) var status: PortStatus
+    @objc private (set) var portNumber: Int
 
-    @objc fileprivate (set) var portNumber: Int
-    fileprivate weak var delegate: PortCheckerDelegate?
-    fileprivate var task: URLSessionDataTask?
+    private weak var delegate: PortCheckerDelegate?
+    private var task: URLSessionDataTask?
 
     @objc init(port: Int, delay: Bool, delegate: PortCheckerDelegate? = nil) {
         self.portNumber = port
@@ -38,34 +38,12 @@ import Foundation
         }
     }
 
-    func startProbe() {
+    private func startProbe() {
         let url = URL(string: "http://portcheck.transmissionbt.com/\(portNumber)")!
         let portProbeRequest = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 15)
 
         let task = URLSession.shared.dataTask(with: portProbeRequest) { [weak self] (data, response, error) in
-            if let error = error {
-                print("Unable to get port status: connection failed (\(error.localizedDescription))")
-                self?.callBackWithStatus(.error)
-            } else if let data = data {
-                guard let probeString = String(data: data, encoding: .utf8) else {
-                    print("Unable to get port status: invalid data received")
-                    self?.callBackWithStatus(.error)
-                    return
-                }
-
-                switch probeString {
-                case "1":
-                    self?.callBackWithStatus(.open)
-                case "0":
-                    self?.callBackWithStatus(.closed)
-                default:
-                    print("Unable to get port status: invalid response (\(probeString))")
-                    self?.callBackWithStatus(.error)
-                }
-            } else {
-                print("Unable to get port status: unknown error")
-                self?.callBackWithStatus(.error)
-            }
+            self?.onProbeRequsetComplete(data, response, error)
         }
 
         task.resume()
@@ -74,9 +52,37 @@ import Foundation
 
     @objc func cancelProbe() {
         task?.cancel()
+        task = nil
     }
 
-    fileprivate func callBackWithStatus(_ status: PortStatus) {
+    private func onProbeRequsetComplete(_ data: Data?, _ response: URLResponse?, _ error: Error?) {
+        task = nil
+        if let error = error {
+            print("Unable to get port status: connection failed (\(error.localizedDescription))")
+            callBackWithStatus(.error)
+        } else if let data = data {
+            guard let probeString = String(data: data, encoding: .utf8) else {
+                print("Unable to get port status: invalid data received")
+                callBackWithStatus(.error)
+                return
+            }
+
+            switch probeString {
+            case "1":
+                callBackWithStatus(.open)
+            case "0":
+                callBackWithStatus(.closed)
+            default:
+                print("Unable to get port status: invalid response (\(probeString))")
+                callBackWithStatus(.error)
+            }
+        } else {
+            print("Unable to get port status: unknown error")
+            callBackWithStatus(.error)
+        }
+    }
+
+    private func callBackWithStatus(_ status: PortStatus) {
         self.status = status
         DispatchQueue.main.async {
             self.delegate?.portCheckerDidFinishProbing?(self)
