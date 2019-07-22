@@ -79,7 +79,7 @@ static void signal_handler(int sig) {
     
     NSTimer *fLogMessageTimer;
     
-    UIBackgroundTaskIdentifier bgTask;
+    UIBackgroundTaskIdentifier backgroundTask;
 }
 
 @synthesize window;
@@ -114,33 +114,10 @@ static void signal_handler(int sig) {
     return YES;
 }
 
--(void) openApp {
-    
-    // the SpringboardServices.framework private framework can launch apps,
-    //  so we open it dynamically and find SBSLaunchApplicationWithIdentifier()
-    void* sbServices = dlopen(SBSERVPATH, RTLD_LAZY);
-    int (*SBSLaunchApplicationWithIdentifier)(CFStringRef identifier, Boolean suspended) = dlsym(sbServices, "SBSLaunchApplicationWithIdentifier");
-    SBSLaunchApplicationWithIdentifier(CFSTR("com.rollncode.itransmission"), false);
-    dlclose(sbServices);
-}
-
 - (id)infoValueForKey:(NSString *)key
 {
     // fetch objects from our bundle based on keys in our Info.plist
     return [[[NSBundle mainBundle] infoDictionary] objectForKey:key];
-}
-
-- (NSArray*)findRelatedApps
-{
-    NSMutableArray *ret = [NSMutableArray array];
-    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"ifile://"]]) {
-        [ret addObject:@"ifile"];
-    }
-    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"cydia://"]]) {
-        [ret addObject:@"cydia"];
-    }
-    
-    return [NSArray arrayWithArray:ret];
 }
 
 - (void)pumpLogMessages
@@ -170,8 +147,8 @@ static void signal_handler(int sig) {
     [fDefaults setInteger:0 forKey:@"UploadLimit"];
     [fDefaults setBool:NO forKey:@"DownloadLimitEnabled"];
     [fDefaults setBool:NO forKey:@"UploadLimitEnabled"];
-    [fDefaults setObject:[self defaultDownloadDir] forKey:@"DownloadFolder"];
-    [fDefaults setObject:[self defaultDownloadDir] forKey:@"IncompleteDownloadFolder"];
+    [fDefaults setObject:[[NSFileManager defaultManager] downloadsPath] forKey:@"DownloadFolder"];
+    [fDefaults setObject:[[NSFileManager defaultManager] downloadsPath] forKey:@"IncompleteDownloadFolder"];
     [fDefaults setBool:NO forKey:@"UseIncompleteDownloadFolder"];
     [fDefaults setBool:YES forKey:@"LocalPeerDiscoveryGlobal"];
     [fDefaults setInteger:30 forKey:@"PeersTotal"];
@@ -239,7 +216,7 @@ static void signal_handler(int sig) {
     
 	tr_variantDictAddBool(&settings, TR_KEY_blocklist_enabled, [fDefaults boolForKey: @"Blocklist"]);
 	tr_variantDictAddBool(&settings, TR_KEY_dht_enabled, [fDefaults boolForKey: @"DHTGlobal"]);
-	tr_variantDictAddStr(&settings, TR_KEY_download_dir, [[self defaultDownloadDir] cStringUsingEncoding:NSASCIIStringEncoding]);
+	tr_variantDictAddStr(&settings, TR_KEY_download_dir, [[[NSFileManager defaultManager] downloadsPath] cStringUsingEncoding:NSASCIIStringEncoding]);
 	tr_variantDictAddStr(&settings, TR_KEY_incomplete_dir, [[[fDefaults stringForKey: @"IncompleteDownloadFolder"]
 																stringByExpandingTildeInPath] UTF8String]);
 	tr_variantDictAddBool(&settings, TR_KEY_incomplete_dir_enabled, [fDefaults boolForKey: @"UseIncompleteDownloadFolder"]);
@@ -289,7 +266,7 @@ static void signal_handler(int sig) {
                           [NSLocalizedString(@"GB", "Memory size - gigabytes") UTF8String],
                           [NSLocalizedString(@"TB", "Memory size - terabytes") UTF8String]);
 	
-	fLib = tr_sessionInit([[self configDir] cStringUsingEncoding:NSASCIIStringEncoding], YES, &settings);
+	fLib = tr_sessionInit([[[NSFileManager defaultManager] configPath] cStringUsingEncoding:NSASCIIStringEncoding], YES, &settings);
 	tr_variantFree(&settings);
     
     NSString *webDir = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"web"];
@@ -324,15 +301,15 @@ static void signal_handler(int sig) {
     /*
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     UIApplication  *app = [UIApplication sharedApplication];
-    bgTask = [app beginBackgroundTaskWithExpirationHandler:^{
-        [app endBackgroundTask:bgTask];
-        bgTask = UIBackgroundTaskInvalid;
+    backgroundTask = [app beginBackgroundTaskWithExpirationHandler:^{
+        [app endBackgroundTask:backgroundTask];
+        backgroundTask = UIBackgroundTaskInvalid;
     }];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{});
     
-    [app endBackgroundTask:bgTask];
-    bgTask = UIBackgroundTaskInvalid;
+    [app endBackgroundTask:backgroundTask];
+    backgroundTask = UIBackgroundTaskInvalid;
      */
 }
 
@@ -362,33 +339,6 @@ static void signal_handler(int sig) {
     /*
      Free up as much memory as possible by purging cached data objects that can be recreated (or reloaded from disk) later.
      */
-}
-
-- (NSString*)documentsDirectory
-{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    return documentsDirectory;
-}
-
-- (NSString*)defaultDownloadDir
-{
-    return [[self documentsDirectory] stringByAppendingPathComponent:@"downloads"];
-}
-
-- (NSString*)transferPlist
-{
-	return [[self documentsDirectory] stringByAppendingPathComponent:@"Transfer.plist"];
-}
-
-- (NSString*)torrentsPath
-{
-	return [[self documentsDirectory] stringByAppendingPathComponent:@"torrents"];
-}
-
-- (NSString*)configDir
-{
-    return [[self documentsDirectory] stringByAppendingPathComponent:@"config"];
 }
 
 - (BOOL)isSessionActive
@@ -476,9 +426,14 @@ static void signal_handler(int sig) {
     BOOL isDir, exists;
     NSFileManager *fileManager = [[NSFileManager alloc] init];
     
-    NSLog(@"Using documents directory %@", [self documentsDirectory]);
+    NSLog(@"Using documents directory %@", [[NSFileManager defaultManager] documentsDirectoryPath]);
     
-    NSArray *directories = [NSArray arrayWithObjects:[self documentsDirectory], [self configDir], [self torrentsPath], [self defaultDownloadDir], nil];
+    NSArray *directories = @[
+        [fileManager documentsDirectoryPath],
+        [fileManager configPath],
+        [fileManager torrentsPath],
+        [fileManager downloadsPath]
+    ];
     
     for (NSString *d in directories) {
         exists = [fileManager fileExistsAtPath:d isDirectory:&isDir];
@@ -497,10 +452,10 @@ static void signal_handler(int sig) {
 - (void)addTorrentsFromDocuments {
     NSFileManager *fileManager = [[NSFileManager alloc] init];
 
-    for (NSString *file in [fileManager contentsOfDirectoryAtPath:[self documentsDirectory] error:nil]) {
+    for (NSString *file in [fileManager contentsOfDirectoryAtPath:[[NSFileManager defaultManager] documentsDirectoryPath] error:nil]) {
             if ([file hasSuffix:@".torrent"]) {
-                NSString *tPath = [self randomTorrentPath];
-                NSURL *url = [[NSURL fileURLWithPath:[self documentsDirectory]] URLByAppendingPathComponent:file];
+                NSString *tPath = [[NSFileManager defaultManager] randomTorrentPath];
+                NSURL *url = [[[NSFileManager defaultManager] documentsDirectoryURL] URLByAppendingPathComponent:file];
                 [fileManager copyItemAtURL:url toURL:[NSURL fileURLWithPath:tPath] error:nil];
 
                 if ([self openFile:tPath addType:ADD_URL forcePath:nil]) {
@@ -512,10 +467,6 @@ static void signal_handler(int sig) {
         }
 }
 
-- (NSString*)randomTorrentPath
-{
-    return [[self torrentsPath] stringByAppendingPathComponent:[NSString stringWithFormat:@"%f.torrent", [[NSDate date] timeIntervalSince1970]]];
-}
 
 - (void)updateTorrentHistory
 {    
@@ -524,13 +475,13 @@ static void signal_handler(int sig) {
     for (Torrent * torrent in fTorrents)
         [history addObject: [torrent history]];
     
-    [history writeToFile: [self transferPlist] atomically: YES];
+    [history writeToFile: [[NSFileManager defaultManager] transferPlistPath] atomically: YES];
     
 }
 
 - (void)loadTorrentHistory
 {
-    NSArray * history = [NSArray arrayWithContentsOfFile: [self transferPlist]];
+    NSArray * history = [NSArray arrayWithContentsOfFile: [[NSFileManager defaultManager] transferPlistPath]];
         
     if (!history)
     {
@@ -546,7 +497,7 @@ static void signal_handler(int sig) {
             Torrent * torrent;
             if ((torrent = [[Torrent alloc] initWithHistory: historyItem lib: fLib forcePause:NO]))
             {
-                [torrent changeDownloadFolderBeforeUsing:[self defaultDownloadDir]];
+                [torrent changeDownloadFolderBeforeUsing:[[NSFileManager defaultManager] downloadsPath]];
                 [fTorrents addObject: torrent];
             }
         }
@@ -567,7 +518,7 @@ static void signal_handler(int sig) {
 {
     NSError *error = nil;
     [self decreaseActivityCounter];
-    NSString *path = [self randomTorrentPath];
+    NSString *path = [[NSFileManager defaultManager] randomTorrentPath];
     [data writeToFile:path options:0 error:&error];
     error = [self openFile:path addType:ADD_URL forcePath:nil];
     if (error) {

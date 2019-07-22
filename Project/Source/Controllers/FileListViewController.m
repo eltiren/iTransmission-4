@@ -143,7 +143,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     FileListNode *node = [[self.torrent flatFileList] objectAtIndex:(NSUInteger)indexPath.row];
-    NSString *p = [[[(Controller *)[UIApplication sharedApplication].delegate defaultDownloadDir] stringByAppendingPathComponent:[node path]] stringByAppendingPathComponent:[node name]];
+    NSString *p = [[[[NSFileManager defaultManager] downloadsPath] stringByAppendingPathComponent:[node path]] stringByAppendingPathComponent:[node name]];
     NSLog(@"Path : %@",p);
     if ([[NSFileManager defaultManager] fileExistsAtPath:p]) {
         NSLog(@"OpenClicked");

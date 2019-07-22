@@ -5,6 +5,7 @@
 //  Copyright 2010 Satoshi Numata. All rights reserved.
 //
 
+#import <iTransmission-Swift.h>
 #import "NSString+RelativePath.h"
 #import "Controller.h"
 #import <UIKit/UIKit.h>
@@ -77,12 +78,12 @@
 
 - (NSString *)relativePathFromDocumentDirectory
 {
-    return [self relativePathFromBaseDirPath:[(Controller*)[UIApplication sharedApplication].delegate documentsDirectory]];
+    return [self relativePathFromBaseDirPath:[[NSFileManager defaultManager] documentsDirectoryPath]];
 }
 
 - (NSString *)absolutePathFromDocumentDirectory
 {
-    return [self absolutePathFromBaseDirPath:[(Controller*)[UIApplication sharedApplication].delegate documentsDirectory]];
+    return [self absolutePathFromBaseDirPath:[[NSFileManager defaultManager] documentsDirectoryPath]];
 }
 
 @end

@@ -6,6 +6,7 @@
 //
 //
 
+#import <iTransmission-Swift.h>
 #import "AudioPlayer.h"
 
 @interface AudioPlayer ()
@@ -58,7 +59,7 @@
         for(NSUInteger i = 0; i < [[self.torrent flatFileList] count]; i++)
         {
             FileListNode *node = [[self.torrent flatFileList] objectAtIndex:i];
-            NSString *file = [[[(Controller *)[UIApplication sharedApplication].delegate defaultDownloadDir] stringByAppendingPathComponent:[node path]] stringByAppendingPathComponent:[node name]];
+            NSString *file = [[[[NSFileManager defaultManager] downloadsPath] stringByAppendingPathComponent:[node path]] stringByAppendingPathComponent:[node name]];
             NSString *extension = [file pathExtension];
             for(NSUInteger j = 0; j < [audioTypes count]; j++)
             {
@@ -281,7 +282,7 @@
             // go to previous item
             self.currentItem--;
             FileListNode *node = [[self.torrent flatFileList] objectAtIndex:self.currentItem];
-            NSString *file = [[[(Controller *)[UIApplication sharedApplication].delegate defaultDownloadDir] stringByAppendingPathComponent:[node path]] stringByAppendingPathComponent:[node name]];
+            NSString *file = [[[[NSFileManager defaultManager] downloadsPath] stringByAppendingPathComponent:[node path]] stringByAppendingPathComponent:[node name]];
             NSLog(@"Next file is: %@", file);
             NSURL *audioURL = [NSURL fileURLWithPath:file];
             NSError *error;
@@ -349,7 +350,7 @@
         // go to next item
         self.currentItem++;
         FileListNode *node = [[self.torrent flatFileList] objectAtIndex:self.currentItem];
-        NSString *file = [[[(Controller *)[UIApplication sharedApplication].delegate defaultDownloadDir] stringByAppendingPathComponent:[node path]] stringByAppendingPathComponent:[node name]];
+        NSString *file = [[[[NSFileManager defaultManager] downloadsPath] stringByAppendingPathComponent:[node path]] stringByAppendingPathComponent:[node name]];
         NSLog(@"Next file is: %@", file);
         NSURL *audioURL = [NSURL fileURLWithPath:file];
         NSError *error;
@@ -405,7 +406,7 @@
         // go to first item
         self.currentItem = 0;
         FileListNode *node = [[self.torrent flatFileList] objectAtIndex:self.currentItem];
-        NSString *file = [[[(Controller *)[UIApplication sharedApplication].delegate defaultDownloadDir] stringByAppendingPathComponent:[node path]] stringByAppendingPathComponent:[node name]];
+        NSString *file = [[[[NSFileManager defaultManager] downloadsPath] stringByAppendingPathComponent:[node path]] stringByAppendingPathComponent:[node name]];
         NSLog(@"Next file is: %@", file);
         NSURL *audioURL = [NSURL fileURLWithPath:file];
         NSError *error;

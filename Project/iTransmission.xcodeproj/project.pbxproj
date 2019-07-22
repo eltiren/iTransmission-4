@@ -51,6 +51,8 @@
 		770B53B622E5ED15007D889E /* TorrentFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B53B522E5ED15007D889E /* TorrentFetcher.swift */; };
 		770B53B922E5F365007D889E /* SwiftConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 770B53B822E5F365007D889E /* SwiftConstants.m */; };
 		770B53BB22E5F4FE007D889E /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B53BA22E5F4FE007D889E /* Notifications.swift */; };
+		770B53BD22E5F61C007D889E /* Torrent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B53BC22E5F61C007D889E /* Torrent.swift */; };
+		770B53BF22E5F852007D889E /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B53BE22E5F852007D889E /* FileManager.swift */; };
 		7785DE1222E1D52F00B1A41F /* TorrentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785DE1122E1D52F00B1A41F /* TorrentViewController.swift */; };
 		7785DE1422E1DBE500B1A41F /* TorrentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785DE1322E1DBE500B1A41F /* TorrentCell.swift */; };
 		77A4AB9022E5A83E0094AA7D /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77A4AB8F22E5A83E0094AA7D /* Colors.xcassets */; };
@@ -159,6 +161,8 @@
 		770B53B722E5F31A007D889E /* SwiftConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SwiftConstants.h; path = "../../../../../../../../System/Volumes/Data/Users/eltiren/Sources/torrents/iTransmission-4/Project/Source/Controllers/SwiftConstants.h"; sourceTree = "<group>"; };
 		770B53B822E5F365007D889E /* SwiftConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SwiftConstants.m; path = "../../../../../../../../System/Volumes/Data/Users/eltiren/Sources/torrents/iTransmission-4/Project/Source/Controllers/SwiftConstants.m"; sourceTree = "<group>"; };
 		770B53BA22E5F4FE007D889E /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = "../../../../../../../../System/Volumes/Data/Users/eltiren/Sources/torrents/iTransmission-4/Project/Source/Miscallaneous/Notifications.swift"; sourceTree = "<group>"; };
+		770B53BC22E5F61C007D889E /* Torrent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Torrent.swift; path = "../../../../../../../../System/Volumes/Data/Users/eltiren/Sources/torrents/iTransmission-4/Project/Source/Miscallaneous/Torrent.swift"; sourceTree = "<group>"; };
+		770B53BE22E5F852007D889E /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FileManager.swift; path = "../../../../../../../../System/Volumes/Data/Users/eltiren/Sources/torrents/iTransmission-4/Project/Source/Miscallaneous/FileManager.swift"; sourceTree = "<group>"; };
 		7785DE1022E1D52E00B1A41F /* iTransmission-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iTransmission-Bridging-Header.h"; sourceTree = "<group>"; };
 		7785DE1122E1D52F00B1A41F /* TorrentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TorrentViewController.swift; path = "../../../../../../../../System/Volumes/Data/Users/eltiren/Sources/torrents/iTransmission-4/Project/Source/Controllers/TorrentViewController.swift"; sourceTree = "<group>"; };
 		7785DE1322E1DBE500B1A41F /* TorrentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TorrentCell.swift; path = "../../../../../../../../System/Volumes/Data/Users/eltiren/Sources/torrents/iTransmission-4/Project/Source/Cells/TorrentCell.swift"; sourceTree = "<group>"; };
@@ -399,9 +403,11 @@
 				770B53BA22E5F4FE007D889E /* Notifications.swift */,
 				770B53B322E5B20B007D889E /* PortChecker.swift */,
 				770B53B522E5ED15007D889E /* TorrentFetcher.swift */,
+				770B53BC22E5F61C007D889E /* Torrent.swift */,
 				895A735318D9CB6E00561CD6 /* Torrent.h */,
 				895A735418D9CB6E00561CD6 /* Torrent.m */,
 				895A735718D9CB6E00561CD6 /* UIAlertViewPrivate.h */,
+				770B53BE22E5F852007D889E /* FileManager.swift */,
 			);
 			path = Miscallaneous;
 			sourceTree = "<group>";
@@ -695,8 +701,10 @@
 				895A73B018D9CB6F00561CD6 /* FileListNode.m in Sources */,
 				895A739A18D9CB6F00561CD6 /* FileListViewController.m in Sources */,
 				770B53B022E5AC09007D889E /* FileListCell.swift in Sources */,
+				770B53BF22E5F852007D889E /* FileManager.swift in Sources */,
 				7785DE1222E1D52F00B1A41F /* TorrentViewController.swift in Sources */,
 				895A739218D9CB6F00561CD6 /* NSStringAdditions.m in Sources */,
+				770B53BD22E5F61C007D889E /* Torrent.swift in Sources */,
 				895A739018D9CB6F00561CD6 /* NSDictionaryAdditions.m in Sources */,
 				895A739118D9CB6F00561CD6 /* NSString+RelativePath.m in Sources */,
 				895A74E218D9CB8500561CD6 /* main.m in Sources */,

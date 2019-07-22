@@ -61,14 +61,7 @@ extern BOOL isStartingTransferAllowed(void);
 @property (nonatomic, retain) NSTimer *logMessageTimer;
 
 - (void)transmissionInitialize;
-- (NSArray*)findRelatedApps;
 
-- (NSString*)transferPlist;
-- (NSString*)torrentsPath;
-- (NSString*)randomTorrentPath;
-- (NSString*)defaultDownloadDir;
-- (NSString*)configDir;
-- (NSString*)documentsDirectory;
 - (void)updateTorrentHistory;
 - (void)loadTorrentHistory;
 - (void)resetToDefaultPreferences;
@@ -117,7 +110,6 @@ extern BOOL isStartingTransferAllowed(void);
 - (void)torrentFinished:(NSNotification*)notif;
 - (void)postBGNotif:(NSString *)message;
 - (id)infoValueForKey:(NSString *)key;
--(void) openApp;
 
 @end
 
