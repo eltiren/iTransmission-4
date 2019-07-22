@@ -5,7 +5,7 @@
 //  Created by Vitalii Yevtushenko on 22.07.2019.
 //
 
-import Foundation
+import UIKit
 
 @objc
 class FileListCell: UITableViewCell {

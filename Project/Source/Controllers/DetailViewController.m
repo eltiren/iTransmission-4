@@ -6,12 +6,12 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
+#import <iTransmission-Swift.h>
 #import "DetailViewController.h"
 #import "Torrent.h"
 #import "Controller.h"
 #import "NSStringAdditions.h"
 #import "Notifications.h"
-#import "FlexibleLabelCell.h"
 #import "NSDate+Helper.h"
 #import "BandwidthController.h"
 #import "FileListViewController.h"

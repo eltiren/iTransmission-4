@@ -46,10 +46,10 @@
 		3AD57F811EB7B33400A86F91 /* Main_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AD57F801EB7B33400A86F91 /* Main_Storyboard.storyboard */; };
 		3AE8C5BA1D14DB98006B78A3 /* phone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3AE8C5B91D14DB98006B78A3 /* phone.mp3 */; };
 		770B53B022E5AC09007D889E /* FileListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B53AF22E5AC09007D889E /* FileListCell.swift */; };
+		770B53B222E5AFAC007D889E /* FlexibleLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B53B122E5AFAC007D889E /* FlexibleLabelCell.swift */; };
 		7785DE1222E1D52F00B1A41F /* TorrentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785DE1122E1D52F00B1A41F /* TorrentViewController.swift */; };
 		7785DE1422E1DBE500B1A41F /* TorrentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785DE1322E1DBE500B1A41F /* TorrentCell.swift */; };
 		77A4AB9022E5A83E0094AA7D /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77A4AB8F22E5A83E0094AA7D /* Colors.xcassets */; };
-		895A738E18D9CB6F00561CD6 /* FlexibleLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A731318D9CB6E00561CD6 /* FlexibleLabelCell.m */; };
 		895A738F18D9CB6F00561CD6 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A731618D9CB6E00561CD6 /* NSDate+Helper.m */; };
 		895A739018D9CB6F00561CD6 /* NSDictionaryAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A731818D9CB6E00561CD6 /* NSDictionaryAdditions.m */; };
 		895A739118D9CB6F00561CD6 /* NSString+RelativePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A731A18D9CB6E00561CD6 /* NSString+RelativePath.m */; };
@@ -151,12 +151,11 @@
 		3AD57F801EB7B33400A86F91 /* Main_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_Storyboard.storyboard; sourceTree = SOURCE_ROOT; };
 		3AE8C5B91D14DB98006B78A3 /* phone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = phone.mp3; sourceTree = "<group>"; };
 		770B53AF22E5AC09007D889E /* FileListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FileListCell.swift; path = "../../../../../../../../System/Volumes/Data/Users/eltiren/Sources/torrents/iTransmission-4/Project/Source/Cells/FileListCell.swift"; sourceTree = "<group>"; };
+		770B53B122E5AFAC007D889E /* FlexibleLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FlexibleLabelCell.swift; path = "../../../../../../../../System/Volumes/Data/Users/eltiren/Sources/torrents/iTransmission-4/Project/Source/Cells/FlexibleLabelCell.swift"; sourceTree = "<group>"; };
 		7785DE1022E1D52E00B1A41F /* iTransmission-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iTransmission-Bridging-Header.h"; sourceTree = "<group>"; };
 		7785DE1122E1D52F00B1A41F /* TorrentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TorrentViewController.swift; path = "../../../../../../../../System/Volumes/Data/Users/eltiren/Sources/torrents/iTransmission-4/Project/Source/Controllers/TorrentViewController.swift"; sourceTree = "<group>"; };
 		7785DE1322E1DBE500B1A41F /* TorrentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TorrentCell.swift; path = "../../../../../../../../System/Volumes/Data/Users/eltiren/Sources/torrents/iTransmission-4/Project/Source/Cells/TorrentCell.swift"; sourceTree = "<group>"; };
 		77A4AB8F22E5A83E0094AA7D /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
-		895A731218D9CB6E00561CD6 /* FlexibleLabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlexibleLabelCell.h; sourceTree = "<group>"; };
-		895A731318D9CB6E00561CD6 /* FlexibleLabelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlexibleLabelCell.m; sourceTree = "<group>"; };
 		895A731518D9CB6E00561CD6 /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
 		895A731618D9CB6E00561CD6 /* NSDate+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helper.m"; sourceTree = "<group>"; };
 		895A731718D9CB6E00561CD6 /* NSDictionaryAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDictionaryAdditions.h; sourceTree = "<group>"; };
@@ -313,8 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				770B53AF22E5AC09007D889E /* FileListCell.swift */,
-				895A731218D9CB6E00561CD6 /* FlexibleLabelCell.h */,
-				895A731318D9CB6E00561CD6 /* FlexibleLabelCell.m */,
+				770B53B122E5AFAC007D889E /* FlexibleLabelCell.swift */,
 				895A731418D9CB6E00561CD6 /* Helpers+Additions */,
 				895A731D18D9CB6E00561CD6 /* TDBadgedCell.h */,
 				895A731E18D9CB6E00561CD6 /* TDBadgedCell.m */,
@@ -695,7 +693,6 @@
 				7785DE1222E1D52F00B1A41F /* TorrentViewController.swift in Sources */,
 				895A739218D9CB6F00561CD6 /* NSStringAdditions.m in Sources */,
 				895A73AD18D9CB6F00561CD6 /* PortChecker.m in Sources */,
-				895A738E18D9CB6F00561CD6 /* FlexibleLabelCell.m in Sources */,
 				895A739018D9CB6F00561CD6 /* NSDictionaryAdditions.m in Sources */,
 				895A739118D9CB6F00561CD6 /* NSString+RelativePath.m in Sources */,
 				895A73AF18D9CB6F00561CD6 /* TorrentFetcher.m in Sources */,
@@ -712,6 +709,7 @@
 				895A739618D9CB6F00561CD6 /* PDColoredProgressView.m in Sources */,
 				895A73B718D9CB6F00561CD6 /* TransparentClickArea.m in Sources */,
 				3A1C03B11D0CE2AE005EB2A5 /* ALAlertBannerManager.m in Sources */,
+				770B53B222E5AFAC007D889E /* FlexibleLabelCell.swift in Sources */,
 				895A739718D9CB6F00561CD6 /* BandwidthController.m in Sources */,
 				895A73B518D9CB6F00561CD6 /* ClipboardLabel.m in Sources */,
 			);
