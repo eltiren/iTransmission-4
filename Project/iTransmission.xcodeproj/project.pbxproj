@@ -47,6 +47,7 @@
 		3AE8C5BA1D14DB98006B78A3 /* phone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3AE8C5B91D14DB98006B78A3 /* phone.mp3 */; };
 		770B53B022E5AC09007D889E /* FileListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B53AF22E5AC09007D889E /* FileListCell.swift */; };
 		770B53B222E5AFAC007D889E /* FlexibleLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B53B122E5AFAC007D889E /* FlexibleLabelCell.swift */; };
+		770B53B422E5B20B007D889E /* PortChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B53B322E5B20B007D889E /* PortChecker.swift */; };
 		7785DE1222E1D52F00B1A41F /* TorrentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785DE1122E1D52F00B1A41F /* TorrentViewController.swift */; };
 		7785DE1422E1DBE500B1A41F /* TorrentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785DE1322E1DBE500B1A41F /* TorrentCell.swift */; };
 		77A4AB9022E5A83E0094AA7D /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77A4AB8F22E5A83E0094AA7D /* Colors.xcassets */; };
@@ -72,7 +73,6 @@
 		895A73AA18D9CB6F00561CD6 /* bannerNotify@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 895A734B18D9CB6E00561CD6 /* bannerNotify@2x.png */; };
 		895A73AB18D9CB6F00561CD6 /* bannerSuccess.png in Resources */ = {isa = PBXBuildFile; fileRef = 895A734C18D9CB6E00561CD6 /* bannerSuccess.png */; };
 		895A73AC18D9CB6F00561CD6 /* bannerSuccess@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 895A734D18D9CB6E00561CD6 /* bannerSuccess@2x.png */; };
-		895A73AD18D9CB6F00561CD6 /* PortChecker.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A735218D9CB6E00561CD6 /* PortChecker.m */; };
 		895A73AE18D9CB6F00561CD6 /* Torrent.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A735418D9CB6E00561CD6 /* Torrent.m */; };
 		895A73AF18D9CB6F00561CD6 /* TorrentFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A735618D9CB6E00561CD6 /* TorrentFetcher.m */; };
 		895A73B018D9CB6F00561CD6 /* FileListNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A735A18D9CB6E00561CD6 /* FileListNode.m */; };
@@ -152,6 +152,7 @@
 		3AE8C5B91D14DB98006B78A3 /* phone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = phone.mp3; sourceTree = "<group>"; };
 		770B53AF22E5AC09007D889E /* FileListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FileListCell.swift; path = "../../../../../../../../System/Volumes/Data/Users/eltiren/Sources/torrents/iTransmission-4/Project/Source/Cells/FileListCell.swift"; sourceTree = "<group>"; };
 		770B53B122E5AFAC007D889E /* FlexibleLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FlexibleLabelCell.swift; path = "../../../../../../../../System/Volumes/Data/Users/eltiren/Sources/torrents/iTransmission-4/Project/Source/Cells/FlexibleLabelCell.swift"; sourceTree = "<group>"; };
+		770B53B322E5B20B007D889E /* PortChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PortChecker.swift; path = "../../../../../../../../System/Volumes/Data/Users/eltiren/Sources/torrents/iTransmission-4/Project/Source/Miscallaneous/PortChecker.swift"; sourceTree = "<group>"; };
 		7785DE1022E1D52E00B1A41F /* iTransmission-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iTransmission-Bridging-Header.h"; sourceTree = "<group>"; };
 		7785DE1122E1D52F00B1A41F /* TorrentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TorrentViewController.swift; path = "../../../../../../../../System/Volumes/Data/Users/eltiren/Sources/torrents/iTransmission-4/Project/Source/Controllers/TorrentViewController.swift"; sourceTree = "<group>"; };
 		7785DE1322E1DBE500B1A41F /* TorrentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TorrentCell.swift; path = "../../../../../../../../System/Volumes/Data/Users/eltiren/Sources/torrents/iTransmission-4/Project/Source/Cells/TorrentCell.swift"; sourceTree = "<group>"; };
@@ -193,8 +194,6 @@
 		895A734C18D9CB6E00561CD6 /* bannerSuccess.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bannerSuccess.png; sourceTree = "<group>"; };
 		895A734D18D9CB6E00561CD6 /* bannerSuccess@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bannerSuccess@2x.png"; sourceTree = "<group>"; };
 		895A735018D9CB6E00561CD6 /* Notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notifications.h; sourceTree = "<group>"; };
-		895A735118D9CB6E00561CD6 /* PortChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortChecker.h; sourceTree = "<group>"; };
-		895A735218D9CB6E00561CD6 /* PortChecker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortChecker.m; sourceTree = "<group>"; };
 		895A735318D9CB6E00561CD6 /* Torrent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Torrent.h; sourceTree = "<group>"; };
 		895A735418D9CB6E00561CD6 /* Torrent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Torrent.m; sourceTree = "<group>"; };
 		895A735518D9CB6E00561CD6 /* TorrentFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentFetcher.h; sourceTree = "<group>"; };
@@ -391,8 +390,7 @@
 			isa = PBXGroup;
 			children = (
 				895A735018D9CB6E00561CD6 /* Notifications.h */,
-				895A735118D9CB6E00561CD6 /* PortChecker.h */,
-				895A735218D9CB6E00561CD6 /* PortChecker.m */,
+				770B53B322E5B20B007D889E /* PortChecker.swift */,
 				895A735318D9CB6E00561CD6 /* Torrent.h */,
 				895A735418D9CB6E00561CD6 /* Torrent.m */,
 				895A735518D9CB6E00561CD6 /* TorrentFetcher.h */,
@@ -687,12 +685,12 @@
 				895A739E18D9CB6F00561CD6 /* _TorrentViewController.m in Sources */,
 				895A739918D9CB6F00561CD6 /* DetailViewController.m in Sources */,
 				895A73AE18D9CB6F00561CD6 /* Torrent.m in Sources */,
+				770B53B422E5B20B007D889E /* PortChecker.swift in Sources */,
 				895A73B018D9CB6F00561CD6 /* FileListNode.m in Sources */,
 				895A739A18D9CB6F00561CD6 /* FileListViewController.m in Sources */,
 				770B53B022E5AC09007D889E /* FileListCell.swift in Sources */,
 				7785DE1222E1D52F00B1A41F /* TorrentViewController.swift in Sources */,
 				895A739218D9CB6F00561CD6 /* NSStringAdditions.m in Sources */,
-				895A73AD18D9CB6F00561CD6 /* PortChecker.m in Sources */,
 				895A739018D9CB6F00561CD6 /* NSDictionaryAdditions.m in Sources */,
 				895A739118D9CB6F00561CD6 /* NSString+RelativePath.m in Sources */,
 				895A73AF18D9CB6F00561CD6 /* TorrentFetcher.m in Sources */,

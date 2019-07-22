@@ -6,10 +6,10 @@
 //  Copyright (c) 2010 __MyCompanyName__. All rights reserved.
 //
 
+#import <iTransmission-Swift.h>
 #import "PrefViewController.h"
 #import "NSDictionaryAdditions.h"
 #import "Controller.h"
-#import "PortChecker.h"
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
 @interface PrefViewController() <PortCheckerDelegate>
@@ -254,7 +254,7 @@
 
 - (void)portCheckButtonClicked
 {
-    self.portChecker = [[PortChecker alloc] initForPort:[self.originalPreferences integerForKey:@"BindPort"] delay:NO withDelegate:self];
+    self.portChecker = [[PortChecker alloc] initWithPort:[self.originalPreferences integerForKey:@"BindPort"] delay:NO delegate:self];
     [fPortCheckActivityIndicator startAnimating];
     [fCheckPortButton setEnabled:NO];
 }
@@ -263,14 +263,14 @@
 {
 	[fCheckPortButton setEnabled:YES];
 	NSString *msg;
-	if ([c status] == PORT_STATUS_OPEN) {
-		msg = [NSString stringWithFormat:@"Congratulations. Your port %li is open!", (long)[c portToCheck]];
+	if ([c status] == PortStatusOpen) {
+		msg = [NSString stringWithFormat:@"Congratulations. Your port %li is open!", (long)[c portNumber]];
 	}
-	if ([c status] == PORT_STATUS_ERROR) {
+	if ([c status] == PortStatusError) {
 		msg = @"Failed to perform port check.";
 	}
-	if ([c status] == PORT_STATUS_CLOSED) {
-		msg = [NSString stringWithFormat:@"Oh bad. Your port %li is not accessable from outside.", (long)[c portToCheck]];
+	if ([c status] == PortStatusClosed) {
+		msg = [NSString stringWithFormat:@"Oh bad. Your port %li is not accessable from outside.", (long)[c portNumber]];
 	}
 	
 	[fPortCheckActivityIndicator stopAnimating];
