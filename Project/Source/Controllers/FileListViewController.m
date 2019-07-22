@@ -7,11 +7,11 @@
 //
 
 #import "FileListViewController.h"
-#import "FileListCell.h"
 #import "Torrent.h"
 #import "FileListNode.h"
 #import "NSStringAdditions.h"
 #import "Controller.h"
+#import <iTransmission-Swift.h>
 
 #define NSOffState 0
 #define NSOnState 1

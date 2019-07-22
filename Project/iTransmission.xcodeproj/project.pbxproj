@@ -45,10 +45,10 @@
 		3AD57F7F1EB7040300A86F91 /* web-close.png in Resources */ = {isa = PBXBuildFile; fileRef = 3AD57F7E1EB7040300A86F91 /* web-close.png */; };
 		3AD57F811EB7B33400A86F91 /* Main_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AD57F801EB7B33400A86F91 /* Main_Storyboard.storyboard */; };
 		3AE8C5BA1D14DB98006B78A3 /* phone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3AE8C5B91D14DB98006B78A3 /* phone.mp3 */; };
+		770B53B022E5AC09007D889E /* FileListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B53AF22E5AC09007D889E /* FileListCell.swift */; };
 		7785DE1222E1D52F00B1A41F /* TorrentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785DE1122E1D52F00B1A41F /* TorrentViewController.swift */; };
 		7785DE1422E1DBE500B1A41F /* TorrentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785DE1322E1DBE500B1A41F /* TorrentCell.swift */; };
 		77A4AB9022E5A83E0094AA7D /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77A4AB8F22E5A83E0094AA7D /* Colors.xcassets */; };
-		895A738D18D9CB6F00561CD6 /* FileListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A731118D9CB6E00561CD6 /* FileListCell.m */; };
 		895A738E18D9CB6F00561CD6 /* FlexibleLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A731318D9CB6E00561CD6 /* FlexibleLabelCell.m */; };
 		895A738F18D9CB6F00561CD6 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A731618D9CB6E00561CD6 /* NSDate+Helper.m */; };
 		895A739018D9CB6F00561CD6 /* NSDictionaryAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A731818D9CB6E00561CD6 /* NSDictionaryAdditions.m */; };
@@ -150,12 +150,11 @@
 		3AD57F7E1EB7040300A86F91 /* web-close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "web-close.png"; sourceTree = "<group>"; };
 		3AD57F801EB7B33400A86F91 /* Main_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_Storyboard.storyboard; sourceTree = SOURCE_ROOT; };
 		3AE8C5B91D14DB98006B78A3 /* phone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = phone.mp3; sourceTree = "<group>"; };
+		770B53AF22E5AC09007D889E /* FileListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FileListCell.swift; path = "../../../../../../../../System/Volumes/Data/Users/eltiren/Sources/torrents/iTransmission-4/Project/Source/Cells/FileListCell.swift"; sourceTree = "<group>"; };
 		7785DE1022E1D52E00B1A41F /* iTransmission-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iTransmission-Bridging-Header.h"; sourceTree = "<group>"; };
 		7785DE1122E1D52F00B1A41F /* TorrentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TorrentViewController.swift; path = "../../../../../../../../System/Volumes/Data/Users/eltiren/Sources/torrents/iTransmission-4/Project/Source/Controllers/TorrentViewController.swift"; sourceTree = "<group>"; };
 		7785DE1322E1DBE500B1A41F /* TorrentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TorrentCell.swift; path = "../../../../../../../../System/Volumes/Data/Users/eltiren/Sources/torrents/iTransmission-4/Project/Source/Cells/TorrentCell.swift"; sourceTree = "<group>"; };
 		77A4AB8F22E5A83E0094AA7D /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
-		895A731018D9CB6E00561CD6 /* FileListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileListCell.h; sourceTree = "<group>"; };
-		895A731118D9CB6E00561CD6 /* FileListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileListCell.m; sourceTree = "<group>"; };
 		895A731218D9CB6E00561CD6 /* FlexibleLabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlexibleLabelCell.h; sourceTree = "<group>"; };
 		895A731318D9CB6E00561CD6 /* FlexibleLabelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlexibleLabelCell.m; sourceTree = "<group>"; };
 		895A731518D9CB6E00561CD6 /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
@@ -266,6 +265,7 @@
 				3AD57F801EB7B33400A86F91 /* Main_Storyboard.storyboard */,
 				3A887B8D1D14F5D30041327D /* DEBIAN */,
 				895A74E318D9CB8900561CD6 /* Nibs */,
+				895A73C518D9CB7D00561CD6 /* Resources */,
 				895A74DD18D9CB8500561CD6 /* Other Sources */,
 				895A730618D9CB6E00561CD6 /* Source */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
@@ -312,8 +312,7 @@
 		895A730D18D9CB6E00561CD6 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				895A731018D9CB6E00561CD6 /* FileListCell.h */,
-				895A731118D9CB6E00561CD6 /* FileListCell.m */,
+				770B53AF22E5AC09007D889E /* FileListCell.swift */,
 				895A731218D9CB6E00561CD6 /* FlexibleLabelCell.h */,
 				895A731318D9CB6E00561CD6 /* FlexibleLabelCell.m */,
 				895A731418D9CB6E00561CD6 /* Helpers+Additions */,
@@ -495,7 +494,6 @@
 			children = (
 				895A74DE18D9CB8500561CD6 /* iTransmission-Info.plist */,
 				895A74E018D9CB8500561CD6 /* main.m */,
-				895A73C518D9CB7D00561CD6 /* Resources */,
 			);
 			path = "Other Sources";
 			sourceTree = "<group>";
@@ -690,10 +688,10 @@
 				895A739F18D9CB6F00561CD6 /* TrackersViewController.m in Sources */,
 				895A739E18D9CB6F00561CD6 /* _TorrentViewController.m in Sources */,
 				895A739918D9CB6F00561CD6 /* DetailViewController.m in Sources */,
-				895A738D18D9CB6F00561CD6 /* FileListCell.m in Sources */,
 				895A73AE18D9CB6F00561CD6 /* Torrent.m in Sources */,
 				895A73B018D9CB6F00561CD6 /* FileListNode.m in Sources */,
 				895A739A18D9CB6F00561CD6 /* FileListViewController.m in Sources */,
+				770B53B022E5AC09007D889E /* FileListCell.swift in Sources */,
 				7785DE1222E1D52F00B1A41F /* TorrentViewController.swift in Sources */,
 				895A739218D9CB6F00561CD6 /* NSStringAdditions.m in Sources */,
 				895A73AD18D9CB6F00561CD6 /* PortChecker.m in Sources */,
