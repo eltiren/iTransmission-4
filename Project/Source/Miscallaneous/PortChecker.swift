@@ -25,7 +25,7 @@ import Foundation
     private weak var delegate: PortCheckerDelegate?
     private var task: URLSessionDataTask?
 
-    @objc init(port: Int, delay: Bool, delegate: PortCheckerDelegate? = nil) {
+    @objc init(port: Int, delay: Bool, delegate: PortCheckerDelegate) {
         self.portNumber = port
         self.delegate = delegate
         self.status = .checking

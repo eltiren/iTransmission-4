@@ -48,6 +48,8 @@
 		770B53B022E5AC09007D889E /* FileListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B53AF22E5AC09007D889E /* FileListCell.swift */; };
 		770B53B222E5AFAC007D889E /* FlexibleLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B53B122E5AFAC007D889E /* FlexibleLabelCell.swift */; };
 		770B53B422E5B20B007D889E /* PortChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B53B322E5B20B007D889E /* PortChecker.swift */; };
+		770B53B622E5ED15007D889E /* TorrentFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770B53B522E5ED15007D889E /* TorrentFetcher.swift */; };
+		770B53B922E5F365007D889E /* SwiftConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 770B53B822E5F365007D889E /* SwiftConstants.m */; };
 		7785DE1222E1D52F00B1A41F /* TorrentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785DE1122E1D52F00B1A41F /* TorrentViewController.swift */; };
 		7785DE1422E1DBE500B1A41F /* TorrentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785DE1322E1DBE500B1A41F /* TorrentCell.swift */; };
 		77A4AB9022E5A83E0094AA7D /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77A4AB8F22E5A83E0094AA7D /* Colors.xcassets */; };
@@ -74,7 +76,6 @@
 		895A73AB18D9CB6F00561CD6 /* bannerSuccess.png in Resources */ = {isa = PBXBuildFile; fileRef = 895A734C18D9CB6E00561CD6 /* bannerSuccess.png */; };
 		895A73AC18D9CB6F00561CD6 /* bannerSuccess@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 895A734D18D9CB6E00561CD6 /* bannerSuccess@2x.png */; };
 		895A73AE18D9CB6F00561CD6 /* Torrent.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A735418D9CB6E00561CD6 /* Torrent.m */; };
-		895A73AF18D9CB6F00561CD6 /* TorrentFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A735618D9CB6E00561CD6 /* TorrentFetcher.m */; };
 		895A73B018D9CB6F00561CD6 /* FileListNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A735A18D9CB6E00561CD6 /* FileListNode.m */; };
 		895A73B118D9CB6F00561CD6 /* TrackerNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A735C18D9CB6E00561CD6 /* TrackerNode.m */; };
 		895A73B418D9CB6F00561CD6 /* CheckboxControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A736518D9CB6E00561CD6 /* CheckboxControl.m */; };
@@ -153,6 +154,9 @@
 		770B53AF22E5AC09007D889E /* FileListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FileListCell.swift; path = "../../../../../../../../System/Volumes/Data/Users/eltiren/Sources/torrents/iTransmission-4/Project/Source/Cells/FileListCell.swift"; sourceTree = "<group>"; };
 		770B53B122E5AFAC007D889E /* FlexibleLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FlexibleLabelCell.swift; path = "../../../../../../../../System/Volumes/Data/Users/eltiren/Sources/torrents/iTransmission-4/Project/Source/Cells/FlexibleLabelCell.swift"; sourceTree = "<group>"; };
 		770B53B322E5B20B007D889E /* PortChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PortChecker.swift; path = "../../../../../../../../System/Volumes/Data/Users/eltiren/Sources/torrents/iTransmission-4/Project/Source/Miscallaneous/PortChecker.swift"; sourceTree = "<group>"; };
+		770B53B522E5ED15007D889E /* TorrentFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TorrentFetcher.swift; path = "../../../../../../../../System/Volumes/Data/Users/eltiren/Sources/torrents/iTransmission-4/Project/Source/Miscallaneous/TorrentFetcher.swift"; sourceTree = "<group>"; };
+		770B53B722E5F31A007D889E /* SwiftConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SwiftConstants.h; path = "../../../../../../../../System/Volumes/Data/Users/eltiren/Sources/torrents/iTransmission-4/Project/Source/Controllers/SwiftConstants.h"; sourceTree = "<group>"; };
+		770B53B822E5F365007D889E /* SwiftConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SwiftConstants.m; path = "../../../../../../../../System/Volumes/Data/Users/eltiren/Sources/torrents/iTransmission-4/Project/Source/Controllers/SwiftConstants.m"; sourceTree = "<group>"; };
 		7785DE1022E1D52E00B1A41F /* iTransmission-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iTransmission-Bridging-Header.h"; sourceTree = "<group>"; };
 		7785DE1122E1D52F00B1A41F /* TorrentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TorrentViewController.swift; path = "../../../../../../../../System/Volumes/Data/Users/eltiren/Sources/torrents/iTransmission-4/Project/Source/Controllers/TorrentViewController.swift"; sourceTree = "<group>"; };
 		7785DE1322E1DBE500B1A41F /* TorrentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TorrentCell.swift; path = "../../../../../../../../System/Volumes/Data/Users/eltiren/Sources/torrents/iTransmission-4/Project/Source/Cells/TorrentCell.swift"; sourceTree = "<group>"; };
@@ -196,8 +200,6 @@
 		895A735018D9CB6E00561CD6 /* Notifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notifications.h; sourceTree = "<group>"; };
 		895A735318D9CB6E00561CD6 /* Torrent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Torrent.h; sourceTree = "<group>"; };
 		895A735418D9CB6E00561CD6 /* Torrent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Torrent.m; sourceTree = "<group>"; };
-		895A735518D9CB6E00561CD6 /* TorrentFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TorrentFetcher.h; sourceTree = "<group>"; };
-		895A735618D9CB6E00561CD6 /* TorrentFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TorrentFetcher.m; sourceTree = "<group>"; };
 		895A735718D9CB6E00561CD6 /* UIAlertViewPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIAlertViewPrivate.h; sourceTree = "<group>"; };
 		895A735918D9CB6E00561CD6 /* FileListNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileListNode.h; sourceTree = "<group>"; };
 		895A735A18D9CB6E00561CD6 /* FileListNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileListNode.m; sourceTree = "<group>"; };
@@ -366,6 +368,8 @@
 				895A733818D9CB6E00561CD6 /* TrackersViewController.m */,
 				3A7D2FBE1D4EB6C500876250 /* AudioPlayer.h */,
 				3A7D2FBF1D4EB6C500876250 /* AudioPlayer.m */,
+				770B53B722E5F31A007D889E /* SwiftConstants.h */,
+				770B53B822E5F365007D889E /* SwiftConstants.m */,
 				7785DE1022E1D52E00B1A41F /* iTransmission-Bridging-Header.h */,
 			);
 			path = Controllers;
@@ -391,10 +395,9 @@
 			children = (
 				895A735018D9CB6E00561CD6 /* Notifications.h */,
 				770B53B322E5B20B007D889E /* PortChecker.swift */,
+				770B53B522E5ED15007D889E /* TorrentFetcher.swift */,
 				895A735318D9CB6E00561CD6 /* Torrent.h */,
 				895A735418D9CB6E00561CD6 /* Torrent.m */,
-				895A735518D9CB6E00561CD6 /* TorrentFetcher.h */,
-				895A735618D9CB6E00561CD6 /* TorrentFetcher.m */,
 				895A735718D9CB6E00561CD6 /* UIAlertViewPrivate.h */,
 			);
 			path = Miscallaneous;
@@ -693,7 +696,6 @@
 				895A739218D9CB6F00561CD6 /* NSStringAdditions.m in Sources */,
 				895A739018D9CB6F00561CD6 /* NSDictionaryAdditions.m in Sources */,
 				895A739118D9CB6F00561CD6 /* NSString+RelativePath.m in Sources */,
-				895A73AF18D9CB6F00561CD6 /* TorrentFetcher.m in Sources */,
 				895A74E218D9CB8500561CD6 /* main.m in Sources */,
 				3A1C03B01D0CE2AE005EB2A5 /* ALAlertBanner.m in Sources */,
 				3A7D2FC21D4EB6C500876250 /* AudioPlayer.m in Sources */,
@@ -701,6 +703,7 @@
 				895A739318D9CB6F00561CD6 /* TDBadgedCell.m in Sources */,
 				895A73B118D9CB6F00561CD6 /* TrackerNode.m in Sources */,
 				895A739818D9CB6F00561CD6 /* Controller.m in Sources */,
+				770B53B922E5F365007D889E /* SwiftConstants.m in Sources */,
 				895A73B418D9CB6F00561CD6 /* CheckboxControl.m in Sources */,
 				895A73B618D9CB6F00561CD6 /* ControlButton.m in Sources */,
 				7785DE1422E1DBE500B1A41F /* TorrentCell.swift in Sources */,
@@ -709,6 +712,7 @@
 				3A1C03B11D0CE2AE005EB2A5 /* ALAlertBannerManager.m in Sources */,
 				770B53B222E5AFAC007D889E /* FlexibleLabelCell.swift in Sources */,
 				895A739718D9CB6F00561CD6 /* BandwidthController.m in Sources */,
+				770B53B622E5ED15007D889E /* TorrentFetcher.swift in Sources */,
 				895A73B518D9CB6F00561CD6 /* ClipboardLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -29,7 +29,6 @@
 
 
 #import <UIKit/UIKit.h>
-#import "TorrentFetcher.h"
 #import "libtransmission/transmission.h"
 #import "libtransmission/variant.h"
 #import "libtransmission/utils.h"
@@ -52,7 +51,7 @@ extern BOOL isStartingTransferAllowed(void);
 
 #define PREF_
 
-@interface Controller : NSObject <UIApplicationDelegate, TorrentFetcherDelegate>
+@interface Controller : NSObject <UIApplicationDelegate>
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) UINavigationController *navController;

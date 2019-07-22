@@ -8,12 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-#import "iTransmission-Swift.h"
+#import <iTransmission-Swift.h>
 #import "Controller.h"
 #import "Torrent.h"
 #import "Notifications.h"
 #import "_TorrentViewController.h"
-#import "TorrentFetcher.h"
 #import "ALAlertBanner.h"
 #import <AVFoundation/AVFoundation.h>
 #import <UserNotifications/UserNotifications.h>
@@ -55,6 +54,10 @@ static void signal_handler(int sig) {
     return;
 }
  */
+
+@interface Controller() <TorrentFetcherDelegate>
+
+@end
 
 @implementation Controller {
     UIWindow *window;
@@ -608,7 +611,7 @@ static void signal_handler(int sig) {
 
 - (void)addTorrentFromURL:(NSString*)url
 {
-    TorrentFetcher *fetcher = [[TorrentFetcher alloc] initWithURLString:url delegate:self];
+    TorrentFetcher *fetcher = [[TorrentFetcher alloc] initWithUrlString:url delegate:self];
     [fActivities addObject:fetcher];
     [self increaseActivityCounter];
 }

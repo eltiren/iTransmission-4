@@ -8,3 +8,4 @@
 #import "Torrent.h"
 #import "ControlButton.h"
 #import "CheckboxControl.h"
+#import "SwiftConstants.h"
