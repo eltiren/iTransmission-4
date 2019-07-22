@@ -6,5 +6,4 @@
 #import "Controller.h"
 #import "DetailViewController.h"
 #import "Torrent.h"
-#import "_TorrentCell.h"
 #import "ControlButton.h"

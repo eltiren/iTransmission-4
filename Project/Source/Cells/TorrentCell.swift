@@ -8,26 +8,21 @@
 import UIKit
 
 @objc
-class TorrentCell: _TorrentCell {
-    override class func cellFromNib() -> Any! {
-        let objects = Bundle.main.loadNibNamed("TorrentCell", owner: nil, options: nil)
-        return objects!.first!
-    }
+class TorrentCell: UITableViewCell {
 
-    override func useGreenColor() {
+    @objc static let identifier: String = "TorrentCellIdentifier"
+
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var progressView: UIProgressView!
+    @IBOutlet var upperDetailLabel: UILabel!
+    @IBOutlet var lowerDetailLabel: UILabel!
+    @IBOutlet var controlButton: ControlButton!
+
+    @objc func useGreenColor() {
         progressView.tintColor = UIColor(named: "progress-green")
     }
 
-    override func useBlueColor() {
+    @objc func useBlueColor() {
         progressView.tintColor = UIColor(named: "progress-blue")
-    }
-
-    override func pausedPressed(_ sender: Any!) {
-
-    }
-
-    func setProgress(_ progress: Float) {
-        progressView.setProgress(progress, animated: true)
-        setNeedsDisplay()
     }
 }
