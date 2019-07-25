@@ -22,7 +22,7 @@
 #import "libtransmission/utils.h"
 #import "libtransmission/variant.h"
 #import "libtransmission/version.h"
-#include <stdlib.h> // setenv()
+#include <stdlib.h> 
 
 #define APP_NAME "iTrans"
 
@@ -238,7 +238,7 @@ static void signal_handler(int sig) {
     tr_variantDictAddBool(&settings, TR_KEY_pex_enabled, [fDefaults boolForKey: @"PEXGlobal"]);
     tr_variantDictAddBool(&settings, TR_KEY_port_forwarding_enabled, [fDefaults boolForKey: @"NatTraversal"]);
     tr_variantDictAddReal(&settings, TR_KEY_ratio_limit, [fDefaults floatForKey: @"RatioLimit"]);
-    tr_variantDictAddBool(&settings, TR_KEY_ratio_limit, [fDefaults boolForKey: @"RatioCheck"]);
+    tr_variantDictAddBool(&settings, TR_KEY_ratio_limit_enabled, [fDefaults boolForKey: @"RatioCheck"]);
     tr_variantDictAddBool(&settings, TR_KEY_rename_partial_files, [fDefaults boolForKey: @"RenamePartialFiles"]);
     tr_variantDictAddBool(&settings, TR_KEY_rpc_authentication_required,  [fDefaults boolForKey: @"RPCAuthorize"]);
     tr_variantDictAddBool(&settings, TR_KEY_rpc_enabled,  [fDefaults boolForKey: @"RPC"]);
