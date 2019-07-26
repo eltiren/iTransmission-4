@@ -10,9 +10,10 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    let session = try! TRSession(preferences: UserDefaultsPreferences())
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let session = TRSession(preferences: UserDefaultsPreferences())
+        session.addTorrentsFromDocuments()
         print(session)
         return true
     }

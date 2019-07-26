@@ -25,7 +25,38 @@ extension FileManager {
         return containerSubURL(subdir).path.cString(using: .utf8)!
     }
 
+    func configURL() -> URL {
+        return containerSubURL("config")
+    }
+
     func configPath() -> String {
-        return containerSubPath("config")
+        return configURL().path
+    }
+
+    func torrentsURL() -> URL {
+        return containerSubURL("torrents")
+    }
+
+    func createFoldersIfNeeded(_ preferences: Preferences) throws {
+        let downloadsURL = containerSubURL(preferences.downloadFolder)
+        let incompleteURL = containerSubURL(preferences.incompleteFolder)
+        let urls = [configURL(), torrentsURL(), downloadsURL, incompleteURL]
+        let attributes: [FileAttributeKey : Any] = [
+            .protectionKey:FileProtectionType.none
+        ]
+
+        try urls.forEach {
+            var isDirectory: ObjCBool = false
+            var exists = self.fileExists(atPath: $0.path, isDirectory: &isDirectory)
+
+            if exists && !isDirectory.boolValue {
+                try self.removeItem(at: $0)
+                exists = false
+            }
+
+            if !exists {
+                try self.createDirectory(at: $0, withIntermediateDirectories: true, attributes: attributes)
+            }
+        }
     }
 }

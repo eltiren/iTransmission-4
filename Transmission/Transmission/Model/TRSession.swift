@@ -10,9 +10,11 @@ import Foundation
 
 class TRSession {
 
-    private var session: OpaquePointer
+    private (set)  var session: OpaquePointer
 
-    init(preferences: Preferences) {
+    init(preferences: Preferences) throws {
+        try FileManager.default.createFoldersIfNeeded(preferences)
+
         let settings = preferences.variantDict()
 
         tr_formatter_size_init(1000, "kB", "MB", "GB", "TB")
@@ -22,5 +24,9 @@ class TRSession {
         session = tr_sessionInit(FileManager.default.configPath(), true.asUInt8, &settings.dict)
 
         print(session)
+    }
+
+    func addTorrentsFromDocuments() {
+        
     }
 }

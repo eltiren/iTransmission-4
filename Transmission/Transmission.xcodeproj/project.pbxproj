@@ -225,7 +225,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = arm64;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -286,7 +286,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = arm64;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -350,7 +350,7 @@
 				FRAMEWORK_SEARCH_PATHS = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"../Compilation/out/$(CURRENT_ARCH)/include/**",
+					"../Compilation/out/include/**",
 				);
 				INFOPLIST_FILE = Transmission/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -359,7 +359,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"../Compilation/out/$(CURRENT_ARCH)/lib/**",
+					"../Compilation/out/lib/**",
 				);
 				OTHER_LDFLAGS = (
 					"-lb64",
@@ -375,6 +375,7 @@
 					"-liconv",
 					"-lutp",
 					"-ObjC",
+					"-lidn2",
 					"$(inherited)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.rollncode.Transmission;
@@ -385,7 +386,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"../Compilation/out/$(CURRENT_ARCH)/include/**",
+					"../Compilation/out/include/**",
 				);
 			};
 			name = Debug;
@@ -403,7 +404,7 @@
 				FRAMEWORK_SEARCH_PATHS = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"../Compilation/out/$(CURRENT_ARCH)/include/**",
+					"../Compilation/out/include/**",
 				);
 				INFOPLIST_FILE = Transmission/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -412,7 +413,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"../Compilation/out/$(CURRENT_ARCH)/lib/**",
+					"../Compilation/out/lib/**",
 				);
 				OTHER_LDFLAGS = (
 					"-lb64",
@@ -428,6 +429,7 @@
 					"-liconv",
 					"-lutp",
 					"-ObjC",
+					"-lidn2",
 					"$(inherited)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.rollncode.Transmission;
@@ -437,7 +439,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"../Compilation/out/$(CURRENT_ARCH)/include/**",
+					"../Compilation/out/include/**",
 				);
 			};
 			name = Release;

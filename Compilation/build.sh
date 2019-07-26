@@ -5,18 +5,19 @@
 
 #########################
 #Space-seperated list of archs e.g export ARCHS=("armv7 armv7s arm64 i386 x86_64")
-export ARCH=arm64
+export ARCH="arm64"
 export DEVELOPER_DIR="/Applications/Xcode.app/Contents/Developer"
 export DEVFOLDER="/Applications/Xcode.app/Contents/Developer"
 # an SDK prior to 6.0 is required if the target ARCH is armv6
 SDK_VERSION=“10.3”
 PARALLEL_NUM=4
 
-CURL_VERSION=7.54.0
+CURL_VERSION=7.65.3 
 ZLIB_VERSION=1.2.11
-LIBEVENT_VERSION="2.1.8-stable"
-OPENSSL_VERSION=1.0.2k
-TRANSMISSION_VERSION=2.92
+LIBEVENT_VERSION="2.1.10-stable"
+OPENSSL_VERSION=1.0.2s
+TRANSMISSION_VERSION=2.94
+IDN_VERSION=2.2.0
 #########################
 
 if [ -z ${ARCH} ]; then ARCH="system"; fi
@@ -50,6 +51,9 @@ function do_loadenv {
 		then
 		PLATFORM="iPhoneOS"
 	elif [ ${ARCH} = "arm64" ]
+		then
+		PLATFORM="iPhoneOS"
+	elif [ ${ARCH} = "arm64e" ]
 		then
 		PLATFORM="iPhoneOS"
 	elif [ ${ARCH} = "armv6" ]
@@ -310,6 +314,33 @@ function do_libb64
     popd
 }
 
+function do_libidn
+{
+	export PACKAGE_NAME="libidn2-${IDN_VERSION}"
+	pushd ${TEMP_DIR}
+	if [ ! -e "${PACKAGE_NAME}.tar.gz" ]
+	then
+	  /usr/bin/curl -O -L "https://ftp.gnu.org/gnu/libidn/${PACKAGE_NAME}.tar.gz" || do_abort "$FUNCNAME: fetch failed "
+	fi
+	
+	if [[ -z $DONT_OVERWRITE ]]; then
+		rm -rf "${PACKAGE_NAME}"
+		tar xvf "${PACKAGE_NAME}.tar.gz" || do_abort "$FUNCNAME: unpack failed "
+	fi
+	
+	pushd ${PACKAGE_NAME}
+	
+	do_export
+
+	if [[ ! -z $DONT_OVERWRITE ]]; then
+		make clean
+	fi
+
+	./configure --prefix="${BUILD_DIR}" ${COMMON_OPTIONS} --disable-doc || do_abort "$FUNCNAME: configure failed "
+	make -j ${PARALLEL_NUM} || do_abort "$FUNCNAME: make failed "
+	make install || do_abort "$FUNCNAME: install failed "
+}
+
 do_loadenv
 
 while getopts ":o:a:ne" opt; do
@@ -338,6 +369,7 @@ while getopts ":o:a:ne" opt; do
 done
 
 mkdir -p ${TEMP_DIR}
+do_libidn
 do_openssl
 do_zlib
 do_curl
