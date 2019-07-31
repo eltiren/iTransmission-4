@@ -58,9 +58,9 @@ protocol Preferences {
 extension Preferences {
 
     /// You must free returned value using tr_variantFree
-    func variantDict() -> TrVariantDict {
-        let settings = TrVariantDict()
-        settings.getDefaultSettings()
+    func toVariantDictionary() -> TRVariantDictionary {
+        let settings = TRVariantDictionary()
+        TRSession.getDefaultSettings(settings)
 
         settings[TR_KEY_alt_speed_enabled] = isSpeedLimitEnabled
         settings[TR_KEY_alt_speed_time_enabled] = false

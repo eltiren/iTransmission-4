@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		770DD7DA22EB3C28004DC453 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770DD7D922EB3C28004DC453 /* String.swift */; };
+		770DD7DD22EB3E52004DC453 /* TRVariant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770DD7DC22EB3E52004DC453 /* TRVariant.swift */; };
 		776D957E22E9B202004986BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776D957D22E9B202004986BD /* AppDelegate.swift */; };
 		776D958022E9B202004986BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776D957F22E9B202004986BD /* SceneDelegate.swift */; };
 		776D958222E9B202004986BD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776D958122E9B202004986BD /* ContentView.swift */; };
@@ -19,10 +21,12 @@
 		776D95A622E9BED4004986BD /* Bool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776D95A522E9BED4004986BD /* Bool.swift */; };
 		776D95A822E9C96E004986BD /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776D95A722E9C96E004986BD /* FileManager.swift */; };
 		776D95AC22E9D62E004986BD /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776D95AB22E9D62E004986BD /* UserDefault.swift */; };
-		7777B25A22E9E34300739BD7 /* TrVariantDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7777B25922E9E34300739BD7 /* TrVariantDict.swift */; };
+		77D5B99E22EB43370017B53B /* TRVariantDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D5B99D22EB43370017B53B /* TRVariantDictionary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		770DD7D922EB3C28004DC453 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = String.swift; path = "../../../../../../../../../System/Volumes/Data/Users/eltiren/Sources/torrents/iTransmission-4/Transmission/Transmission/Model/Extensions/String.swift"; sourceTree = "<group>"; };
+		770DD7DC22EB3E52004DC453 /* TRVariant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TRVariant.swift; path = "../../../../../../../../../System/Volumes/Data/Users/eltiren/Sources/torrents/iTransmission-4/Transmission/Transmission/Model/libTransmission-Swift/TRVariant.swift"; sourceTree = "<group>"; };
 		776D957A22E9B202004986BD /* Transmission.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transmission.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		776D957D22E9B202004986BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		776D957F22E9B202004986BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,7 +42,7 @@
 		776D95A522E9BED4004986BD /* Bool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bool.swift; sourceTree = "<group>"; };
 		776D95A722E9C96E004986BD /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		776D95AB22E9D62E004986BD /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
-		7777B25922E9E34300739BD7 /* TrVariantDict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TrVariantDict.swift; path = "../../../../../../../../../System/Volumes/Data/Users/eltiren/Sources/torrents/iTransmission-4/Transmission/Transmission/Model/Preferences/TrVariantDict.swift"; sourceTree = "<group>"; };
+		77D5B99D22EB43370017B53B /* TRVariantDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TRVariantDictionary.swift; path = "../../../../../../../../../System/Volumes/Data/Users/eltiren/Sources/torrents/iTransmission-4/Transmission/Transmission/Model/libTransmission-Swift/TRVariantDictionary.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +56,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		770DD7DB22EB3E43004DC453 /* libTransmission-Swift */ = {
+			isa = PBXGroup;
+			children = (
+				776D959B22E9B87C004986BD /* TRSession.swift */,
+				770DD7DC22EB3E52004DC453 /* TRVariant.swift */,
+				77D5B99D22EB43370017B53B /* TRVariantDictionary.swift */,
+			);
+			path = "libTransmission-Swift";
+			sourceTree = "<group>";
+		};
 		776D957122E9B202004986BD = {
 			isa = PBXGroup;
 			children = (
@@ -95,9 +109,9 @@
 		776D959522E9B5E6004986BD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				770DD7DB22EB3E43004DC453 /* libTransmission-Swift */,
 				776D95A422E9BECB004986BD /* Extensions */,
 				776D95A122E9BE33004986BD /* Preferences */,
-				776D959B22E9B87C004986BD /* TRSession.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -108,7 +122,6 @@
 				776D959F22E9BE25004986BD /* Preferences.swift */,
 				776D95A222E9BE42004986BD /* UserDefaultsPreferences.swift */,
 				776D95AB22E9D62E004986BD /* UserDefault.swift */,
-				7777B25922E9E34300739BD7 /* TrVariantDict.swift */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
@@ -118,6 +131,7 @@
 			children = (
 				776D95A522E9BED4004986BD /* Bool.swift */,
 				776D95A722E9C96E004986BD /* FileManager.swift */,
+				770DD7D922EB3C28004DC453 /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -195,7 +209,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				776D957E22E9B202004986BD /* AppDelegate.swift in Sources */,
-				7777B25A22E9E34300739BD7 /* TrVariantDict.swift in Sources */,
+				770DD7DD22EB3E52004DC453 /* TRVariant.swift in Sources */,
+				770DD7DA22EB3C28004DC453 /* String.swift in Sources */,
 				776D959C22E9B87C004986BD /* TRSession.swift in Sources */,
 				776D95A022E9BE25004986BD /* Preferences.swift in Sources */,
 				776D95A322E9BE42004986BD /* UserDefaultsPreferences.swift in Sources */,
@@ -203,6 +218,7 @@
 				776D95AC22E9D62E004986BD /* UserDefault.swift in Sources */,
 				776D958222E9B202004986BD /* ContentView.swift in Sources */,
 				776D95A622E9BED4004986BD /* Bool.swift in Sources */,
+				77D5B99E22EB43370017B53B /* TRVariantDictionary.swift in Sources */,
 				776D95A822E9C96E004986BD /* FileManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

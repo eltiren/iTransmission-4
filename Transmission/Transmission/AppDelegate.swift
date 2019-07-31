@@ -10,11 +10,30 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    let session = try! TRSession(preferences: UserDefaultsPreferences())
+    var preferences = UserDefaultsPreferences()
+    var session: TRSession!
+
+    func test() {
+        print("Config Dir: \(session.configDir)")
+        print("Download Dir: \(session.downloadDir)")
+        print("Incomplete Dir: \(session.incompleteDir)")
+        print("Incomplete Dir Enabled: \(session.isIncompleteDirEnabled)")
+        print("Incomplete File Naming Enabled: \(session.isIncompleteFileNamingEnabled)")
+        print("RPC Enabled: \(session.isRPCEnabled)")
+        print("RPC Port: \(session.rpcPort)")
+        print("RPC URL: \(session.rpcURL)")
+        print("RPC Whitelist: \(session.rpcWhitelist)")
+        print("RPC Whitelist Enabled: \(session.isRPCWhitelistEnabled)")
+        print("RPC Username: \(session.rpcUsername)")
+        print("RPC Password: \(session.rpcPassword)")
+        print("RPC Password Enabled: \(session.rpcPasswordEnabled)")
+        print("RPC Bind Address: \(session.rpcBindAddress)")
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        session.addTorrentsFromDocuments()
-        print(session)
+        try! FileManager.default.createFoldersIfNeeded(preferences)
+        session = try! TRSession(configDir: FileManager.default.configPath(), settings: preferences.toVariantDictionary())
+        test()
         return true
     }
 

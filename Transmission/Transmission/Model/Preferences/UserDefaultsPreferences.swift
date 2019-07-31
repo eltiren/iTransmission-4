@@ -20,7 +20,7 @@ final class UserDefaultsPreferences: Preferences {
     @UserDefault("lpd_enabled", default: true)              var isLocalPeerDiscoveryEnabled: Bool
     @UserDefault("download_path", default: "downloads")     var downloadFolder: String
     @UserDefault("incomplete_path", default: "incomplete")  var incompleteFolder: String
-    @UserDefault("incomplete_enabled", default: false)      var isIncompleteFolderEnabled: Bool
+    @UserDefault("incomplete_enabled", default: true)      var isIncompleteFolderEnabled: Bool
     @UserDefault("log_level", default: TR_LOG_DEBUG)        var logLevel: LogLevel
     @UserDefault("global_peer_limit", default: 30)          var globalPeerLimit: Int
     @UserDefault("per_torrent_peer_limit", default: 20)     var perTorrentPeerLimit: Int
